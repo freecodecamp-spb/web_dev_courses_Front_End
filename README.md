@@ -1,2 +1,2 @@
 # web-dev-cources
-Cozy catalog of web development cources
+A cozy catalog of web development online courses.
