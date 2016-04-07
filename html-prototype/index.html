@@ -4,33 +4,46 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Прототип проекта</title>
+
         <link href='https://fonts.googleapis.com/css?family=Marmelad&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="../css/main.css">
 
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+        
+        <script src="../js/app.js" defer></script>
 
     </head>
     <body>
         <div class="wrapper">
 
-            <div class="main" ng-controller="listCtrl">
+            <div class="main" ng-controller="listController">
                 <ul>
-                    <li ng-click="tab = 1">Javascript</li>
-                    <li ng-click="tab = 2">HTML</li>
-                    <li ng-click="tab = 3">CSS</li>
+                    <li ng-click="tab = 'js'">Javascript</li>
+                    <li ng-click="tab = 'html'">HTML</li>
+                    <li ng-click="tab = 'css'">CSS</li>
                 </ul>
-                <div class="list tab" ng-show="tab===1">
+                <div class="list tab" ng-show="tab === 'js'">
                     <h2>JavaScript</h2>
-                    There goes a comprehensive list of courses, their ratings, comments, reviews and links to the websites that provide them.
+                    There goes a comprehensive list of courses, 
+                    their ratings, comments, 
+                    reviews and links to the websites that provide them.
+                    <p>По-русски: список js-курсов</p>
                 </div>
-                <div class="list tab" ng-show="tab==2"><h2>HTML</h2>
-                    There goes a comprehensive list of courses, their ratings, comments, reviews and links to the websites that provide them.
+                <div class="list tab" ng-show="tab === 'html'">
+                  <h2>HTML</h2>
+                    There goes a comprehensive list of courses, 
+                    their ratings, comments, 
+                    reviews and links to the websites that provide them.
+                    <p>По-русски: список HTML-курсов</p>
                 </div>
-                <div class="list tab" ng-show="tab===3"><h2>CSS</h2>
-                    There goes a comprehensive list of courses, their ratings, comments, reviews and links to the websites that provide them.
+                <div class="list tab" ng-show="tab === 'css'">
+                  <h2>CSS</h2>
+                    There goes a comprehensive list of courses, 
+                    their ratings, comments, 
+                    reviews and links to the websites that provide them.
+                    <p>По-русски: список CSS-курсов</p>
                 </div>
             </div>
         </div>
-        <script src="../js/app.js"></script>
     </body>
 </html>
