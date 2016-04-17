@@ -7,3 +7,4 @@ Contributors:
 - [Alex Bykov](http://github.com/tomkallen), spbeat@mail.ru
 - [Maxim Batyrev](http://github.com/MaxBt), princelagrangian@gmail.com
 - [MistaTwista](https://github.com/MistaTwista)
+- [Misha Ulitskiy](http://github.com/matthewstifler), mtwstflr@gmail.com
