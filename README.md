@@ -5,3 +5,4 @@ Contributors:
 - [Irina Sokolovskaja](http://github.com/ierhyna), sokolovskaja.irina@gmail.com
 - [Aydar Gumerov](http://github.com/Aidar92), aydargumerov@gmail.com
 - [Alex Bykov](http://github.com/tomkallen), spbeat@mail.ru
+- [Maxim Batyrev](http://github.com/MaxBt), princelagrangian@gmail.com
