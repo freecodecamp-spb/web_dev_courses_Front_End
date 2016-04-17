@@ -2,6 +2,5 @@
 A cozy catalog of web development online courses.
 
 
-
-
 alex bykov
+spbeat@mail.ru
