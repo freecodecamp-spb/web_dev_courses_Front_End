@@ -9,5 +9,4 @@ Contributors:
 - [Anastasia Rubtsova](http://github.com/ierhyna), arub008@gmail.com
 - [MistaTwista](https://github.com/MistaTwista)
 - [Misha Ulitskiy](http://github.com/matthewstifler), mtwstflr@gmail.com
-- [Aydar Gumerov](http://github.com/Aidar92), aydargumerov@gmail.com
 - [Alex Baumgertner](https://github.com/alexbaumgertner), alex.baumgertner@gmai.com
