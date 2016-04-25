@@ -1,3 +1,15 @@
 h1 {
     font-weight: bold;
+    color: chocolate;
+}
+
+div {
+    background-color: bisque;   
+    border: 2px solid black;
+    margin: 10px;
+}
+
+
+.ul {
+    list-style: 
 }
