@@ -6,6 +6,11 @@ body {
 	color: #444;
 }
 
+/** Links style **/
+a, a:hover, a:visited, a:active, a:link {
+	text-decoration: none;
+}
+
 /** Black Icon Bar For Mobile MENU **/
 .icon-bar {
 	color: black;
@@ -65,5 +70,7 @@ footer a {
 }
 footer a:hover {
 	color: coral;
-	text-decoration: none;
+}
+footer a:visited {
+	color: #FFF;
 }
