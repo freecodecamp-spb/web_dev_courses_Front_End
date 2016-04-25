@@ -18,3 +18,13 @@ h1 {
 		text-align: center;
 	}
 }
+
+/** Logo SIZE and correction default padding **/
+.logo_img {
+	height: 80px;
+	width: 80px;
+	border-radius: 50%;
+}
+.navbar-brand {
+	padding: 5px;
+}
