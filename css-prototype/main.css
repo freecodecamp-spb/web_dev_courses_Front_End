@@ -1,3 +1,20 @@
 h1 {
-    font-weight: bold;
+	font-weight: bold;
+}
+
+/** Black Icon Bar For Mobile MENU **/
+.icon-bar {
+	color: black;
+	border-color: black;
+	background-color: black;
+}
+
+/** Vertical Style For Mobile MENU ELEMENTS **/
+@media (max-width: 757px) {
+	.nav-pills>li {
+		float: none;
+	}
+	.nav-pills {
+		text-align: center;
+	}
 }
