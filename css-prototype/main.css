@@ -28,3 +28,13 @@ h1 {
 .navbar-brand {
 	padding: 5px;
 }
+
+/** COURSES position **/
+.wrap_courses {
+	margin-top: 30px;
+}
+
+.text_center {
+	text-align: center;
+	margin: 30px;
+}
