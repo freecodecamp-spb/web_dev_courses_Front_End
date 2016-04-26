@@ -6,10 +6,15 @@ body {
 	color: #444;
 }
 
+header {
+	margin-top: -25px;
+}
+
 /** Links style **/
 a, a:hover, a:visited, a:active, a:link {
 	text-decoration: none;
 }
+
 
 /** Black Icon Bar For Mobile MENU **/
 .icon-bar {
@@ -37,23 +42,22 @@ a, a:hover, a:visited, a:active, a:link {
 	}
 }
 
-/** Logo SIZE and correction default padding **/
+/** Logo SIZE **/
 .logo_img {
 	height: 80px;
 	width: 80px;
 	border-radius: 50%;
 }
-.navbar-brand {
-	padding: 5px;
-}
+
 
 /** COURSES position **/
-.wrap_courses {
-	margin-top: 30px;
+
+.wrapper_first {
+	margin-top: 100px;
 }
-.margin_t_b{
-	margin-top: 40px;
-	margin-bottom: 40px;
+
+.wrap_courses {
+	margin-top: 130px;
 }
 
 /** FOOTER **/
@@ -73,4 +77,9 @@ footer a:hover {
 }
 footer a:visited {
 	color: #FFF;
+}
+
+
+.wrapper_first h1 {
+	margin-top: 0;
 }
