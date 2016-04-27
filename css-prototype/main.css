@@ -1,3 +1,8 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
 h1 {
 	font-weight: bold;
 }
@@ -52,16 +57,13 @@ a, a:hover, a:visited, a:active, a:link {
 
 /** COURSES position **/
 
-.wrapper_first {
-	margin-top: 100px;
-}
 
 .wrap_courses {
 	margin-top: 130px;
 }
 
 /** FOOTER **/
-.wrapper_footer {
+.wrap_footer {
 	min-height: 100%;
 }
 footer {
@@ -79,7 +81,3 @@ footer a:visited {
 	color: #FFF;
 }
 
-
-.wrapper_first h1 {
-	margin-top: 0;
-}
