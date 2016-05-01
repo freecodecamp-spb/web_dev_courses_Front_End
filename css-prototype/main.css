@@ -1,4 +1,10 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
 h1 {
+<<<<<<< HEAD
     font-weight: bold;
     color: chocolate;
 }
@@ -13,3 +19,82 @@ div {
 .ul {
     list-style: 
 }
+=======
+	font-weight: bold;
+}
+
+body {
+	color: #444;
+}
+
+header {
+	margin-top: -25px;
+}
+
+/** Links style **/
+a, a:hover, a:visited, a:active, a:link {
+	text-decoration: none;
+}
+
+
+/** Black Icon Bar For Mobile MENU **/
+.icon-bar {
+	color: black;
+	border-color: black;
+	background-color: black;
+}
+
+/** Color for MENU **/
+.nav-pills > li.active > a, .nav-pills > li.active > a:focus, .nav-pills > li.active > a:hover {
+	color: #FFF;
+	background: coral;
+}
+.nav > li > a {
+	color: #555;
+}
+
+/** Vertical Style For Mobile MENU ELEMENTS **/
+@media (max-width: 757px) {
+	.nav-pills>li {
+		float: none;
+	}
+	.nav-pills {
+		text-align: center;
+	}
+}
+
+/** Logo SIZE **/
+.logo_img {
+	height: 80px;
+	width: 80px;
+	border-radius: 50%;
+}
+
+
+/** COURSES position **/
+
+
+.wrap_courses {
+	margin-top: 130px;
+}
+
+/** FOOTER **/
+.wrap_footer {
+	min-height: 100%;
+}
+footer {
+	background: #555;
+	padding: 15px 0;
+	margin-top: 50px;
+}
+footer a {
+	color: #FFF;
+}
+footer a:hover {
+	color: coral;
+}
+footer a:visited {
+	color: #FFF;
+}
+
+>>>>>>> 0b78a61416201d68e828846678039ddb2522bdac

@@ -11,3 +11,5 @@ Contributors:
 - [Misha Ulitskiy](http://github.com/matthewstifler), mtwstflr@gmail.com
 - [Alex Baumgertner](https://github.com/alexbaumgertner), alex.baumgertner@gmail.com
 - [Sergey Vorotnikov](https://github.com/sergv100), sergv100@gmail.com
+- [Anastasiya Filinova](https://github.com/filinova), filinova.anastasiya@gmail.com
+- [Roman Vikulov](https://github.com/vikulov-roman), vikulov.roman@gmail.com
