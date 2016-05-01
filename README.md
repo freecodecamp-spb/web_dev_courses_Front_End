@@ -12,3 +12,4 @@ Contributors:
 - [Alex Baumgertner](https://github.com/alexbaumgertner), alex.baumgertner@gmail.com
 - [Sergey Vorotnikov](https://github.com/sergv100), sergv100@gmail.com
 - [Anastasiya Filinova] (https://github.com/filinova), 	filinova.anastasiya@gmail.com
+- [Rostislav Kozlenko] (https://github.com/1SolPi1), rostikkozlenko61@gmail.com
