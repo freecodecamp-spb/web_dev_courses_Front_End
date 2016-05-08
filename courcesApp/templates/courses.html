@@ -1,0 +1,183 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block header %}
+		<div class="container-fluid">
+
+			<!-- HEADER -->
+
+			<!-- LOGO -->
+			<header class="container-fluid well">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="navbar-header header">
+							<a class="col-lg-1 navbar-brand" href="#" title="Free Code Camp SPB">
+								<img class="logo_img" src="https://avatars0.githubusercontent.com/u/9892522?v=3&s=200" alt="Free Code Camp SPB">
+							</a>
+						</div>
+
+
+
+						<!-- MENU. BUTTON -->
+						<div class="container">
+							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#responsive_menu">
+								<span class="sr-only">Навигация</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+						</div>
+
+
+						<!-- MENU. ELEMENTS -->
+						<nav id="responsive_menu" class="collapse navbar-collapse navbar-right">
+							<ul class="nav nav-pills nav-tabs">
+								<li><a href="#">Главная</a></li>
+								<li><a href="#">Курсы</a></li>
+								<li><a href="#">О проекте</a></li>
+								<li><a href="#">Контакты</a></li>
+							</ul>
+						</nav>
+					</div>
+				</div>
+			</header>
+{% endblock %}
+{% block main %}
+
+			<!-- TITLE -->
+			<section class="jumbotron">
+				<div class="container jumbotron_div">
+					<div class="row text-center">
+						<h1>FreeCodeCamp</h1>
+						<h2>Saint-Petersburg</h2>
+					</div>
+				</div>
+
+
+				<!-- SEARCH -->
+				<div class="row">
+					<div class="col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4">
+						<div class="input-group">
+							<input type="text" class="form-control" placeholder="Search for...">
+							<span class="input-group-btn">
+								<button class="btn btn-default" type="button">Go!</button>
+							</span>
+						</div>
+					</div>
+				</div>
+			</section>
+			
+				<div class="jumbotron text-center">
+					<h1>Join Us!</h1>
+				<input class="btn btn-danger" type="button" value="here">
+				</div>
+
+			<!-- CONTENT courses *3columns -->
+			<div class="wrap_courses">
+				<h2 class="text-center">Наши Курсы</h2>
+				<hr>
+
+				<!-- CONTENT first line -->
+				<div class="container">
+					<div class="row">
+
+						<!-- LEFT column #1 -->
+						<article class="col-lg-4 col-md-4 col-sm-4">
+							<figure>
+								<a href="#"><img src="https://placeimg.com/400/250/arch" alt="Course Logo" class="img-responsive">
+									<h2>Курс 1</h2>
+								</a>
+								<a><h3><sub>HTML</sub></h3></a>
+								<figcaption>
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dictum interdum neque, at tempor nisl posuere vitae. Sed dignissim suscipit lacinia. Mauris ut viverra justo, id bibendum tellus. Sed vitae elit at justo efficitur semper a nec nibh. Duis ultricies eleifend ligula, quis vulputate magna sodales nec. Praesent bibendum semper quam, vitae lacinia leo vestibulum et. Ut ac malesuada turpis, et convallis diam. Nullam id nibh elementum quam viverra tincidunt a non nunc.</p>
+								</figcaption>
+							</figure>
+						</article>	
+
+						<!-- CENTER column #1 -->
+						<article class="col-lg-4 col-md-4 col-sm-4">
+							<figure>
+								<a href="#"><img src="https://placeimg.com/400/250/tech" alt="Course Logo" class="img-responsive">
+									<h2>Потрясающий Курс 2</h2>
+								</a>
+								<a><h3><sub>CSS</sub></h3></a>
+								<figcaption>
+									<p>Praesent venenatis mi id quam luctus sodales. Praesent lorem tellus, posuere ac justo ac, blandit feugiat velit. Vestibulum quis lacus eget nisi pharetra interdum non vitae sem. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vivamus eu diam et mi tincidunt tempus ut et tellus. Nulla a mollis justo. Maecenas in turpis sapien. </p>
+								</figcaption>
+							</figure>
+						</article>
+
+						<!-- RIGHT column #1 -->
+						<article class="col-lg-4 col-md-4 col-sm-4">
+							<figure>
+								<a href="#"><img src="https://placeimg.com/400/250/nature" alt="Course Logo" class="img-responsive">
+									<h2>Курс 3</h2>
+								</a>
+								<a><h3><sub>JS</sub></h3></a>
+								<figcaption>
+									<p>Ut a lectus id enim vestibulum laoreet. Praesent consequat mattis nisl in tristique. Vivamus mauris tortor, lobortis aliquet efficitur eget, tincidunt vitae tellus. Ut eget lectus id enim cursus tincidunt facilisis ut ante. Nulla nunc ante, fermentum laoreet condimentum eu, hendrerit vitae diam. Fusce auctor iaculis ipsum vel consectetur. Proin tincidunt semper risus, venenatis sodales urna vulputate in. Mauris non placerat risus. Nunc malesuada ex ut eleifend dictum. Nullam elit elit, maximus eget facilisis ac, porta sit amet est. Aenean ullamcorper.</p>
+								</figcaption>
+							</figure>
+						</article>
+					</div>
+
+					<!-- CONTENT second line -->
+
+					<!-- LEFT column #2 -->
+					<div class="row">
+						<article class="col-lg-4 col-md-4 col-sm-4">
+							<figure>
+								<a href="#"><img src="https://placeimg.com/400/250/tech" alt="Course Logo" class="img-responsive">
+									<h2>Курс 4</h2>
+								</a>
+								<a><h3><sub>Python</sub></h3></a>
+								<figcaption>
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dictum interdum neque, at tempor nisl posuere vitae. Sed dignissim suscipit lacinia. Mauris ut viverra justo, id bibendum tellus. Sed vitae elit at justo efficitur semper a nec nibh. Duis ultricies eleifend ligula, quis vulputate magna sodales nec. Praesent bibendum semper quam, vitae lacinia leo vestibulum et. Ut ac malesuada turpis, et convallis diam. Nullam id nibh elementum quam viverra tincidunt a non nunc.</p>
+								</figcaption>
+							</figure>
+						</article>
+
+						<!-- CENTER column #2 -->
+						<article class="col-lg-4 col-md-4 col-sm-4">
+							<figure>
+								<a href="#"><img src="https://placeimg.com/400/250/people" alt="Course Logo" class="img-responsive">
+									<h2>Потрясающий Курс 5</h2>
+								</a>
+								<a><h3><sub>C#</sub></h3></a>
+								<figcaption>
+									<p>Praesent venenatis mi id quam luctus sodales. Praesent lorem tellus, posuere ac justo ac, blandit feugiat velit. Vestibulum quis lacus eget nisi pharetra interdum non vitae sem. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vivamus eu diam et mi tincidunt tempus ut et tellus. Nulla a mollis justo. Maecenas in turpis sapien. </p>
+								</figcaption>
+							</figure>
+						</article>
+
+						<!-- RIGHT column #2 -->
+						<article class="col-lg-4 col-md-4 col-sm-4">
+							<figure>
+								<a href="#"><img src="https://placeimg.com/400/250/arch" alt="Course Logo" class="img-responsive">
+									<h2>Курс 6</h2>
+								</a>
+								<a><h3><sub>Ruby</sub></h3></a>
+								<figcaption>
+									<p>Ut a lectus id enim vestibulum laoreet. Praesent consequat mattis nisl in tristique. Vivamus mauris tortor, lobortis aliquet efficitur eget, tincidunt vitae tellus. Ut eget lectus id enim cursus tincidunt facilisis ut ante. Nulla nunc ante, fermentum laoreet condimentum eu, hendrerit vitae diam. Fusce auctor iaculis ipsum vel consectetur. Proin tincidunt semper risus, venenatis sodales urna vulputate in. Mauris non placerat risus. Nunc malesuada ex ut eleifend dictum. Nullam elit elit, maximus eget facilisis ac, porta sit amet est. Aenean ullamcorper.</p>
+								</figcaption>
+							</figure>
+						</article>
+					</div>
+				</div>
+			</div>
+		</div>
+{% endblock %}
+{% block footer %}
+		<!-- FOOTER -->
+		<footer class="wrap_footer">
+			<div class="container">
+				<p class="text-center"><a href="#">&copy; FreeCodeCamp Spb</a></p>
+			</div>
+		</footer>
+
+
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+	</body>
+	</html>
+{% endblock %}

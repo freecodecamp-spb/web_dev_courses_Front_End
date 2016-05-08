@@ -1,0 +1,172 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block header %}
+	<!-- ==================== HEADER ==================== -->
+	<header>
+		<div class="container-fluid">
+
+			<!--===== FORM =====-->
+			<div class="col-md-3">
+				<div class="search">
+					<form action="TESTTESTTEST.JS">
+						<input id="search-me" type="search" placeholder="Поиск...">
+						<label for="search-me">
+							<i class="fa fa-search" aria-hidden="true"></i>
+						</label>
+					</form>
+				</div>
+			</div>
+
+			<!--===== LOGO =====-->
+			<div class="col-lg-4 col-md-5">
+				<div class="logo">
+					<a href="#">
+						<img src="{% static 'images/freecodecamp-logo.png' %}" alt="FreeCodeCamp Saint-Petersburg">
+					</a>
+				</div>
+			</div>
+
+			<!--===== MENU =====-->
+			<div class="col-lg-push-1 col-md-4">
+				<div class="nav">
+					<ul>
+						<li class="home"><a href="#">Home</a></li>
+						<li class="tutorials"><a href="#">Courses</a></li>
+						<li class="about"><a href="#">About</a></li>
+						<li class="contact"><a href="#">Contact</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</header>
+{% endblock %}
+{% block main %}
+	<!-- ==================== FILTER ==================== -->
+	<div class="filter">
+		<div class="container category">
+			<div class="row">
+				<div class="col-xs-3">
+					<h2>Язык</h2>
+					<button type="button" class="btn btn-primary btn-xs">Русский</button>
+					<button type="button" class="btn btn-primary btn-xs">Английский</button>
+				</div>
+				<div class="col-xs-3">
+					<h2>Курс</h2>
+					<button type="button" class="btn btn-primary btn-xs">JS</button>
+					<button type="button" class="btn btn-primary btn-xs">HTML</button>
+					<button type="button" class="btn btn-primary btn-xs">CSS</button><br>
+					<button type="button" class="btn btn-primary btn-xs">Phyton</button>
+					<button type="button" class="btn btn-primary btn-xs">C++</button>
+					<button type="button" class="btn btn-primary btn-xs">Java</button>
+				</div>
+				<div class="col-xs-3">
+					<h2>Уровень</h2>
+					<button type="button" class="btn btn-primary btn-xs">Первый</button>
+					<button type="button" class="btn btn-primary btn-xs">Второй</button>
+					<button type="button" class="btn btn-primary btn-xs">Третий</button><br>
+					<button type="button" class="btn btn-primary btn-xs">Четвертый</button>
+					<button type="button" class="btn btn-primary btn-xs">Пятый</button>
+					<button type="button" class="btn btn-primary btn-xs">Шестой</button>
+				</div>
+				<div class="col-xs-3"></div>
+			</div>
+		</div>
+	</div>
+	<hr>
+	<!-- ==================== GALLERY ==================== -->
+	<section class="gallery">
+		<div class="container">
+			<div class="row">
+
+				<!-- ===== ROW 1 ===== -->
+				<div class="col-md-4 col-sm-6">
+					<div class="item">
+						<a href=""><img src="{% static 'images/development-bg.png' %}" alt="course"></a>
+						<h2 class="course-name">Course Name</h2>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime nobis excepturi omnis neque reprehenderit libero.</p>
+					</div>
+				</div>
+
+				<div class="col-md-4 col-sm-6">
+					<div class="item">
+						<img src="{% static 'images/development-bg.png' %}" alt="course">
+						<h2 class="course-name">Course Name</h2>
+						<p>Praesentium voluptas earum possimus fuga qui, optio excepturi distinctio error, cumque nesciunt magnam illum suscipit.</p>
+					</div>
+				</div>
+
+				<div class="col-md-4 col-sm-6">
+					<div class="item">
+						<img src="{% static 'images/development-bg.png' %}" alt="course">
+						<h2 class="course-name">Course Name</h2>
+						<p>Eum minus error, repudiandae animi. Quos ex eum accusamus nulla beatae nobis consequatur quae quia.</p>
+					</div>
+				</div>
+
+				<div class="col-md-4 col-sm-6">
+					<div class="item">
+						<img src="{% static 'images/development-bg.png' %}" alt="course">
+						<h2 class="course-name">Course Name</h2>
+						<p>Mollitia aspernatur hic dolore voluptatem nostrum odio animi necessitatibus asperiores? Iste laudantium hic iure quidem.</p>
+					</div>
+				</div>
+
+				<!-- ===== ROW 2 ===== -->
+				<div class="col-md-4 col-sm-6">
+					<div class="item">
+						<img src="{% static 'images/development-bg.png' %}" alt="course">
+						<h2 class="course-name">Course Name</h2>
+						<p>Ullam aliquam velit in dolorum cum, doloribus, maiores sint rerum tempore at suscipit laborum, sunt?</p>
+					</div>
+				</div>
+
+				<div class="col-md-4 col-sm-6">
+					<div class="item">
+						<img src="{% static 'images/development-bg.png' %}" alt="course">
+						<h2 class="course-name">Course Name</h2>
+						<p>Quaerat dolorem consequatur, pariatur magni accusamus minima assumenda beatae, vitae ratione tempora illo, reiciendis autem.</p>
+					</div>
+				</div>
+
+				<div class="col-md-4 col-sm-6">
+					<div class="item">
+						<img src="{% static 'images/development-bg.png' %}" alt="course">
+						<h2 class="course-name">Course Name</h2>
+						<p>Aut, porro asperiores cum aspernatur obcaecati tempora sit, quasi illo aliquid adipisci dicta, iure deserunt!</p>
+					</div>
+				</div>
+
+				<div class="col-md-4 col-sm-6">
+					<div class="item">
+						<img src="{% static 'images/development-bg.png' %}" alt="course">
+						<h2 class="course-name">Course Name</h2>
+						<p>Hic velit distinctio dignissimos possimus, qui non odit voluptates, quae tenetur obcaecati atque, nostrum quas!</p>
+					</div>
+				</div>
+
+				<!-- ===== ROW 3 ===== -->
+				<div class="col-md-4 col-sm-6">
+					<div class="item">
+						<img src="{% static 'images/development-bg.png' %}" alt="course">
+						<h2 class="course-name">Course Name</h2>
+						<p>Nostrum eos exercitationem nemo cumque tempore voluptates debitis, quae, similique obcaecati, unde adipisci mollitia eum.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+{% endblock %}
+{% block footer %}
+	<!-- ==================== FOOTER ==================== -->
+	<footer>
+		<div class="container">
+			<!-- ===== CONTACTS ===== -->
+			<div class="social">
+				<a href="#"><i class="fa fa-facebook-official fa-lg" aria-hidden="true"></i></a>
+				<a href="#"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a>
+			</div>
+		</div>
+	</footer>
+</body>
+</html>
+{% endblock %}
