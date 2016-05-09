@@ -34,9 +34,9 @@ node_modules
 
 # Optional REPL history
 .node_repl_history
-courcesApp/__pycache__/admin.cpython-35.pyc
-courcesApp/__pycache__/views.cpython-35.pyc
-webDevCources/__pycache__/urls.cpython-35.pyc
-courcesApp/__pycache__/models.cpython-35.pyc
-webDevCources/__pycache__/settings.cpython-35.pyc
-webDevCources/__pycache__/wsgi.cpython-35.pyc
+coursesApp/__pycache__/admin.cpython-35.pyc
+coursesApp/__pycache__/views.cpython-35.pyc
+webDevCourses/__pycache__/urls.cpython-35.pyc
+coursesApp/__pycache__/models.cpython-35.pyc
+webDevCourses/__pycache__/settings.cpython-35.pyc
+webDevCourses/__pycache__/wsgi.cpython-35.pyc
