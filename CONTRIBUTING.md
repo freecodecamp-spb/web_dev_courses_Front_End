@@ -5,7 +5,7 @@
 Не забывайте, что здесь никто никому ничем не обязан.
 Относитесь с уважением друг к другу вне зависимости от опыта, своего и чужого.
 
-Увидели ошибку — создайте задачу в [issues](https://github.com/freecodecamp-spb/web-dev-cources/issues), а лучше — пришлите Pull request!
+Увидели ошибку — создайте задачу в [issues](https://github.com/freecodecamp-spb/web-dev-courses/issues), а лучше — пришлите Pull request!
 
 Было бы хорошо, чтоб каждый внёс хоть маленький кирпичик в то, ради чего все собрались.
 Нам нужна помощь и в написании кода и в составлении документации, и в тестировании.
@@ -13,7 +13,7 @@
 
 ## Как и где хранится код
 Мы используем git и github.
-Адрес репозитория проекта <https://github.com/freecodecamp-spb/web-dev-cources>.
+Адрес репозитория проекта <https://github.com/freecodecamp-spb/web-dev-courses>.
 
 Статья на [Хабре](https://habrahabr.ru/post/106912/), подробно описывающая принципы работы с Git, поняв которые вам будет значительно проще вливаться в проекты. 
 
@@ -51,11 +51,11 @@
 * Fix courses request handler error
 
 Описание отбивается пустой строкой от названия. Состоит из нескольких предложений — что принесет код.
-Если есть задача в [issues](https://github.com/freecodecamp-spb/web-dev-cources/issues), нужно указать ее номер вот так:
+Если есть задача в [issues](https://github.com/freecodecamp-spb/web-dev-courses/issues), нужно указать ее номер вот так:
 ```
 fixes #7
 ```
-Где 7 — номер задачи https://github.com/freecodecamp-spb/web-dev-cources/issues/7, слово `fixes` означает, что коммит решает задачу.
+Где 7 — номер задачи https://github.com/freecodecamp-spb/web-dev-courses/issues/7, слово `fixes` означает, что коммит решает задачу.
 Без слова `fixes` описание делается в случае, если коммит просто имеет отношение к задаче.
 
 ### Пример коммита в webstorm

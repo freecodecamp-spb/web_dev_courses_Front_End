@@ -1,4 +1,4 @@
-# web-dev-cources
+# web-dev-courses
 A cozy catalog of web development online courses.
 
 Contributors:
