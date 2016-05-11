@@ -20,6 +20,7 @@
     "morgan": "^1.7.0",
     "passport": "^0.3.2",
     "passport-facebook": "^2.1.0",
+    "passport-github2": "^0.1.10",
     "passport-google": "^0.3.0",
     "passport-google-oauth": "^1.0.0",
     "passport-local": "^1.0.0"

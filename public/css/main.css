@@ -122,6 +122,7 @@ label {
   font-size: large;
   display: inline-block;
   margin-top: 10px;
+  margin-left: 4px;
 }
 
 .nav a {
@@ -131,6 +132,17 @@ label {
   color: #fff;
   display: block;
   transition: .3s background-color;
+}
+
+.profile {
+    background-color: green;
+    border-radius: 5%;
+}
+
+.logout {
+    background-color: red;
+    border-radius: 5%;
+
 }
 .nav a:hover {
   background-color: rgba(255,255,255,0.2);

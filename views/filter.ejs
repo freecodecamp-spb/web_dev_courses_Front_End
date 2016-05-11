@@ -28,8 +28,14 @@
                 <ul>
                     <li class="home"><a href="#">Home</a></li>
                     <li class="tutorials"><a href="#">Courses</a></li>
-                    <li class="about"><a href="#">About</a></li>
                     <li class="contact"><a href="#">Contact</a></li>
+                    <% if (!user) { %>
+                    	<li class="login"><a href="/auth/github">Log In</a></li>
+                    <% } else { %>
+                        <li class="profile"><a href="/profile"><%= user.github.name %></a></li>
+                        <li class="logout"><a href="/logout">Log out</i></a></li>
+                    	<!-- <img src = <%= user.github.avatar %> /> -->
+                    <% } %>
                 </ul>
             </div>
         </div>
