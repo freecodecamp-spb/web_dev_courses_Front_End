@@ -1,5 +1,7 @@
 # web-dev-courses
-A cozy catalog of web development online courses.
+Онлайн кататлог курсов для разработчиков.
+
+[Как установить проект на node](https://github.com/freecodecamp-spb/web-dev-courses/wiki/%D0%A3%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0,-%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%B0-%D0%B8-%D0%BA%D0%BE%D0%BC%D0%BC%D0%B8%D1%82%D1%8B-%D1%81-%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%D0%BE%D0%BC-nodejs)
 
 Contributors:
 - [Irina Sokolovskaja](http://github.com/ierhyna), sokolovskaja.irina@gmail.com
