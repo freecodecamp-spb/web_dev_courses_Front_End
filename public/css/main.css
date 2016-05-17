@@ -1,3 +1,4 @@
+<<<<<<< bb6b19124827def31ec98a00db03597a71b8733f
 /* ==================== RESET CSS ==================== */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -206,3 +207,391 @@ footer {
   width: 2em;
   height: 2em;
 }
+=======
+/* ==================== RESET CSS ==================== */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* ==================== MAIN CSS ==================== */
+body {
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* ===== RESPONSIVE IMAGE ===== */
+img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 0 none;
+}
+
+/* ===== BASE ===== */
+a,
+a:hover,
+a:active,
+a:visited {
+  text-decoration: none;
+  color: #fff;
+}
+h1 {
+  font-weight: bold;
+  font-size: 40px;
+}
+
+/* ==================== HEADER ==================== */
+header {
+  padding: 20px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+}
+/* ===== ANIMATION FOR SEARCH ===== */
+@keyframes stretching {
+  0%{width: 0;}
+  100%{width: 80%;}
+}
+/* ===== SEARCH ===== */
+.search {
+  z-index: 100;
+}
+.search input,
+.fa-search {
+  height: 40px;
+  line-height: 40px;
+  color: #555;
+  margin-bottom: 10px;
+}
+input[type="search"] {
+  width: 0;
+  float: left;
+}
+input[type="search"]:focus {
+  width: 80%;
+  animation-name: stretching;
+  animation-duration: 1s;
+}
+.fa-search {
+  padding: 5px;
+  width: 20%;
+  float: left;
+  color: #fff;
+}
+label {
+  float: left;
+}
+
+/* =====  NAV  ===== */
+.nav ul {
+  font-size: 0;
+}
+
+.nav li {
+  height: 40px;
+  line-height: 40px;
+  font-size: large;
+  display: inline-block;
+  margin-top: 10px;
+  margin-left: 4px;
+}
+
+.nav a {
+  padding: 0 5px;
+  box-sizing: border-box;
+  text-decoration: none;
+  color: #fff;
+  display: block;
+  transition: .3s background-color;
+}
+
+.profile {
+    background-color: green;
+    border-radius: 5%;
+}
+
+.logout {
+    background-color: red;
+    border-radius: 5%;
+
+}
+.nav a:hover {
+  background-color: rgba(255,255,255,0.2);
+  color: #fff;
+}
+.nav a.active {
+  background-color: rgba(255,255,255,0.15);
+  color: #fff;
+  cursor: default;
+  box-sizing: border-box;
+}
+
+/* ==================== MOBILE ==================== */
+@media screen and (max-width: 768px) {
+  .nav li {
+    font-size: small;
+  }
+  .search input,
+  .fa-search {
+    height: 25px;
+    line-height: 25px;
+  }
+  .filter div {
+    display: inline-block;
+  }
+
+}
+
+/* ==================== FILTER ==================== */
+.filter {
+  margin: 50px 0;
+
+}
+
+.btn{
+  margin: 1px;
+}
+
+
+/* ===== GALLERY ===== */
+.item {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 20px 0;
+  min-height: 100px;
+}
+.course-name {
+  padding: 20px 15px;
+}
+.wrap-img {
+  border: 2px solid #ddd;
+  border-radius: 4px;
+}
+
+.btn-more {
+  float: right;
+}
+
+/* ===== Galler Image effect === */
+.course-heading-img {
+  padding: 0;
+}
+
+.course-item-img figure {
+  position: relative;
+  float: left;
+  margin-bottom: 20px;
+  overflow: hidden;
+  min-width: 320px;
+  max-width: 480px;
+  max-height: 360px;
+  background: #3085a3;
+  text-align: center;
+  cursor: pointer;
+}
+
+.course-item-img figure img {
+  position: relative;
+  display: block;
+  min-height: 100%;
+  max-width: 100%;
+  opacity: 0.8;
+}
+
+.course-item-img figure figcaption {
+  padding: 2em;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 1.25em;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.course-item-img figure figcaption::before,
+.course-item-img figure figcaption::after {
+  pointer-events: none;
+}
+
+.course-item-img figure figcaption,
+.course-item-img figure figcaption > a {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Anchor will cover the whole item by default */
+/* For some effects it will show as a button */
+.course-item-img figure figcaption > a {
+  z-index: 1000;
+  text-indent: 200%;
+  white-space: nowrap;
+  font-size: 0;
+  opacity: 0;
+}
+
+.course-item-img figure h2 {
+  word-spacing: -0.15em;
+  font-weight: 300;
+}
+
+.course-item-img figure h2 span {
+  font-weight: 800;
+}
+
+.course-item-img figure h2,
+.course-item-img figure p {
+  margin: 0;
+}
+
+.course-item-img figure p {
+  letter-spacing: 1px;
+  font-size: 68.5%;
+}
+
+/*---------------*/
+/***** Oscar *****/
+/*---------------*/
+
+figure.effect-oscar {
+  background: -webkit-linear-gradient(45deg, #22682a 0%, #9b4a1b 40%, #3a342a 100%);
+  background: linear-gradient(45deg, #22682a 0%,#9b4a1b 40%,#3a342a 100%);
+}
+
+figure.effect-oscar img {
+  opacity: 0.9;
+  -webkit-transition: opacity 0.35s;
+  transition: opacity 0.35s;
+}
+
+figure.effect-oscar figcaption {
+  padding: 3em;
+  background-color: rgba(58,52,42,0.2);
+  -webkit-transition: background-color 0.35s;
+  transition: background-color 0.35s;
+}
+
+figure.effect-oscar figcaption::before {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  bottom: 30px;
+  left: 30px;
+  border: 1px solid #fff;
+  content: '';
+}
+
+figure.effect-oscar h2 {
+  margin: 20% 0 10px 0;
+  -webkit-transition: -webkit-transform 0.35s;
+  transition: transform 0.35s;
+  -webkit-transform: translate3d(0,100%,0);
+  transform: translate3d(0,100%,0);
+}
+
+figure.effect-oscar figcaption::before,
+figure.effect-oscar p {
+  opacity: 0;
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  -webkit-transform: scale(0);
+  transform: scale(0);
+}
+
+figure.effect-oscar:hover h2 {
+  -webkit-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
+}
+
+figure.effect-oscar:hover figcaption::before,
+figure.effect-oscar:hover p {
+  opacity: 1;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+
+figure.effect-oscar:hover figcaption {
+  background-color: rgba(58,52,42,0);
+}
+
+figure.effect-oscar:hover img {
+  opacity: 0.4;
+}
+
+
+/* ====== Gallery effect end ==== */
+.course-info-link {
+  display: block;
+  width: 100%;
+  position: relative;
+  background: #5bc0de;
+}
+
+.course-details {
+  display: none;
+  position: absolute;
+  padding: 10px 5px;
+  color: white;
+  margin-left: 45px;
+  margin-top: 45px;
+  background: #5bc0de;
+  border: 2px solid white;
+  border-radius: 4px;
+}
+
+
+/* ==================== FOOTER ==================== */
+footer {
+  padding: 20px 0;
+  width: 100%;
+  height: 70px;
+  background-color: #555;
+  color: #fff;
+}
+.contact-image{
+  float: right;
+  margin-left: 10px;
+  width: 2em;
+  height: 2em;
+}
+>>>>>>> Course card image hover effect
