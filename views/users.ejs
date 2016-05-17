@@ -1,11 +1,11 @@
 <%- include base -%>
 <%- include filter -%>
-<div ng-app="userList">
+<div >
+    <!-- ГЕНЕРАТОР СПИСКА ПОЛЬЗОВТАЕЛЕЙ ГИТА -->
     <div ng-controller="userCtrl">
         <div ng-repeat="user in userlist">
             <profile></profile>
         </div>
     </div>
 </div>
-<script src="js/app.js" charset="utf-8"></script>
 <%- include footer -%>

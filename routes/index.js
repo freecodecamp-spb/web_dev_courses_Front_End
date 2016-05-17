@@ -46,13 +46,14 @@ module.exports = function(app, passport) {
         User.find(function(err, userlist) {
         if (err) res.send(err);
             res.json(userlist);
-
         });
     });
+
 }
 
 function isLoggedIn(req, res, next) {
     if (req.isAuthenticated()) {
-        return next()    }
+        return next()
+    }
     res.redirect('/');
 };

@@ -1,116 +1,17 @@
 <%- include base -%>
 <%- include filter -%>
-<!-- ==================== GALLERY ==================== -->
 
+<!-- ГАЛЕРЕЯ КУРСОВ -->
 <section class="gallery">
     <div class="container">
         <div class="row">
-
-            <!-- ===== Course item card ===== -->
-            <div class="col-md-4 col-sm-6">
-                <div class="panel panel-default item">
-                    <a href=""><img src="images/development-bg.png" alt="course"></a>
-                    <div class="panel-heading">
-                        <h2 class="course-name">Course Name</h2>
-                    </div>
-
-                    <div class="panel-body">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime nobis excepturi omnis neque reprehenderit libero.</p>
-                        <button type="button" class="btn btn-info btn-more">Read more...</button>
-                    </div>
+            <!-- ГЕНЕРАТОР КАРТОЧЕК -->
+            <div ng-controller="cardCtrl">
+                <div ng-repeat="course in coursesArray">
+                    <card></card>
                 </div>
             </div>
-
-            <!-- ===== Course item card ===== -->
-            <div class="col-md-4 col-sm-6">
-                <div class="panel panel-default item">
-                    <a href=""><img src="images/development-bg.png" alt="course"></a>
-                    <div class="panel-heading">
-                        <h2 class="course-name">Course Name</h2>
-                    </div>
-
-                    <div class="panel-body">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime nobis excepturi omnis neque reprehenderit libero.</p>
-                        <button type="button" class="btn btn-info btn-more">Read more...</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ===== Course item card ===== -->
-            <div class="col-md-4 col-sm-6">
-                <div class="panel panel-default item">
-                    <a href=""><img src="images/development-bg.png" alt="course"></a>
-                    <div class="panel-heading">
-                        <h2 class="course-name">Course Name</h2>
-                    </div>
-
-                    <div class="panel-body">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime nobis excepturi omnis neque reprehenderit libero.</p>
-                        <button type="button" class="btn btn-info btn-more">Read more...</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ===== Course item card ===== -->
-            <div class="col-md-4 col-sm-6">
-                <div class="panel panel-default item">
-                    <a href=""><img src="images/development-bg.png" alt="course"></a>
-                    <div class="panel-heading">
-                        <h2 class="course-name">Course Name</h2>
-                    </div>
-
-                    <div class="panel-body">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime nobis excepturi omnis neque reprehenderit libero.</p>
-                        <button type="button" class="btn btn-info btn-more">Read more...</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ===== Course item card ===== -->
-            <div class="col-md-4 col-sm-6">
-                <div class="panel panel-default item">
-                    <a href=""><img src="images/development-bg.png" alt="course"></a>
-                    <div class="panel-heading">
-                        <h2 class="course-name">Course Name</h2>
-                    </div>
-
-                    <div class="panel-body">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime nobis excepturi omnis neque reprehenderit libero.</p>
-                        <button type="button" class="btn btn-info btn-more">Read more...</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ===== Course item card ===== -->
-            <div class="col-md-4 col-sm-6">
-                <div class="panel panel-default item">
-                    <a href=""><img src="images/development-bg.png" alt="course"></a>
-                    <div class="panel-heading">
-                        <h2 class="course-name">Course Name</h2>
-                    </div>
-
-                    <div class="panel-body">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime nobis excepturi omnis neque reprehenderit libero.</p>
-                        <button type="button" class="btn btn-info btn-more">Read more...</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ===== Course item card ===== -->
-            <div class="col-md-4 col-sm-6">
-                <div class="panel panel-default item">
-                    <a href=""><img src="images/development-bg.png" alt="course"></a>
-                    <div class="panel-heading">
-                        <h2 class="course-name">Course Name</h2>
-                    </div>
-
-                    <div class="panel-body">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime nobis excepturi omnis neque reprehenderit libero.</p>
-                        <button type="button" class="btn btn-info btn-more">Read more...</button>
-                    </div>
-                </div>
-            </div>
-
+            
         </div>
     </div>
 </section>

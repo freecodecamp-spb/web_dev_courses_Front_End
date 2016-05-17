@@ -13,7 +13,6 @@ var flash = require('connect-flash');
 
 // Подключение собственных модулей
 var routes = require('./routes/index'); //все основные маршруты
-var users = require('./routes/users'); //роутинг, связанный с пользователем
 var Settings = require('./settings/settings'); //настройки сервера
 
 var app = express(); //инициализация сервера на Express
