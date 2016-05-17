@@ -400,7 +400,8 @@ label {
   min-height: 100px;
 }
 .course-name {
-  padding: 20px 15px;
+  margin: 0[x];
+  padding: 15px 15px;
 }
 .wrap-img {
   border: 2px solid #ddd;
@@ -418,8 +419,6 @@ label {
 
 .course-item-img figure {
   position: relative;
-  float: left;
-  margin-bottom: 20px;
   overflow: hidden;
   min-width: 320px;
   max-width: 480px;
@@ -486,7 +485,7 @@ label {
 
 .course-item-img figure p {
   letter-spacing: 1px;
-  font-size: 68.5%;
+  margin-top: 20%;
 }
 
 /*---------------*/
