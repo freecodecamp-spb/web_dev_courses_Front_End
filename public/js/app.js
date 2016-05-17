@@ -1,19 +1,6 @@
 var webCourses = angular.module('webCourses', []);
 webCourses.controller('userCtrl', function($scope, $http) {
     $scope.userlist = [];
-    $scope.coursesArray = [{
-        "name": "Javascript for dummies",
-        "desc": "Entry-level tutorials for Front-End Javascript",
-        "picture": "images/development-bg.png"
-    }, {
-        "name": "Beginner CSS",
-        "desc": "CSS From Zero to Hero",
-        "picture": "images/development-bg.png"
-    }, {
-        "name": "HTML5 Fundamentals",
-        "desc": "Leran about modern HTML",
-        "picture": "images/development-bg.png"
-    }];
     $http.get('/users/get')
         .success(function(userlist) {
             $scope.userlist = userlist;
