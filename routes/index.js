@@ -19,49 +19,9 @@ module.exports = function(app, passport) {
             res.render("profile", {
                 user: req.user
             })
-        }
-        else     res.redirect("/");
+        } else res.redirect("/");
     });
-    // Не подключать
 
-    //     app.get('/signup', function(req, res) {
-    //         res.render("signup", {
-    //             message: req.flash('signUpMessage')
-    //         });
-    //     });
-    //
-    //     app.get('/login', function(req, res) {
-    //         res.render("login", {
-    //             message: req.flash('loginMessage')
-    //         });
-    //     });
-    //
-    //
-    //     app.get('/profile', isLoggedIn, function(req, res) {
-    //         res.render("profile", {
-    //             user: req.user
-    //         });
-    //     });
-    //
-    //     app.post('/signup', passport.authenticate('local-signup', {
-    //         successRedirect: '/',
-    //         failureRedirect: '/signup',
-    //         failureFlash: true
-    //     }));
-    //
-    //     app.post('/login', passport.authenticate('local-login', {
-    //         successRedirect: '/profile',
-    //         failureRedirect: '/login',
-    //         failureFlash: true
-    //     }));
-    //
-    //
-    //     app.get('/auth/facebook', passport.authenticate('facebook', {scope: ['email']}));
-    //     app.get('/auth/facebook/callback',
-    //         passport.authenticate('facebook', {
-    //             successRedirect: '/profile',
-    //             failureRedirect: '/'
-    //         }));
     app.get('/auth/github', passport.authenticate('github', {
         scope: ['user']
     }));
@@ -75,9 +35,27 @@ module.exports = function(app, passport) {
         req.logout();
         res.redirect('/');
     });
-};
-//
-//
+
+    app.get('/users', function(req, res) {
+        res.render('users', {
+            user: req.user
+        });
+    });
+
+    app.get('/users/get', function(req, res) {
+        User.find(function(err, userlist) {
+        if (err) res.send(err);
+            res.json(userlist);
+            // res.redirect('users');
+        });
+    });
+    //
+    // app.get('users/*', function(req, res) {
+    //     res.render('users');
+    // });
+
+}
+
 function isLoggedIn(req, res, next) {
     if (req.isAuthenticated()) {
         return next()
