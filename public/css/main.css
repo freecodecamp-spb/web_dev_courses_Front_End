@@ -189,6 +189,9 @@ label {
   margin: 20px 0;
   min-height: 100px;
 }
+.btn-more {
+  float: right;
+}
 /* ==================== FOOTER ==================== */
 footer {
   padding: 20px 0;
