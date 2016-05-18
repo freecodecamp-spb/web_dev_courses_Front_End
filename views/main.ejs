@@ -5,9 +5,11 @@
 <section class="gallery">
     <div class="container">
         <div class="row">
-            <!-- ГЕНЕРАТОР КАРТОЧЕК -->
+
             <div ng-controller="cardCtrl">
+                <!-- ПОИСК. Создана модель данных 'filter' которая принимает в себя введенные данные -->
                 <input ng-model="filter" type="text" placeholder="Начните поиск здесь. Например — 'Javascript'. Или ищите по названию курса.">
+                <!-- ГЕНЕРАТОР КАРТОЧЕК. Фильтр читает переменную модели filter(да, я не креативен...) и фильтрует в соответствии с данными этой модели -->
                 <div ng-repeat="course in coursesArray | filter: filter | orderBy: tag">
                     <card></card>
                 </div>
