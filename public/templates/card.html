@@ -16,8 +16,7 @@
          <!-- ===== Course description ===== -->
         <div class="panel-body">
             <p>{{course.desc}}</p>
-            <button type="button" class="btn btn-info btn-more">Read more...</button>
+            <button type="button" class="btn btn-info" ng-repeat="tag in course.tags | orderBy:tag">{{tag}}</button>
         </div>
     </div>
 </div>
-

@@ -384,3 +384,13 @@ footer {
   height: 2em;
 }
 
+input {
+    width: 55vw;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+    border-radius: 6px;
+    padding: .3rem;
+    font-size: 1.4rem;
+    color: navy;
+
+}

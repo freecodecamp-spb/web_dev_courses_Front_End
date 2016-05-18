@@ -7,7 +7,8 @@
         <div class="row">
             <!-- ГЕНЕРАТОР КАРТОЧЕК -->
             <div ng-controller="cardCtrl">
-                <div ng-repeat="course in coursesArray">
+                <input ng-model="filter" type="text" placeholder="Начните поиск здесь. Например — 'Javascript'. Или ищите по названию курса.">
+                <div ng-repeat="course in coursesArray | filter: filter | orderBy: tag">
                     <card></card>
                 </div>
             </div>
