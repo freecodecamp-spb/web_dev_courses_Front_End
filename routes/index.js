@@ -1,5 +1,6 @@
 var express = require('express');
 var User = require('../models/usermodel');
+var Course = require('../models/coursemodel');
 
 
 module.exports = function(app, passport) {

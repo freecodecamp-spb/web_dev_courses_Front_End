@@ -68,7 +68,7 @@ webCourses.directive('card', function() {
         templateUrl: 'templates/card.html'
     }
 });
- webCourses.directive('profile', function() {
+webCourses.directive('profile', function() {
     // Список пользователей
     return {
         templateUrl: 'templates/profile.html'
