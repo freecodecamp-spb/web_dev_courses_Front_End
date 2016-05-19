@@ -1,7 +1,6 @@
 // Запрос модулей, которые мы установили пакетным менеджером.
 // О том, что делает каждый, можно почитать на npmjs.com
 var express = require('express');
-var ejs = require('ejs');
 var engine = require('ejs-mate');
 var morgan = require('morgan');
 var cookieParser = require('cookie-parser');
@@ -9,7 +8,6 @@ var session = require('express-session');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var passport = require('passport');
-var flash = require('connect-flash');
 
 // Подключение собственных модулей
 var routes = require('./routes/index'); //все основные маршруты
@@ -36,14 +34,13 @@ mongoose.connect(Settings.database, function(err) {
 // Это Middleware. Мы запускаем подключенные в начале модули с параметрами, если они нужны.
 app.use(morgan('dev'));
 app.use(cookieParser());
-app.use(flash());
 app.use(bodyParser.urlencoded({
     extended: false
 }));
 app.use(bodyParser.json());
 
 // DEV ONLY SETTINGS. DO NOT FORGET TO CHANGE.
-// настройки сесси на сервере. think server-side cookies.
+// настройки сессии на сервере. think server-side cookies.
 app.use(session({
     secret: SECRET,
     saveUninitialized: true,
@@ -51,10 +48,11 @@ app.use(session({
 }));
 //^DEV
 
-// Подключаем систему регистрации passport и спользуем сессии для хранения .
+// Подключаем систему регистрации passport и используем сессии для хранения.
 app.use(passport.initialize());
 app.use(passport.session());
 
+// Установка публичной ветки
 app.use(express.static(__dirname + '/public'));
 
 require('./settings/passport')(passport);

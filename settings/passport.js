@@ -1,12 +1,9 @@
-var LocalStrategy = require('passport-local').Strategy;
-var FacebookStrategy = require('passport-facebook').Strategy;
 var GitHubStrategy = require('passport-github2').Strategy;
 var User = require('../models/usermodel');
 var configAuth = require('./auth');
 
 module.exports = function(passport) {
 
-    // Модуль Стратегии авторизации.
     passport.serializeUser(function(user, done) {
         done(null, user.id);
     });
@@ -17,6 +14,7 @@ module.exports = function(passport) {
         });
     });
 
+    // Модуль Стратегии авторизации.
     passport.use(new GitHubStrategy({
             clientID: configAuth.githubAuth.clientID,
             clientSecret: configAuth.githubAuth.clientSecret,
