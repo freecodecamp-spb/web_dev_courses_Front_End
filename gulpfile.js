@@ -5,7 +5,7 @@ var browserSync = require('browser-sync').create();
 var Settings = require('./settings/settings');
 var paths = {
     ejsFiles: "./views/**/*.ejs"
-}
+};
 
 // Watching modified files
 gulp.task('watch', function() {
@@ -21,11 +21,11 @@ gulp.task('browser-sync', ['nodemon'], function() {
     });
 });
 
-gulp.task('nodemon', function (callback) {
+gulp.task('nodemon', function(callback) {
     var started = false;
     return nodemon({
         script: 'server.js'
-    }).on('start', function () {
+    }).on('start', function() {
         if (!started) {
             callback();
             started = true;

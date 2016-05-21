@@ -6,19 +6,19 @@ var userSchema = mongoose.Schema({
   local: {
     email: String,
     password: String
-},
-facebook: {
+  },
+  facebook: {
     id: String,
     token: String,
     email: String,
     name: String
-},
-github: {
+  },
+  github: {
     id: String,
     email: String,
     name: String,
     avatar: String
-}
+  }
 });
 
 module.exports = mongoose.model('User', userSchema);
