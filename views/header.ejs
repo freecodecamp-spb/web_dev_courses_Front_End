@@ -17,9 +17,8 @@
                     <% if (!user) { %>
                     	<li class="login"><a href="/auth/github">Log In</a></li>
                     <% } else { %>
-                        <li class="profile"><a href="/profile"><%= user.github.name %></a></li>
+                        <li class="profile"><a href="#"><%= user.github.name %></a></li>
                         <li class="logout"><a href="/logout"><i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
-                    	<!-- <img src = <%= user.github.avatar %> /> -->
                     <% } %>
                 </ul>
             </div>

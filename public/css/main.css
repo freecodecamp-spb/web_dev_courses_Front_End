@@ -35,27 +35,14 @@ table {
 body {
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
-    background: -moz-linear-gradient(45deg, rgba(163, 0, 0, 1) 0%, rgba(163, 0, 0, 1) 1%, rgba(3, 110, 145, 1) 98%, rgba(0, 0, 0, 1) 100%);
-    /* ff3.6+ */
-    background: -webkit-gradient(linear, left bottom, right top, color-stop(0%, rgba(163, 0, 0, 1)), color-stop(1%, rgba(163, 0, 0, 1)), color-stop(98%, rgba(3, 110, 145, 1)), color-stop(100%, rgba(0, 0, 0, 1)));
-    /* safari4+,chrome */
-    background: -webkit-linear-gradient(45deg, rgba(163, 0, 0, 1) 0%, rgba(163, 0, 0, 1) 1%, rgba(3, 110, 145, 1) 98%, rgba(0, 0, 0, 1) 100%);
-    /* safari5.1+,chrome10+ */
-    background: -o-linear-gradient(45deg, rgba(163, 0, 0, 1) 0%, rgba(163, 0, 0, 1) 1%, rgba(3, 110, 145, 1) 98%, rgba(0, 0, 0, 1) 100%);
-    /* opera 11.10+ */
-    background: -ms-linear-gradient(45deg, rgba(163, 0, 0, 1) 0%, rgba(163, 0, 0, 1) 1%, rgba(3, 110, 145, 1) 98%, rgba(0, 0, 0, 1) 100%);
-    /* ie10+ */
-    background: linear-gradient(45deg, rgba(163, 0, 0, 1) 0%, rgba(163, 0, 0, 1) 1%, rgba(3, 110, 145, 1) 98%, rgba(0, 0, 0, 1) 100%);
-    /* w3c */
-}
-
-/* ===== RESPONSIVE IMAGE ===== */
-
-img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border: 0 none;
+    background: rgba(117,11,21,1);
+    background: -moz-linear-gradient(45deg, rgba(117,11,21,1) 0%, rgba(0,142,194,1) 100%);
+    background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(117,11,21,1)), color-stop(100%, rgba(0,142,194,1)));
+    background: -webkit-linear-gradient(45deg, rgba(117,11,21,1) 0%, rgba(0,142,194,1) 100%);
+    background: -o-linear-gradient(45deg, rgba(117,11,21,1) 0%, rgba(0,142,194,1) 100%);
+    background: -ms-linear-gradient(45deg, rgba(117,11,21,1) 0%, rgba(0,142,194,1) 100%);
+    background: linear-gradient(45deg, rgba(117,11,21,1) 0%, rgba(0,142,194,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#750b15', endColorstr='#008ec2', GradientType=1 );
 }
 
 /* ===== BASE ===== */
