@@ -73,7 +73,7 @@ h1 {
 
 header {
     padding: 10px;
-    background-color: #333;
+    /*background-color: #333;*/
     color: #fff;
     text-align: center;
 }
@@ -116,6 +116,8 @@ header {
 }
 .nav a:hover {
     background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    box-sizing: border-box;
     color: #fff;
 }
 .nav a.active {
@@ -146,7 +148,7 @@ header {
     width: 80vw;
     margin: 0 auto;
     margin-top: 6rem;
-    margin-bottom: 2rem;
+    margin-bottom: 2.4rem;
     text-align: center;
 }
 .tag {
@@ -175,7 +177,7 @@ header {
     display: inline-block;
     width: 70vw;
     height: 2.8rem;
-    margin: 2rem auto;
+    margin: 2.4rem auto;
     margin-left: .6rem;
     border: 2px solid rgba(255, 255, 255, .3);
     border-radius: 6px;
