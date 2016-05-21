@@ -35,15 +35,16 @@ table {
 body {
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
-    background: rgba(117,11,21,1);
-    background: -moz-linear-gradient(45deg, rgba(117,11,21,1) 0%, rgba(0,142,194,1) 100%);
-    background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(117,11,21,1)), color-stop(100%, rgba(0,142,194,1)));
-    background: -webkit-linear-gradient(45deg, rgba(117,11,21,1) 0%, rgba(0,142,194,1) 100%);
-    background: -o-linear-gradient(45deg, rgba(117,11,21,1) 0%, rgba(0,142,194,1) 100%);
-    background: -ms-linear-gradient(45deg, rgba(117,11,21,1) 0%, rgba(0,142,194,1) 100%);
-    background: linear-gradient(45deg, rgba(117,11,21,1) 0%, rgba(0,142,194,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#750b15', endColorstr='#008ec2', GradientType=1 );
-     background-attachment: fixed;
+    background: linear-gradient(45deg, rgba(117, 11, 21, .93) 0%, rgba(0, 142, 194, .93) 100%), url('../images/pic_back.jpg');
+    background-repeat: no-repeat, no-repeat, no-repeat;
+    background-attachment: fixed;
+    background-size: 400% auto, cover;
+    animation: bgrad 14s infinite alternate linear;
+}
+@keyframes bgrad {
+    to {
+        background-position: right, center;
+    }
 }
 
 /* ===== BASE ===== */
@@ -61,7 +62,6 @@ h1 {
 
 header {
     padding: 10px;
-    /*background-color: #333;*/
     color: #fff;
     text-align: center;
 }
@@ -129,25 +129,22 @@ header {
         display: inline-block;
     }
 }
-
-@media screen and (max-height: 460px){
+@media screen and (max-height: 460px) {
     .footer-tag {
         display: none;
     }
     .search-wrap {
         margin-top: 100px;
     }
-
     .tag {
         display: none;
         font-size: 3.2rem;
     }
-
     .tag-low {
         font-size: 1.1rem;
     }
-
 }
+
 /*=====================SEARCH======================*/
 
 .search-wrap {
@@ -161,12 +158,12 @@ header {
     color: white;
     font-size: 5.8rem;
     font-weight: bolder;
+    text-shadow: 4px 4px 0px rgba(0, 0, 0, 0.2);
 }
 .tag-low {
     color: white;
     font-size: 1.5rem;
 }
-
 .tag-lowest {
     color: white;
     font-size: 1rem;
@@ -185,6 +182,7 @@ header {
     display: inline-block;
     padding-bottom: 4px;
     border-bottom: 2px dashed rgba(255, 255, 255, .52);
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.7);
 }
 .main-search {
     display: inline-block;
@@ -265,6 +263,8 @@ header {
 }
 
 /* Anchor will cover the whole item by default */
+
+
 /* For some effects it will show as a button */
 
 .course-item-img figure figcaption > a {
@@ -290,7 +290,11 @@ header {
 }
 
 /*---------------*/
+
+
 /***** Oscar *****/
+
+
 /*---------------*/
 
 figure.effect-oscar {
@@ -376,7 +380,8 @@ figure.effect-oscar:hover img {
     height: 2.4rem;
     color: white;
     width: 100%;
-    text-align: center;
+    text-align: left;
+    margin-left: 2rem;
 }
 .footer-tag i {
     color: red;
