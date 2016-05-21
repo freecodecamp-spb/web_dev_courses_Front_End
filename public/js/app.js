@@ -12,6 +12,7 @@ webCourses.controller('userCtrl', function($scope, $http) {
 
 webCourses.controller('cardCtrl', function($scope) {
     // ЗАГЛУШКА ДЛЯ ГЕНЕРАЦИИ КУРСОВ
+    $scope.showcards = false;
     $scope.coursesArray = [{
         "name": "Javascript for dummies",
         "desc": "Entry-level tutorials for Front-End Javascript",

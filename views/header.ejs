@@ -1,0 +1,29 @@
+<header>
+
+
+    <div class="container-fluid">
+
+        <!--===== LOGO =====-->
+        <div class="col-lg-4 col-md-4">
+
+        </div>
+
+        <!--===== MENU =====-->
+        <div class="col-lg-push-3 col-md-8">
+            <div class="nav">
+                <ul>
+                    <li class="home"><a href="/">Home</a></li>
+                    <li class="tutorials"><a href="#">Catalog</a></li>
+                    <% if (!user) { %>
+                    	<li class="login"><a href="/auth/github">Log In</a></li>
+                    <% } else { %>
+                        <li class="profile"><a href="/profile"><%= user.github.name %></a></li>
+                        <li class="logout"><a href="/logout"><i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
+                    	<!-- <img src = <%= user.github.avatar %> /> -->
+                    <% } %>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</header>
