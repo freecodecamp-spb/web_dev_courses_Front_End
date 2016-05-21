@@ -9,15 +9,16 @@
                 <div class="tag-low">your ultimate learning tool</div>
                 <i class="fa fa-search" aria-hidden="true"></i>
                 <input autofocus="autofocus" class="main-search" ng-model="filter" type="text" placeholder="start typing">
+                <div class="tag-lowest">choose from {{coursesArray.length}} courses available!</div>
                 <div class="search-message">or use our  <a href="#">marvelous filter</a> to get what you need</div>
             </div>
-            <div class="container" ng-show="filter.length > 2">
-                <div class="row">
+            <div class="card-container-flex" ng-show="filter.length > 2" >
+
                     <!-- ГЕНЕРАТОР КАРТОЧЕК. Фильтр читает переменную модели filter(да, я не креативен...) и фильтрует в соответствии с данными этой модели -->
-                    <div ng-repeat="course in coursesArray | filter: filter | orderBy: tag">
-                        <card></card>
-                    </div>
-                </div>
+
+                        <card ng-repeat="course in coursesArray | filter: filter | orderBy: tag"></card>
+
+
             </div>
         </section>
 
