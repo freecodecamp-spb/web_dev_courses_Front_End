@@ -1,0 +1,60 @@
+.card-container-flex
+{
+    display: flex;
+    width: 80vw;
+    margin: 0 auto;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.card-flex
+{
+    position: relative;
+    margin: .7rem;
+    width: 320px;
+    height: 320px;
+    background-color: rgba(0, 0, 0, .12);
+    /*!Радиус этих рамок должен совпадать: vvvvvvvv*/
+    border-radius: 6px;
+    color: white;
+    border-bottom: 4px solid rgb(153, 51, 51);
+}
+
+.course-name
+{
+    font-size: 1.2rem;
+    font-weight: bolder;
+    padding-left: .8rem;
+    background-color: #066;
+    border-bottom: 2px solid white;
+    /*!Радиус этих рамок должен совпадать:^^^^^^^*/
+    border-radius: 6px 6px 0 0;
+    cursor: pointer;
+}
+
+.course-desc
+{
+    padding: 1rem;
+}
+
+.course-tag
+{
+    display: inline-block;
+    background-color: rgb(153, 51, 51);
+    padding: .3rem;
+    margin-left: .4rem;
+    margin-top: .6rem;
+    font-size: .8rem;
+    border-radius: 2px;
+}
+
+.course-rating
+{
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    font-size: 3rem;
+    font-weight: bolder;
+
+}
