@@ -11,7 +11,6 @@ var browserSync = require('browser-sync')
 
 var Settings = require('./settings/settings');
 
-
 var paths = {
     ejsFiles: "./views/**/*.ejs",
     jsFiles: "client/**/*.js",
@@ -19,38 +18,48 @@ var paths = {
 };
 
 // Watching modified files
-gulp.task('watch', function() {
-    watch(
-        [
-            paths.ejsFiles,
-            paths.jsFiles,
-            paths.cssFiles
-        ],
-        batch(function(events, done) {
-            gulp.start('build:dev', done);
-        }));
-});
+gulp.task(
+    'watch',
+    function() {
+        watch(
+            [
+                paths.ejsFiles,
+                paths.jsFiles,
+                paths.cssFiles
+            ],
+            batch(function(events, done) {
+                gulp.start('build:dev', done);
+            }));
+    }
+);
 
-gulp.task('browser-sync', ['nodemon'], function() {
-    browserSync.init(null, {
-        proxy: "http://localhost:3000",
-        files: ["public/**/*.*"],
-        port: 7000
-    });
-});
-
-gulp.task('nodemon', function(callback) {
-    var started = false;
-    return nodemon({
-        script: 'server.js'
-    })
-        .on('start', function() {
-            if (!started) {
-                callback();
-                started = true;
-            }
+gulp.task(
+    'browser-sync',
+    ['nodemon'],
+    function() {
+        browserSync.init(null, {
+            proxy: "http://localhost:3000",
+            files: ["public/**/*.*"],
+            port: 7000
         });
-});
+    }
+);
+
+gulp.task(
+    'nodemon',
+    function(callback) {
+        var started = false;
+        return nodemon({
+            script: 'server.js'
+        })
+            .on('start', function() {
+                if (!started) {
+                    callback();
+                    started = true;
+                }
+            });
+    }
+);
 
 gulp.task(
     'build:dev',
@@ -69,8 +78,8 @@ gulp.task(
         )
             .pipe(concat('build.js'))
             .pipe(gulp.dest('public/js/'));
-    })
-;
+    }
+);
 
 gulp.task(
     'build:css',
@@ -87,22 +96,34 @@ gulp.task(
     }
 );
 
-gulp.task('copy:templates', function() {
-    gulp
-        .src('client/components/**/*.html')
-        .pipe(gulp.dest('public/templates/'));
-});
+gulp.task(
+    'copy:templates',
+    function() {
+        gulp
+            .src('client/components/**/*.html')
+            .pipe(gulp.dest('public/templates/'));
+    }
+);
 
-gulp.task('clean:js', function() {
-    return del([
-        'public/js/'
-    ]);
-});
+gulp.task(
+    'clean:js',
+    function() {
+        return del([
+            'public/js/'
+        ]);
+    }
+);
 
-gulp.task('clean:css', function() {
-    return del([
-        'public/css/'
-    ]);
-});
+gulp.task(
+    'clean:css',
+    function() {
+        return del([
+            'public/css/'
+        ]);
+    }
+);
 
-gulp.task('default', ['build:dev', 'watch', 'browser-sync']);
+gulp.task(
+    'default',
+    ['build:dev', 'watch', 'browser-sync']
+);
