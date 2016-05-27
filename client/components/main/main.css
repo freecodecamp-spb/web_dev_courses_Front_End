@@ -205,3 +205,26 @@ header {
     padding-bottom: 3px;
     border-bottom: 1px dashed rgba(255, 255, 255, .52);
 }
+
+
+/*NODE CLASSES. Свяжитесь с Alex B прежде, чем переименовывать или менять значения */
+
+.flash__success {
+    margin: 0 auto;
+    width: 40%;
+    background-color: rgba(0,255,0,0.3);
+    border-radius: 4px;
+    color: white;
+    padding: .8rem;
+    text-align: center;
+}
+
+.flash__error {
+    margin: 0 auto;
+    width: 40%;
+    background-color: rgba(255,13,19,0.3);
+    border-radius: 4px;
+    color: white;
+    padding: .8rem;
+    text-align: center;
+}

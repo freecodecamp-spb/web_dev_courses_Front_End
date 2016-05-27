@@ -1,9 +1,11 @@
 <%- include base -%>
 <%- include header -%>
-<!-- ГАЛЕРЕЯ КУРСОВ -->
 
-<% if(message.length) { %>
-    <%= message %>
+<!-- Флэш-телеграмма. Копируйте под хэдер на каждую большую страницу -->
+<% if ( sessionFlash && sessionFlash.message) { %>
+<div class="<%= sessionFlash.type %>">
+	<%= sessionFlash.message %>
+</div>
 <% } %>
 
 <section class="gallery" ng-controller="cardCtrl">

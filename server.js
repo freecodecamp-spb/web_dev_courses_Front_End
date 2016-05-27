@@ -3,9 +3,9 @@
 var express = require('express');
 var engine = require('ejs-mate');
 var morgan = require('morgan');
-var flash = require('connect-flash');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
+var flash = require('express-flash');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var passport = require('passport');
@@ -58,6 +58,11 @@ app.use(express.static(__dirname + '/public'));
 
 // Установка flash (тестовая)
 app.use(flash())
+app.use(function(req, res, next){
+    res.locals.sessionFlash = req.session.sessionFlash;
+    delete req.session.sessionFlash;
+    next();
+});
 
 require('./settings/passport')(passport);
 require('./routes/index')(app, passport);
