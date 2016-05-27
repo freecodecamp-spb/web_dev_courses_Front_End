@@ -1,5 +1,4 @@
 /* ==================== RESET CSS ==================== */
-
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
     margin: 0;
     padding: 0;
@@ -18,58 +17,41 @@ html, body {
 ol, ul {
     list-style: none;
 }
-blockquote, q {
-    quotes: none;
-}
-blockquote:before, blockquote:after, q:before, q:after {
-    content: '';
-    content: none;
-}
-table {
-    border-collapse: collapse;
-    border-spacing: 0;
+
+
+/* reset style */
+a, a:hover, a:active, a:visited {
+    text-decoration: none;
+    color: #fff;
 }
 
 /* ==================== MAIN CSS ==================== */
-
 body {
     box-sizing: border-box;
+    text-align: center;
+    color: #fff;
     font-family: 'Roboto', sans-serif;
     background: linear-gradient(45deg, rgba(117, 11, 21, .93) 0%, rgba(0, 142, 194, .93) 100%), url('../images/pic_back.jpg');
     background-repeat: no-repeat, no-repeat, no-repeat;
     background-attachment: fixed;
     background-size: 400% auto, cover;
     animation: bgrad 14s infinite alternate linear;
-    color: white;
 }
+
 @keyframes bgrad {
     to {
         background-position: right, center;
     }
 }
 
-/* ===== BASE ===== */
-
-a, a:hover, a:active, a:visited {
-    text-decoration: none;
-    color: #fff;
-}
-h1 {
-    font-weight: bold;
-    font-size: 40px;
-}
-
 /* ==================== HEADER ==================== */
-
 header {
     padding: 10px;
-    color: #fff;
     text-align: right;
     margin-right: 2rem;
 }
 
 /* =====  NAV  ===== */
-
 .nav ul {
     font-size: 0;
 }
@@ -84,8 +66,7 @@ header {
 .nav a {
     padding: 0 5px;
     box-sizing: border-box;
-    text-decoration: none;
-    color: #fff;
+    border-radius: 6px;
     display: block;
     transition: .3s background-color;
 }
@@ -97,17 +78,14 @@ header {
     background-color: rgba(255, 255, 255, 0.2);
     border-radius: 6px;
     box-sizing: border-box;
-    color: #fff;
 }
 .nav a.active {
     background-color: rgba(255, 255, 255, 0.15);
-    color: #fff;
     cursor: default;
     box-sizing: border-box;
 }
 
 /* ==================== MOBILE ==================== */
-
 @media screen and (max-width: 768px) {
     .nav li {
         font-size: small;
@@ -129,43 +107,33 @@ header {
     }
 }
 
-/*=====================SEARCH======================*/
-
+/* ==================== SEARCH ==================== */
 .search-wrap {
     width: 80vw;
-    margin: 0 auto;
-    margin-top: 6rem;
-    margin-bottom: 2.4rem;
-    text-align: center;
+    margin: 6rem auto 2.4rem auto;
 }
 .tag {
-    color: white;
     font-size: 5.8rem;
     font-weight: bolder;
-    text-shadow: 4px 4px 0px rgba(0, 0, 0, 0.2);
+    text-shadow: 4px 4px 0 rgba(0, 0, 0, 0.2);
 }
 .tag-low {
-    color: white;
     font-size: 1.5rem;
 }
 .tag-lowest {
-    color: white;
     font-size: 1rem;
-    text-align: center;
     margin-bottom: 1.1rem;
 }
 .main-search {
     display: inline-block;
     width: 70vw;
     height: 2.8rem;
-    margin: 2.4rem auto;
-    margin-left: .6rem;
-    margin-bottom: .3rem;
+    margin: 2.4rem auto .6rem .3rem;
     border: 2px solid rgba(255, 255, 255, .3);
     border-radius: 6px;
     padding: .3rem;
     font-size: 1.2rem;
-    color: white;
+    color: #fff;
     font-weight: bolder;
     background: transparent;
     outline: none;
@@ -184,15 +152,12 @@ header {
     padding: 15px 15px;
 }
 
-
 /* ==================== FOOTER ==================== */
-
 .footer-tag {
     position: fixed;
     left: 0;
     bottom: 0;
     height: 2.4rem;
-    color: white;
     width: 100%;
     text-align: left;
     margin-left: 2rem;
