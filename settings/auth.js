@@ -1,3 +1,4 @@
+var Settings = require('./settings.js'); //настройки сервера
 // Ключи реальные, созданные на моем аккаунте, не модифицируйте
 module.exports = {
     'facebookAuth': {
@@ -13,6 +14,6 @@ module.exports = {
     'githubAuth': {
         'clientID': 'a7d4334f13bbacdd7303',
         'clientSecret': 'a009743c07667e6319f677ea5e9daa4c3880d0da',
-        'callbackURL': 'http://localhost:3000/auth/github/callback'
+        'callbackURL': 'http://localhost:' + Settings.port + '/auth/github/callback'
     }
 };

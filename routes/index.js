@@ -11,11 +11,17 @@ module.exports = function(app, passport) {
 
     app.get('/', function(req, res) {
         res.render("main", {
+            user: req.user,
+            message: req.flash()
+        });
+    });
+
+    app.get('/form', function(req, res) {
+        res.render("submit", {
             user: req.user
         });
     });
 
-    
     app.get('/profile', function(req, res) {
         if (req.user) {
             res.render("profile", {
@@ -29,7 +35,7 @@ module.exports = function(app, passport) {
     app.get('/auth/github', passport.authenticate('github', {
         scope: ['user']
     }));
-    
+
     app.get('/auth/github/callback',
         passport.authenticate('github', {
             successRedirect: '/',
@@ -50,16 +56,29 @@ module.exports = function(app, passport) {
 
     app.get('/users/get', function(req, res) {
         User.find(function(err, userlist) {
-        if (err) res.send(err);
+            if (err) res.send(err);
             res.json(userlist);
         });
     });
 
+    app.post('/course/add', function(req, res) {
+        req.flash('dbSave', 'Succefully saved to the database');
+        var course = new Course(req.body);
+        course.save(function(err) {
+            if (err) {
+                return err;
+            } else {
+                console.log('Saved successfully');
+                res.redirect('/');
+            }
+        })
+    });
+
 };
 
-function isLoggedIn(req, res, next) {
-    if (req.isAuthenticated()) {
-        return next()
-    }
-    res.redirect('/');
-}
+// function isLoggedIn(req, res, next) {
+//     if (req.isAuthenticated()) {
+//         return next()
+//     }
+//     res.redirect('/');
+// }

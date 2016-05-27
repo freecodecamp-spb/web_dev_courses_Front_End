@@ -3,6 +3,7 @@
 var express = require('express');
 var engine = require('ejs-mate');
 var morgan = require('morgan');
+var flash = require('connect-flash');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var mongoose = require('mongoose');
@@ -54,6 +55,9 @@ app.use(passport.session());
 
 // Установка публичной ветки
 app.use(express.static(__dirname + '/public'));
+
+// Установка flash (тестовая)
+app.use(flash())
 
 require('./settings/passport')(passport);
 require('./routes/index')(app, passport);

@@ -1,21 +1,26 @@
 <%- include base -%>
-    <%- include header -%>
-        <!-- ГАЛЕРЕЯ КУРСОВ -->
+<%- include header -%>
+<!-- ГАЛЕРЕЯ КУРСОВ -->
 
-        <section class="gallery" ng-controller="cardCtrl">
-            <!-- ПОИСК. Создана модель данных 'filter' которая принимает в себя введенные данные -->
-            <div class="search-wrap">
-                <div class="tag">W-D-C</div>
-                <div class="tag-low">your ultimate learning tool</div>
-                <i class="fa fa-search" id="searchicon" aria-hidden="true"></i>
-                <input autofocus="autofocus" class="main-search" ng-model="filter" type="text" placeholder="start typing!">
-                <div class="tag-lowest">choose from {{coursesArray.length}} courses available!</div>
+<% if(message.length) { %>
+    <%= message %>
+<% } %>
 
-            </div>
-            <div class="card-container-flex" ng-show="filter.length > 2">
-                <!-- ГЕНЕРАТОР КАРТОЧЕК. Фильтр читает переменную модели filter(да, я не креативен...) и фильтрует в соответствии с данными этой модели -->
-                <card ng-repeat="course in coursesArray | filter: filter | orderBy: tag"></card>
-            </div>
-        </section>
+<section class="gallery" ng-controller="cardCtrl">
+    <!-- ПОИСК. Создана модель данных 'filter' которая принимает в себя введенные данные -->
+    <div class="search-wrap">
+        <div class="tag">W-D-C</div>
+        <div class="tag-low">your ultimate learning tool</div>
+        <i class="fa fa-search" id="searchicon" aria-hidden="true"></i>
+        <input autofocus="autofocus" class="main-search" ng-model="filter" type="text" placeholder="start typing!">
+        <div class="tag-lowest">choose from
+            {{coursesArray.length}}
+            courses available!</div>
+    </div>
+    <div class="card-container-flex" ng-show="filter.length > 2">
+        <!-- ГЕНЕРАТОР КАРТОЧЕК. Фильтр читает переменную модели filter(да, я не креативен...) и фильтрует в соответствии с данными этой модели -->
+        <card ng-repeat="course in coursesArray | filter: filter | orderBy: tag"></card>
+    </div>
+</section>
 
-        <%- include footer -%>
+<%- include footer -%>

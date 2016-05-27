@@ -51,6 +51,10 @@ var courseSchema = mongoose.Schema({
             min: 1,
             max: 3
         },
+        submittedBy: {
+            type: String,
+            default: "System"
+        },
         vox: {
             favs: {
                 type: Number,
