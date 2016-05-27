@@ -35,3 +35,4 @@ Contributors:
 - [Anastasiya Filinova] (https://github.com/filinova), 	filinova.anastasiya@gmail.com
 - [Rostislav Kozlenko] (https://github.com/1SolPi1), rostikkozlenko61@gmail.com
 - [Nikolay Ignatyev] (https://github.com/cyb3rD), noilgt@gmail.com
+- [Roman Vikulov] (https://github.com/vikulov-roman), vikulov.roman@gmail.com
