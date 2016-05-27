@@ -25,11 +25,12 @@ module.exports = function(passport) {
                 User.findOne({
                     'github.id': profile.id
                 }, function(err, user) {
-                    if (err)
+                    if (err) {
                         return done(err);
-                    if (user)
+                    }
+                    if (user) {
                         return done(null, user);
-                    else {
+                    } else {
                         var newUser = new User();
                         newUser.github.id = profile.id;
                         newUser.github.name = profile.displayName;
@@ -37,8 +38,9 @@ module.exports = function(passport) {
                         newUser.github.avatar = profile._json.avatar_url;
 
                         newUser.save(function(err) {
-                            if (err)
+                            if (err) {
                                 throw err;
+                            }
                             return done(null, newUser);
                         })
                     }

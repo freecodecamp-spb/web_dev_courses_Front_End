@@ -1,0 +1,29 @@
+<%- include base -%>
+<%- include header -%>
+<form class="form__course" action="/course/add" method="POST">
+    <label for="card.link">Ссылка на курс:</label>
+    <input type="url" name="card.link" value="" placeholder="">
+
+    <label for="card.title">Название:</label>
+    <input type="text" name="card.title" value="" placeholder="">
+
+    <label for="card.author">Автор:</label>
+    <input type="text" name="card.author" value="" placeholder="">
+
+    <label for="card.description">Описание:</label>
+    <input type="text" name="card.description" value="" placeholder="">
+
+    <label for="card.description">Дата добавления:</label>
+    <input type="date" name="card.date" value="" placeholder="">
+
+    <label for="card.image">Картинка:</label>
+    <input type="url" name="card.image" value="" placeholder="">
+
+    <label for="card.tags">Тэги:</label>
+    <input type="text" name="card.tags" value="" placeholder="">
+
+    <input type="submit" name="name" value="Submit">
+
+</form>
+
+<%- include footer -%>

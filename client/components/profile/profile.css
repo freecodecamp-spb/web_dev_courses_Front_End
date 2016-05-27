@@ -1,0 +1,27 @@
+body {
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+.profile-card {
+    width: 20vw;
+    margin: 4px auto;
+    padding: .5rem;
+    /*display: inline-block;*/
+    border: 1px dotted gray;
+}
+
+.profile-name {
+    color: navy;
+    padding-left: 1rem;
+    font-size: 1.8rem;
+    padding: .4rem;
+    text-align: center;
+}
+
+.profile-avatar {
+    width: 100px;
+    height: auto;
+    border-radius: 50%;
+    padding-left: 2rem;
+}

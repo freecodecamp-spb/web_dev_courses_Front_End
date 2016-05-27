@@ -11,26 +11,37 @@ module.exports = function(app, passport) {
 
     app.get('/', function(req, res) {
         res.render("main", {
+            user: req.user,
+            message: req.flash()
+        });
+    });
+
+    app.get('/form', function(req, res) {
+        res.render("submit", {
             user: req.user
         });
     });
 
-    app.get('/profile', function(req, res, next) {
+    app.get('/profile', function(req, res) {
         if (req.user) {
             res.render("profile", {
                 user: req.user
-            })
-        } else res.redirect("/");
+            });
+        } else {
+            res.redirect("/");
+        }
     });
 
     app.get('/auth/github', passport.authenticate('github', {
         scope: ['user']
     }));
+
     app.get('/auth/github/callback',
         passport.authenticate('github', {
             successRedirect: '/',
             failureRedirect: '/'
-        }));
+        })
+    );
 
     app.get('/logout', function(req, res) {
         req.logout();
@@ -45,16 +56,33 @@ module.exports = function(app, passport) {
 
     app.get('/users/get', function(req, res) {
         User.find(function(err, userlist) {
-        if (err) res.send(err);
+            if (err) res.send(err);
             res.json(userlist);
         });
     });
 
-}
+    app.post('/course/add', function(req, res) {
+        console.log("=== Попытка записи в базу ===");
+        var course = new Course(req.body);
+        course.save(function(err) {
+            if (err) {
+                return err;
+            } else {
+                console.log("=== Запись успешно добавлена ===");
+                req.session.sessionFlash = {
+                    type: 'flash__success',
+                    message: 'Курс успешно добавлен в базу данных.'
+                }
+                res.redirect('/');
+            }
+        })
+    });
 
-function isLoggedIn(req, res, next) {
-    if (req.isAuthenticated()) {
-        return next()
-    }
-    res.redirect('/');
 };
+
+// function isLoggedIn(req, res, next) {
+//     if (req.isAuthenticated()) {
+//         return next()
+//     }
+//     res.redirect('/');
+// }
