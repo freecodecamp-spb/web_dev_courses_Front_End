@@ -3,9 +3,15 @@
 
 <!-- Флэш-телеграмма. Копируйте под хэдер на каждую большую страницу -->
 <% if ( sessionFlash && sessionFlash.message) { %>
-<div class="<%= sessionFlash.type %>">
-	<%= sessionFlash.message %>
-</div>
+    <div id="flashbanner" class="<%= sessionFlash.type %>">
+        <%= sessionFlash.message %>
+        <script>
+            $('#flashbanner').click(function() {
+                $(this).hide('slow');
+                console.log('clicked');
+            });
+        </script>
+    </div>
 <% } %>
 
 <section class="gallery" ng-controller="cardCtrl">

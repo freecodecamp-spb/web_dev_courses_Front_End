@@ -206,8 +206,37 @@ header {
     border-bottom: 1px dashed rgba(255, 255, 255, .52);
 }
 
+/*SUBMIT FORM*/
 
-/*NODE CLASSES. Свяжитесь с Alex B прежде, чем переименовывать или менять значения */
+.form__course {
+    margin-left: 10%;
+}
+.form__course input {
+    display: block;
+    margin: .9rem;
+    margin-top: .32rem;
+    width: 30%;
+    background: transparent;
+    outline: none;
+    border: 1px solid rgba(255, 255, 255, .52);
+    border-radius: 4px;
+    padding: .4rem;
+    color: white;
+    font-size: 1.25rem;
+}
+
+.form__course input[type="submit"] {
+    background-color: rgba(13,255,23,0.4);
+    width: auto;
+    cursor: pointer;
+    padding: .73rem;
+}
+
+/*NODE CLASSES. Свяжитесь с Alex B прежде чем переименовывать или менять значения */
+
+#flashbanner {
+    cursor: pointer;
+}
 
 .flash__success {
     margin: 0 auto;

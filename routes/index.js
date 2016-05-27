@@ -62,11 +62,13 @@ module.exports = function(app, passport) {
     });
 
     app.post('/course/add', function(req, res) {
+        console.log("=== Попытка записи в базу ===");
         var course = new Course(req.body);
         course.save(function(err) {
             if (err) {
                 return err;
             } else {
+                console.log("=== Запись успешно добавлена ===");
                 req.session.sessionFlash = {
                     type: 'flash__success',
                     message: 'Курс успешно добавлен в базу данных.'
