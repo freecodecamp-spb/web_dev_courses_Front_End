@@ -53,6 +53,8 @@ header {
 
 /* =====  NAV  ===== */
 .nav ul {
+    display: flex;
+    justify-content:flex-end;
     font-size: 0;
 }
 .nav li {
@@ -60,8 +62,7 @@ header {
     line-height: 30px;
     font-size: large;
     display: inline-block;
-    margin-top: 6px;
-    margin-left: 8px;
+    margin: 6px 8px;
 }
 .nav a {
     padding: 0 5px;
