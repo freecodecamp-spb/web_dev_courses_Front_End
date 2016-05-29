@@ -16,18 +16,21 @@
 
 <section class="gallery" ng-controller="cardCtrl">
     <!-- ПОИСК. Создана модель данных 'filter' которая принимает в себя введенные данные -->
-    <div class="search-wrap">
+<div class="loading" ng-show="courseList.length === 0">
+    Минутку! Подбираем для вас самое лучшее!
+</div>
+    <div class="search-wrap" ng-show="courseList.length >0">
         <div class="tag">W-D-C</div>
-        <div class="tag-low">your ultimate learning tool</div>
+        <div class="tag-low">дарим знания</div>
         <i class="fa fa-search" id="searchicon" aria-hidden="true"></i>
-        <input autofocus="autofocus" class="main-search" ng-model="filter" type="text" placeholder="start typing!">
-        <div class="tag-lowest">choose from
-            {{coursesArray.length}}
-            courses available!</div>
+        <input autofocus="autofocus" ng-model="filter" class="main-search" type="text" placeholder="начните ввод...">
+        <div class="tag-lowest" ng-show="courseList.length >0">
+            {{courseList.length}}
+             курсов вам на выбор!</div>
     </div>
     <div class="card-container-flex" ng-show="filter.length > 2">
-        <!-- ГЕНЕРАТОР КАРТОЧЕК. Фильтр читает переменную модели filter(да, я не креативен...) и фильтрует в соответствии с данными этой модели -->
-        <card ng-repeat="course in coursesArray | filter: filter | orderBy: tag"></card>
+        <!-- ГЕНЕРАТОР КАРТОЧЕК. Фильтр читает переменную модели filter и фильтрует в соответствии с данными этой модели -->
+        <card ng-repeat="course in courseList | filter: filter"></card>
     </div>
 </section>
 

@@ -31,10 +31,10 @@ body {
     text-align: center;
     color: #fff;
     font-family: 'Roboto', sans-serif;
-    background: linear-gradient(45deg, rgba(117, 11, 21, .93) 0%, rgba(0, 142, 194, .93) 100%), url('../images/pic_back.jpg');
+    background: linear-gradient(45deg, rgba(157, 11, 21, .93) 0%, rgba(0, 82, 174, .93) 100%), url('../images/pic_back.jpg');
     background-repeat: no-repeat, no-repeat, no-repeat;
     background-attachment: fixed;
-    background-size: 400% auto, cover;
+    background-size: 300% auto, cover;
     animation: bgrad 14s infinite alternate linear;
 }
 
@@ -109,6 +109,10 @@ header {
 }
 
 /* ==================== SEARCH ==================== */
+.loading {
+        font-size: 1.62rem;
+        margin: 8rem auto 2.4rem auto;
+}
 .search-wrap {
     width: 80vw;
     margin: 6rem auto 2.4rem auto;
@@ -176,6 +180,7 @@ header {
 
 .form__course {
     margin-left: 10%;
+    text-align: left;
 }
 .form__course input {
     display: block;

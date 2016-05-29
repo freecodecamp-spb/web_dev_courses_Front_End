@@ -61,6 +61,15 @@ module.exports = function(app, passport) {
         });
     });
 
+    app.get('/courses/get', function(req, res) {
+        Course.find(function(err, courseList) {
+            if (err) {
+                res.send(err)
+            }
+            res.json(courseList);
+        });
+    });
+
     app.post('/course/add', function(req, res) {
         console.log("=== Попытка записи в базу ===");
         var course = new Course(req.body);
