@@ -40,7 +40,7 @@ gulp.task(
         browserSync.init(null, {
             proxy: "http://localhost:3000",
             files: ["public/**/*.*"],
-            // port: 7000
+            port: 7000
         });
     }
 );
