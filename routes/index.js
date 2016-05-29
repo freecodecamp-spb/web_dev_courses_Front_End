@@ -4,10 +4,10 @@ var Course = require('../models/coursemodel');
 
 
 module.exports = function(app, passport) {
-    // Мы подключаем модуль с маршрутами в наш app и сразу делегируем туда passport - пусть лежит, все равно подключать
+    // Мы подключаем модуль с маршрутами в наш app и сразу делегируем туда passport
     // app.get слушает запрос(get) по адресу. "/" в данном случае это рут. "/about" это был бы localhost:3000/about
     // res.render отображает страницу с помощью нашего движка который мы указали в server.js - EJS
-    // "main" - это название файля для рендера из папки "/views"
+    // "main" - это название файла для рендера из папки "/views"
 
     app.get('/', function(req, res) {
         res.render("main", {
