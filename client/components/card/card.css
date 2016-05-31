@@ -69,6 +69,13 @@
 }
 @media screen and (max-width: 652px) {
     .card-flex {
+        width: 270px;
+        height: 270px;
+    }
+
+}
+@media screen and (max-width: 460px) {
+    .card-flex {
         margin: 1% 0;
         padding: 0;
         width: 100vw;

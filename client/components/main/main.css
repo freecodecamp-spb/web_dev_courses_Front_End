@@ -225,3 +225,22 @@ header {
         font-size: small;
     }
 }
+@media screen and (max-height: 460px) {
+    .footer-tag {
+        display: none;
+    }
+    .search-wrap {
+        margin-top: 50px;
+    }
+    .tag {
+        /*display: none;*/
+        font-size: 4.64rem;
+    }
+    .tag-low {
+        display: none;
+        font-size: 1.2944rem;
+    }
+    .card-flex {
+        margin: 0;
+    }
+}
