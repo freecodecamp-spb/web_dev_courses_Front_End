@@ -1,14 +1,11 @@
-.card-container-flex
-{
+.card-container-flex {
     width: 80%;
     margin: 0 auto 2% auto;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
 }
-
-.card-flex
-{
+.card-flex {
     position: relative;
     margin: .7rem;
     width: 320px;
@@ -18,9 +15,7 @@
     border-radius: 6px;
     /*border-bottom: 4px solid rgb(153, 51, 51);*/
 }
-
-.course-name
-{
+.course-name {
     margin: 0;
     padding: 15px;
     font-size: 1.18rem;
@@ -31,14 +26,10 @@
     border-radius: 6px 6px 0 0;
     cursor: pointer;
 }
-
-.course-desc
-{
+.course-desc {
     padding: 1rem;
 }
-
-.course-tag
-{
+.course-tag {
     display: inline-block;
     background-color: rgb(153, 51, 51);
     padding: .3rem;
@@ -47,22 +38,17 @@
     font-size: .8rem;
     border-radius: 2px;
 }
-
-.course-rating
-{
+.course-rating {
     position: absolute;
     bottom: 1rem;
     right: 1rem;
     font-size: 3rem;
     font-weight: bolder;
-
 }
-
 @media screen and (max-width: 855px) {
     .card-container-flex {
         width: 100%;
     }
-
     .card-flex {
         margin: .2rem;
     }
@@ -72,7 +58,6 @@
         width: 270px;
         height: 270px;
     }
-
 }
 @media screen and (max-width: 460px) {
     .card-flex {
@@ -80,5 +65,15 @@
         padding: 0;
         width: 100vw;
         height: 50%;
+    }
+}
+/*iPhone 5 fix*/
+@media screen and (max-height: 400px) {
+    .course-name {
+        height: 2rem;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
     }
 }
