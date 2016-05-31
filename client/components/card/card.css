@@ -1,9 +1,8 @@
 .card-container-flex
 {
-    width: 80vw;
+    width: 80%;
     margin: 0 auto;
     display: flex;
-    flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
 }
@@ -22,9 +21,10 @@
 
 .course-name
 {
+    margin: 0;
+    padding: 15px;
     font-size: 1.18rem;
     font-weight: bolder;
-    padding-left: .8rem;
     background-color: #066;
     border-bottom: 2px solid white;
     /*!Радиус этих рамок должен совпадать:^^^^^^^*/
@@ -56,4 +56,22 @@
     font-size: 3rem;
     font-weight: bolder;
 
+}
+
+@media screen and (max-width: 855px) {
+    .card-container-flex {
+        width: 100%;
+    }
+
+    .card-flex {
+        margin: .2rem;
+    }
+}
+@media screen and (max-width: 652px) {
+    .card-flex {
+        margin: 0;
+        padding: 0;
+        width: 100vw;
+        height: 50%;
+    }
 }
