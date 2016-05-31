@@ -46,9 +46,8 @@ body {
 
 /* ==================== HEADER ==================== */
 header {
-    padding: 10px;
-    text-align: right;
-    margin-right: 2rem;
+    padding: 10px 0 0 0;
+    margin-right: 2%;
 }
 
 /* =====  NAV  ===== */
@@ -86,35 +85,13 @@ header {
     box-sizing: border-box;
 }
 
-/* ==================== MOBILE ==================== */
-@media screen and (max-width: 768px) {
-    .nav li {
-        font-size: small;
-    }
-}
-@media screen and (max-height: 460px) {
-    .footer-tag {
-        display: none;
-    }
-    .search-wrap {
-        margin-top: 100px;
-    }
-    .tag {
-        display: none;
-        font-size: 3.2rem;
-    }
-    .tag-low {
-        font-size: 1.1rem;
-    }
-}
-
 /* ==================== SEARCH ==================== */
 .loading {
         font-size: 1.62rem;
         margin: 8rem auto 2.4rem auto;
 }
 .search-wrap {
-    width: 80vw;
+    width: 80%;
     margin: 6rem auto 2.4rem auto;
 }
 .tag {
@@ -124,7 +101,7 @@ header {
     letter-spacing: .96rem;
 }
 .tag-low {
-    font-size: 1.62rem;
+    font-size: 1.618rem;
 }
 .tag-lowest {
     font-size: 1rem;
@@ -163,7 +140,7 @@ header {
     position: fixed;
     left: 0;
     bottom: 0;
-    height: 2.4rem;
+    height: 2.2rem;
     width: 100%;
     text-align: left;
     margin-left: 2rem;
@@ -178,7 +155,6 @@ header {
 }
 
 /*SUBMIT FORM*/
-
 .form__course {
     margin-left: 10%;
     text-align: left;
@@ -205,7 +181,6 @@ header {
 }
 
 /*NODE CLASSES. Свяжитесь с Alex B прежде чем переименовывать или менять значения */
-
 #flashbanner {
     cursor: pointer;
 }
@@ -228,4 +203,25 @@ header {
     color: white;
     padding: .8rem;
     text-align: center;
+}
+
+/* ==================== MOBILE ==================== */
+@media screen and (max-width: 768px) {
+    header {
+        margin-right: 0;
+    }
+    .nav li {
+        font-size: small;
+    }
+    .tag {
+        font-size: 4.64rem;
+    }
+    .tag-low {
+        font-size: 1.2944rem;
+    }
+    .footer-tag {
+        height: 1.6rem;
+        margin-left: .8rem;
+        font-size: small;
+    }
 }
