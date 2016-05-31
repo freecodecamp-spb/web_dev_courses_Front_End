@@ -5,11 +5,13 @@
                 <a href="/">Главная</a>
             </li>
             <li class="tutorials">
-                <a href="#">Каталог</a>
+                <a href="/form">Добавить курс</a>
             </li>
             <% if (!user) { %>
                 <li class="login">
-                    <a href="/auth/github"><i class="fa fa-github" aria-hidden="true"></i> Вход</a>
+                    <a href="/auth/github">
+                        <i class="fa fa-github" aria-hidden="true"></i>
+                        Вход</a>
                 </li>
             <% } else { %>
                 <li class="profile">
