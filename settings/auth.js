@@ -1,4 +1,6 @@
-var Settings = require('./settings.js'); //настройки сервера
+'use strict'
+
+const Settings = require('./settings.js'); //настройки сервера
 // Ключи реальные, созданные на моем аккаунте, не модифицируйте
 module.exports = {
     'facebookAuth': {

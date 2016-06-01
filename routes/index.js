@@ -1,6 +1,7 @@
-var express = require('express');
-var User = require('../models/usermodel');
+'use strict'
 
+const express = require('express');
+const User = require('../models/usermodel');
 
 module.exports = function(app, passport) {
 

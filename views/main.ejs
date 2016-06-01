@@ -2,31 +2,43 @@
 <%- include header -%>
 
 <!-- Флэш-телеграмма. Копируйте под хэдер на каждую большую страницу -->
+<!-- ============================== -->
 <% if ( sessionFlash && sessionFlash.message) { %>
     <div id="flashbanner" class="<%= sessionFlash.type %>">
         <%= sessionFlash.message %>
         <script>
-            $('#flashbanner').click(function() {
+            setTimeout(function() {
+                $('#flashbanner').fadeOut('slow');
+            }, 2500);
+            $('#flashbanner').mouseover(function() {
                 $(this).hide('slow');
                 console.log('clicked');
             });
         </script>
     </div>
 <% } %>
+<!-- ============================== -->
+
+
 
 <section class="gallery" ng-controller="cardCtrl">
     <!-- ПОИСК. Создана модель данных 'filter' которая принимает в себя введенные данные -->
-<div class="loading" ng-show="courseList.length === 0">
-    Минутку! Мы подбираем для вас самое лучшее!
-</div>
+    <div class="loading" ng-show="courseList.length === 0">
+        Минутку! Мы подбираем для вас самое лучшее!
+    </div>
     <div class="search-wrap" ng-show="courseList.length >0">
-        <div class="tag"><h1>WDC</h1></div>
-        <div class="tag-low"><h3>дарим знания</h3></div>
+        <div class="tag">
+            <h1>WDC</h1>
+        </div>
+        <div class="tag-low">
+            <h3>дарим знания</h3>
+        </div>
         <i class="fa fa-search" id="searchicon" aria-hidden="true"></i>
         <input autofocus="autofocus" ng-model="filter" class="main-search" type="text" placeholder="начните ввод...">
         <div class="tag-lowest" ng-show="courseList.length >0">
             <p>{{courseList.length}}
-             курсов вам на выбор!</p></div>
+                курсов вам на выбор!</p>
+        </div>
     </div>
     <div class="card-container-flex" ng-show="filter.length > 2">
         <!-- ГЕНЕРАТОР КАРТОЧЕК. Фильтр читает переменную модели filter и фильтрует в соответствии с данными этой модели -->

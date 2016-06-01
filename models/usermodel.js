@@ -1,7 +1,7 @@
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
 // Модель пользователя для базы
-var userSchema = mongoose.Schema({
+const userSchema = mongoose.Schema({
     github: {
         id: String,
         email: String,

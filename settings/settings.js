@@ -1,4 +1,6 @@
-var Settings = {
+'use strict'
+
+const Settings = {
     port: process.env.PORT || 3000, //выбор порта. Если не задается системой жестко, то 3000 "||" - оператор ИЛИ в JS если что =)
     serverResponse: "***\n### Добро пожаловать на сервер Webdev Courses!\n### СТАТУС СЕРВЕРА: OK. ПОРТ: ",
     dbResponse: "### БАЗА ДАННЫХ ПОДКЛЮЧЕНА.\n***",

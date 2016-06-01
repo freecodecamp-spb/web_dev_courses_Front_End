@@ -1,25 +1,26 @@
+'use strict'
 // Запрос модулей, которые мы установили пакетным менеджером.
 // О том, что делает каждый, можно почитать на npmjs.com
-var express = require('express');
-var engine = require('ejs-mate');
-var morgan = require('morgan');
-var cookieParser = require('cookie-parser');
-var session = require('express-session');
-var flash = require('express-flash');
-var mongoose = require('mongoose');
-var bodyParser = require('body-parser');
-var passport = require('passport');
+const express = require('express');
+const engine = require('ejs-mate');
+const morgan = require('morgan');
+const cookieParser = require('cookie-parser');
+const session = require('express-session');
+const flash = require('express-flash');
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+const passport = require('passport');
 
-var Settings = require('./settings/settings'); //настройки сервера
+const Settings = require('./settings/settings'); //настройки сервера
 
-var app = express(); //инициализация сервера на Express
+const app = express();
 
 // Настройки сервера, берутся из объета Setting выше, которыйы создан из модуля settings.js
-var PORT = Settings.port;
-var MESSAGE = Settings.serverResponse + PORT;
-var DBMESSAGE = Settings.dbResponse;
-var MOTD = Settings.MOTD;
-var SECRET = Settings.secret;
+const PORT = Settings.port;
+const MESSAGE = Settings.serverResponse + PORT;
+const DBMESSAGE = Settings.dbResponse;
+const MOTD = Settings.MOTD;
+const SECRET = Settings.secret;
 
 // Подключаем базу данных (mongoose - удобный пакет для работы с Монго)
 mongoose.connect(Settings.database, function(err) {

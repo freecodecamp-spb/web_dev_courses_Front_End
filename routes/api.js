@@ -1,8 +1,8 @@
-var express = require('express');
-var User = require('../models/usermodel');
-var Course = require('../models/coursemodel');
+'use strict'
 
-
+const express = require('express');
+const User = require('../models/usermodel');
+const Course = require('../models/coursemodel');
 
 module.exports = function(app, passport) {
 
@@ -13,11 +13,11 @@ module.exports = function(app, passport) {
     });
 
     app.get('/users/get', function(req, res) {
-        User.find(function(err, userlist) {
+        User.find(function(err, userList) {
             if (err) {
                 res.send(err);
             }
-            res.json(userlist);
+            res.json(userList);
         });
     });
 
@@ -32,7 +32,7 @@ module.exports = function(app, passport) {
 
     app.post('/courses/add', function(req, res) {
         console.log("=== Попытка записи в базу ===");
-        var course = new Course(req.body);
+        let course = new Course(req.body);
         course.save(function(err) {
             if (err) {
                 return err;
