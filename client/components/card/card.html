@@ -1,4 +1,4 @@
-<div class="card-flex">
+<div class="card card-flex">
     <h2 class="course-name">{{course.card.title || 'No Title'}}</h2>
     <i class="course-tag" ng-repeat="tag in course.card.tags | orderBy:tag">#{{tag || 'No tag'}} </i>
     <p class="course-desc">{{course.card.description || 'No description'}}</p>

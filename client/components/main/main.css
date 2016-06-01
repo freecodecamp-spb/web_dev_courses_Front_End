@@ -94,7 +94,7 @@ header {
     width: 80%;
     margin: 6rem auto 2.4rem auto;
 }
-.tag {
+.logo {
     font-size: 5.8rem;
     font-weight: bolder;
     text-shadow: 4px 4px 0 rgba(0, 0, 0, 0.2);
@@ -129,10 +129,6 @@ header {
     padding: 0;
     margin: 20px 0;
     min-height: 100px;
-}
-.course-name {
-    margin: 0;
-    padding: 15px 15px;
 }
 
 /* ==================== FOOTER ==================== */
@@ -213,7 +209,7 @@ header {
     .nav li {
         font-size: small;
     }
-    .tag {
+    .logo {
         font-size: 4.64rem;
     }
     .tag-low {
@@ -232,7 +228,7 @@ header {
     .search-wrap {
         margin-top: 50px;
     }
-    .tag {
+    .logo {
         /*display: none;*/
         font-size: 4.64rem;
     }

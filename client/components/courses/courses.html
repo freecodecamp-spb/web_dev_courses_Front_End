@@ -1,0 +1,8 @@
+<section class="courses" ng-controller="courses">
+
+  <div class="loading" ng-show="courseList.length === 0">
+    Минутку! Мы подбираем для вас самое лучшее!
+  </div>
+
+  <card ng-repeat="course in courseList | filter: filter"></card>
+</section>

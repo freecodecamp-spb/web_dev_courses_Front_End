@@ -125,5 +125,5 @@ gulp.task(
 
 gulp.task(
     'default',
-    ['build:dev', 'watch', 'browser-sync']
+    ['build:dev', 'watch', 'nodemon']
 );
