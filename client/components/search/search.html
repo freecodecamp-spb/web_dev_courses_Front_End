@@ -1,0 +1,69 @@
+<!--
+ПОИСК. Создана модель данных 'filter' которая принимает в себя введенные данные
+-->
+
+<div class="search-wrap" ng-controller="search">
+
+  <form
+      class="search-form"
+      action="/courses/search/"
+      ng-submit="onSubmit($event)"
+  >
+    <input
+        class="search-form__input main-search"
+        autofocus="autofocus"
+        ng-model="filter"
+        type="text"
+        placeholder="начните ввод..."
+    >
+    <button class="search-form__submit" type="submit">Найти!</button>
+    <ul class="search-form__tags search-tags">
+      <!--TODO: make ng-repeat -->
+      <li class="search-tag">
+          <input
+              id="search-tag__input_html"
+              value="html"
+              name="tags['html']"
+              ng-model="search_tags['html']"
+              type="checkbox"
+              class="search-tag__input"
+              ng-change="onTagChange()"
+          >
+        <label class="search-tag__label" for="search-tag__input_html">html</label>
+      </li>
+      <li class="search-tag">
+          <input
+              id="search-tag__input_css"
+              value="css"
+              name="tags['css']"
+              ng-model="search_tags['css']"
+              type="checkbox"
+              class="search-tag__input"
+              ng-change="onTagChange()"
+          >
+        <label class="search-tag__label" for="search-tag__input_css">css</label>
+      </li>
+      <li class="search-tag">
+          <input
+              id="search-tag__input_javascript"
+              value="javascript"
+              name="tags['javascript']"
+              ng-model="search_tags['javascript']"
+              type="checkbox"
+              class="search-tag__input"
+              ng-change="onTagChange()"
+          >
+        <label class="search-tag__label" for="search-tag__input_javascript">javascript</label>
+      </li>
+    </ul>
+
+  </form>
+
+  <div class="search-result">
+    <p class="search-result__header">Найдено {{results.length}} курсов</p>
+    <div class="search-result__content">
+      <card ng-repeat="result in results"/>
+    </div>
+  </div>
+
+</div>

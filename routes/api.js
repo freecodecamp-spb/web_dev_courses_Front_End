@@ -6,6 +6,7 @@ const Course = require('../models/coursemodel');
 
 module.exports = function(app, passport) {
 
+
     app.get('/users', function(req, res) {
         res.render('users', {
             user: req.user
@@ -28,6 +29,31 @@ module.exports = function(app, passport) {
             }
             res.json(courseList);
         });
+    });
+
+    app.get('/courses/search/:query', function(req, res) {
+        var query = {}; // all documents
+
+        if (req.params.query !== 'all') {
+            /**
+             * @see https://docs.mongodb.com/manual/tutorial/query-documents/#query-on-embedded-documents
+             * @type {{[card.tags]: {$in: (Array|*)}}}
+             */
+            query = {
+                "card.tags": {
+                    "$in": (req.params.query).split(',')
+                }
+            };
+        }
+
+        Course
+            .find(query)
+            .exec(function(err, courseList) {
+                if (err) {
+                    res.send(err)
+                }
+                res.json(courseList);
+            });
     });
 
     app.post('/courses/add', function(req, res) {
