@@ -10,8 +10,6 @@ var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var passport = require('passport');
 
-// Подключение собственных модулей
-var routes = require('./routes/index'); //все основные маршруты
 var Settings = require('./settings/settings'); //настройки сервера
 
 var app = express(); //инициализация сервера на Express
@@ -66,6 +64,8 @@ app.use(function(req, res, next){
 
 require('./settings/passport')(passport);
 require('./routes/index')(app, passport);
+require('./routes/api')(app, passport);
+require('./routes/users')(app, passport);
 
 // Используем обработчик view: EJS
 app.engine('ejs', engine);

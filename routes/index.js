@@ -1,13 +1,8 @@
 var express = require('express');
 var User = require('../models/usermodel');
-var Course = require('../models/coursemodel');
 
 
 module.exports = function(app, passport) {
-    // Мы подключаем модуль с маршрутами в наш app и сразу делегируем туда passport
-    // app.get слушает запрос(get) по адресу. "/" в данном случае это рут. "/about" это был бы localhost:3000/about
-    // res.render отображает страницу с помощью нашего движка который мы указали в server.js - EJS
-    // "main" - это название файла для рендера из папки "/views"
 
     app.get('/', function(req, res) {
         res.render("main", {
@@ -47,44 +42,4 @@ module.exports = function(app, passport) {
         req.logout();
         res.redirect('/');
     });
-
-    app.get('/users', function(req, res) {
-        res.render('users', {
-            user: req.user
-        });
-    });
-
-    app.get('/users/get', function(req, res) {
-        User.find(function(err, userlist) {
-            if (err) res.send(err);
-            res.json(userlist);
-        });
-    });
-
-    app.get('/courses/get', function(req, res) {
-        Course.find(function(err, courseList) {
-            if (err) {
-                res.send(err)
-            }
-            res.json(courseList);
-        });
-    });
-
-    app.post('/course/add', function(req, res) {
-        console.log("=== Попытка записи в базу ===");
-        var course = new Course(req.body);
-        course.save(function(err) {
-            if (err) {
-                return err;
-            } else {
-                console.log("=== Запись успешно добавлена ===");
-                req.session.sessionFlash = {
-                    type: 'flash__success',
-                    message: 'Курс успешно добавлен в базу данных.'
-                }
-                res.redirect('/');
-            }
-        })
-    });
-
 };

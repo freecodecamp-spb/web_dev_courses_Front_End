@@ -4,6 +4,7 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    text-align: left;
 }
 .card-flex {
     position: relative;
@@ -25,9 +26,11 @@
     /*!Радиус этих рамок должен совпадать:^^^^^^^*/
     border-radius: 6px 6px 0 0;
     cursor: pointer;
+    text-align: center;
 }
 .course-desc {
     padding: 1rem;
+    text-align: justify;
 }
 .course-tag {
     display: inline-block;
@@ -37,6 +40,7 @@
     margin-top: .6rem;
     font-size: .8rem;
     border-radius: 2px;
+
 }
 .course-rating {
     position: absolute;

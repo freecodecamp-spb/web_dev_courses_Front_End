@@ -1,18 +1,17 @@
-var GitHubStrategy = require('passport-github2').Strategy;
-var User = require('../models/usermodel');
-var configAuth = require('./auth');
+var GitHubStrategy = require('passport-github2').Strategy
+var User = require('../models/usermodel')
+var configAuth = require('./auth')
 
 module.exports = function(passport) {
-
     passport.serializeUser(function(user, done) {
-        done(null, user.id);
-    });
+        done(null, user.id)
+    })
 
     passport.deserializeUser(function(id, done) {
         User.findById(id, function(err, user) {
-            done(err, user);
-        });
-    });
+            done(err, user)
+        })
+    })
 
     // Модуль Стратегии авторизации.
     passport.use(new GitHubStrategy({
@@ -26,26 +25,26 @@ module.exports = function(passport) {
                     'github.id': profile.id
                 }, function(err, user) {
                     if (err) {
-                        return done(err);
+                        return done(err)
                     }
                     if (user) {
-                        return done(null, user);
+                        return done(null, user)
                     } else {
-                        var newUser = new User();
-                        newUser.github.id = profile.id;
-                        newUser.github.name = profile.displayName;
-                        newUser.github.email = profile.email;
-                        newUser.github.avatar = profile._json.avatar_url;
+                        var newUser = new User()
+                        newUser.github.id = profile.id
+                        newUser.github.name = profile.displayName
+                        newUser.github.email = profile.email
+                        newUser.github.avatar = profile._json.avatar_url
 
                         newUser.save(function(err) {
                             if (err) {
-                                throw err;
+                                throw err
                             }
-                            return done(null, newUser);
+                            return done(null, newUser)
                         })
                     }
-                });
-            });
+                })
+            })
         }
-    ));
-};
+    ))
+}
