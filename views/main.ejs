@@ -1,5 +1,5 @@
-<%- include base -%>
-<%- include header -%>
+<%- include base %>
+<%- include header %>
 
 <!-- Флэш-телеграмма. Копируйте под хэдер на каждую большую страницу -->
 <!-- ============================== -->
@@ -19,31 +19,10 @@
 <% } %>
 <!-- ============================== -->
 
+<div class="logo">
+    <h1>WDC</h1>
+</div>
 
+<search></search>
 
-<section class="gallery" ng-controller="cardCtrl">
-    <!-- ПОИСК. Создана модель данных 'filter' которая принимает в себя введенные данные -->
-    <div class="loading" ng-show="courseList.length === 0">
-        Минутку! Мы подбираем для вас самое лучшее!
-    </div>
-    <div class="search-wrap" ng-show="courseList.length >0">
-        <div class="tag">
-            <h1>WDC</h1>
-        </div>
-        <div class="tag-low">
-            <h3>дарим знания</h3>
-        </div>
-        <i class="fa fa-search" id="searchicon" aria-hidden="true"></i>
-        <input autofocus="autofocus" ng-model="filter" class="main-search" type="text" placeholder="начните ввод...">
-        <div class="tag-lowest" ng-show="courseList.length >0">
-            <p>{{courseList.length}}
-                курсов вам на выбор!</p>
-        </div>
-    </div>
-    <div class="card-container-flex" ng-show="filter.length > 2">
-        <!-- ГЕНЕРАТОР КАРТОЧЕК. Фильтр читает переменную модели filter и фильтрует в соответствии с данными этой модели -->
-        <card ng-repeat="course in courseList | filter: filter"></card>
-    </div>
-</section>
-
-<%- include footer -%>
+<%- include footer %>
