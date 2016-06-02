@@ -5,6 +5,7 @@ var batch = require('gulp-batch');
 var nodemon = require('gulp-nodemon');
 var concat = require('gulp-concat');
 var del = require('del');
+var image = require('gulp-image-optimization');
 
 var browserSync = require('browser-sync')
     .create();
@@ -15,7 +16,8 @@ var paths = {
     ejsFiles: "./views/**/*.ejs",
     jsFiles: "client/**/*.js",
     templateFiles: "client/components/**/*.html",
-    cssFiles: "client/**/*.css"
+    cssFiles: "client/**/*.css",
+    imageFiles: "client/images/**/*.jpg"
 };
 
 // Watching modified files
@@ -27,7 +29,8 @@ gulp.task(
                 paths.ejsFiles,
                 paths.jsFiles,
                 paths.templateFiles,
-                paths.cssFiles
+                paths.cssFiles,
+                paths.imageFiles
             ],
             batch(function(events, done) {
                 gulp.start('build:dev', done);
@@ -36,8 +39,7 @@ gulp.task(
 );
 
 gulp.task(
-    'browser-sync',
-    ['nodemon'],
+    'browser-sync', ['nodemon'],
     function() {
         browserSync.init(null, {
             proxy: "http://localhost:3000",
@@ -52,13 +54,13 @@ gulp.task(
     function(callback) {
         var started = false;
         return nodemon({
-            script: 'server.js',
-            ignore: [
-                'public/**/*.*',
-                paths.jsFiles,
-                paths.cssFiles
-            ]
-        })
+                script: 'server.js',
+                ignore: [
+                    'public/**/*.*',
+                    paths.jsFiles,
+                    paths.cssFiles
+                ]
+            })
             .on('start', function() {
                 if (!started) {
                     callback();
@@ -69,35 +71,40 @@ gulp.task(
 );
 
 gulp.task(
-    'build:dev',
-    ['build:js', 'build:css', 'copy:templates']
+    'build:dev', ['processImages','build:js', 'build:css', 'copy:templates']
 );
 
+gulp.task('processImages', ['clean:img'], function(cb) {
+    gulp.src(paths.imageFiles).pipe(image({
+        optimizationLevel: 6,
+        progressive: true,
+        interlaced: true
+    })).pipe(gulp.dest('public/images/')).on('error', cb);
+});
+
 gulp.task(
-    'build:js',
-    ['clean:js'],
+    'build:js', ['clean:js'],
     function() {
         return gulp.src(
-            [
-                'client/app.js', /* must be first */
-                paths.jsFiles
-            ]
-        )
+                [
+                    'client/app.js', /* must be first */
+                    paths.jsFiles
+                ]
+            )
             .pipe(concat('build.js'))
             .pipe(gulp.dest('public/js/'));
     }
 );
 
 gulp.task(
-    'build:css',
-    ['clean:css'],
+    'build:css', ['clean:css'],
     function() {
         return gulp.src(
-            [
-                'client/components/main/main.css', /* must be first */
-                paths.cssFiles
-            ]
-        )
+                [
+                    'client/components/main/main.css', /* must be first */
+                    paths.cssFiles
+                ]
+            )
             .pipe(concat('build.css'))
             .pipe(gulp.dest('public/css/'));
     }
@@ -105,8 +112,7 @@ gulp.task(
 
 
 gulp.task(
-    'copy:templates',
-    ['clean:templates'],
+    'copy:templates', ['clean:templates'],
     function() {
         gulp
             .src(paths.templateFiles)
@@ -133,6 +139,15 @@ gulp.task(
 );
 
 gulp.task(
+    'clean:img',
+    function() {
+        return del([
+            'public/images'
+        ]);
+    }
+);
+
+gulp.task(
     'clean:css',
     function() {
         return del([
@@ -142,6 +157,5 @@ gulp.task(
 );
 
 gulp.task(
-    'default',
-    ['build:dev', 'watch', 'browser-sync']
+    'default', ['build:dev', 'watch', 'browser-sync']
 );
