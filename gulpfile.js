@@ -14,6 +14,7 @@ var Settings = require('./settings/settings');
 var paths = {
     ejsFiles: "./views/**/*.ejs",
     jsFiles: "client/**/*.js",
+    templateFiles: "client/**/*.html",
     cssFiles: "client/**/*.css"
 };
 
@@ -25,6 +26,7 @@ gulp.task(
             [
                 paths.ejsFiles,
                 paths.jsFiles,
+                paths.templateFiles,
                 paths.cssFiles
             ],
             batch(function(events, done) {
@@ -105,7 +107,7 @@ gulp.task(
     'copy:templates',
     function() {
         gulp
-            .src('client/components/**/*.html')
+            .src(paths.templateFiles)
             .pipe(gulp.dest('public/templates/'));
     }
 );
