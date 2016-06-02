@@ -1,6 +1,6 @@
 <div class="card-flex">
     <h2 class="course-name">{{course.card.title || 'No Title'}}</h2>
-    <i class="course-tag" ng-repeat="tag in course.card.tags | orderBy:tag">#{{tag || 'No tag'}} </i>
+    <i class="course-tag" ng-repeat="tag in course.card.tags | orderBy:tag track by $index">#{{tag || 'No tag'}} </i>
     <p class="course-desc">{{course.card.description || 'No description'}}</p>
     <i class="course-rating">{{course.card.vox.votes | number: 1}}</i>
 </div>
