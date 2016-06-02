@@ -50,7 +50,12 @@ gulp.task(
     function(callback) {
         var started = false;
         return nodemon({
-            script: 'server.js'
+            script: 'server.js',
+            ignore: [
+                'public/**/*.*',
+                paths.jsFiles,
+                paths.cssFiles
+            ]
         })
             .on('start', function() {
                 if (!started) {
