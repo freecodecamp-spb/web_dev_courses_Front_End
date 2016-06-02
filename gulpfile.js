@@ -14,6 +14,7 @@ var Settings = require('./settings/settings');
 var paths = {
     ejsFiles: "./views/**/*.ejs",
     jsFiles: "client/**/*.js",
+    templateFiles: "client/components/**/*.html",
     cssFiles: "client/**/*.css"
 };
 
@@ -25,6 +26,7 @@ gulp.task(
             [
                 paths.ejsFiles,
                 paths.jsFiles,
+                paths.templateFiles,
                 paths.cssFiles
             ],
             batch(function(events, done) {
@@ -101,12 +103,23 @@ gulp.task(
     }
 );
 
+
 gulp.task(
     'copy:templates',
+    ['clean:templates'],
     function() {
         gulp
-            .src('client/components/**/*.html')
+            .src(paths.templateFiles)
             .pipe(gulp.dest('public/templates/'));
+    }
+);
+
+gulp.task(
+    'clean:templates',
+    function() {
+        return del([
+            'public/templates/'
+        ]);
     }
 );
 
