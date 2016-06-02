@@ -40,6 +40,4 @@ webDevCourses/__pycache__/urls.cpython-35.pyc
 coursesApp/__pycache__/models.cpython-35.pyc
 webDevCourses/__pycache__/settings.cpython-35.pyc
 webDevCourses/__pycache__/wsgi.cpython-35.pyc
-public/js/
-/public/templates/
-/public/css/
+public/
