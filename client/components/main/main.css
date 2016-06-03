@@ -156,14 +156,13 @@ header {
 
 /*SUBMIT FORM*/
 .form__course {
-    margin-left: 10%;
+    margin: 1% 5%;
     text-align: left;
 }
 .form__course input {
     display: block;
     margin: .9rem;
     margin-top: .32rem;
-    width: 30%;
     background: transparent;
     outline: none;
     border: 1px solid rgba(255, 255, 255, .52);
