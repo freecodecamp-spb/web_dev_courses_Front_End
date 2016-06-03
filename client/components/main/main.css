@@ -86,10 +86,6 @@ header {
 }
 
 /* ==================== SEARCH ==================== */
-.loading {
-        font-size: 1.62rem;
-        margin: 8rem auto 2.4rem auto;
-}
 .search-wrap {
     width: 80%;
     margin: 6rem auto 2.4rem auto;

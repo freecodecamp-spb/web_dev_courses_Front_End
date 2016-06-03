@@ -1,9 +1,9 @@
-.loading {
+.loader {
         font-size: 1.62rem;
         margin: 8rem auto 2.4rem auto;
 }
 
-.spinner {
+.loader__spinner {
   margin: 100px auto;
   width: 40px;
   height: 40px;
@@ -11,7 +11,7 @@
     color: white;
 }
 
-.cube1, .cube2 {
+.loader__spinner_cube1, .loader__spinner_cube2 {
   background-color: #fff;
   width: 15px;
   height: 15px;
@@ -24,7 +24,7 @@
   animation: sk-cubemove 1.8s infinite ease-in-out;
 }
 
-.cube2 {
+.loader__spinner_cube2 {
   -webkit-animation-delay: -0.9s;
   animation-delay: -0.9s;
 }
