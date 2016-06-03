@@ -20,9 +20,7 @@
 <!-- ============================== -->
 
 <section class="gallery" ng-controller="cardCtrl">
-    <div class="loading" ng-show="courseList.length === 0">
-        Минутку! Мы подбираем для вас самое лучшее!
-    </div>
+    <loader></loader>
     <div class="search-wrap" ng-show="courseList.length >0">
         <div class="tag">
             <h1>WDC</h1>
@@ -40,7 +38,7 @@
     </div>
     <div class="card-container-flex" ng-show="searchInput.length > 2">
         <!-- ГЕНЕРАТОР КАРТОЧЕК. Фильтр читает 'searchInput' и фильтрует в соответствии с данными этой модели -->
-        <card ng-repeat="course in courseList | filter: searchInput"/>
+        <card ng-repeat="course in courseList | filter: searchInput"></card>
     </div>
 </section>
 
