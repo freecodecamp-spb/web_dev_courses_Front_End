@@ -30,7 +30,7 @@ mongoose.connect(Settings.database, function(err) {
         console.log(err);
     };
     console.log(DBMESSAGE);
-    console.log("Сообщение дня: " + MOTD); //Сообщения дня можно редактировать в фалйе настроек. Это больше для общения разработчиков.
+    console.log(`Сообщение дня: ${MOTD}`); //Сообщения дня можно редактировать в фалйе настроек. Это больше для общения разработчиков.
 });
 
 // Это Middleware. Мы запускаем подключенные в начале модули с параметрами, если они нужны.
@@ -78,5 +78,5 @@ app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 app.listen(PORT, function() {
     console.log(MESSAGE);
-    console.log("### Запускать по адресу -> localhost:" + PORT);
+    console.log(`### Запускать по адресу -> localhost: ${PORT}`);
 });
