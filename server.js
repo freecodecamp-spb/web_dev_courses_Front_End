@@ -10,10 +10,12 @@ const flash = require('express-flash');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const passport = require('passport');
+const favicon = require('express-favicon');
 
 const Settings = require('./settings/settings'); //настройки сервера
 
 const app = express();
+app.use(favicon(__dirname + '/public/favicon.ico'));
 
 // Настройки сервера, берутся из объета Setting выше, которыйы создан из модуля settings.js
 const PORT = Settings.port;
@@ -39,6 +41,7 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 
+
 // DEV ONLY SETTINGS. DO NOT FORGET TO CHANGE.
 // настройки сессии на сервере. think server-side cookies.
 app.use(session({
@@ -54,6 +57,7 @@ app.use(passport.session());
 
 // Установка публичной ветки
 app.use(express.static(__dirname + '/public'));
+
 
 // Установка flash (тестовая)
 app.use(flash())
