@@ -31,10 +31,11 @@ body {
     text-align: center;
     color: #fff;
     font-family: 'Roboto', sans-serif;
-    background: linear-gradient(45deg, rgba(157, 11, 21, .93) 0%, rgba(0, 82, 174, .93) 100%), url('../images/pic_back.jpg');
+    background: rgba(194,157,162,1);
+    background: linear-gradient(45deg, rgba(194,157,162,.8) 0%, rgba(5,24,148,.8) 100%), url('../images/pic_back.jpg');
     background-repeat: no-repeat, no-repeat, no-repeat;
     background-attachment: fixed;
-    background-size: 300% auto, cover;
+    background-size: 400% auto, cover;
     animation: bgrad 14s infinite alternate linear;
 }
 
