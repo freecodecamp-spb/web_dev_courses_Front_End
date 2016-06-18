@@ -1,0 +1,73 @@
+.search-form
+{
+
+}
+
+.search-form__input
+{
+
+}
+
+.search-form__tags
+{
+    margin: 10px 0;
+}
+
+.search-form__submit
+{
+    cursor: pointer;
+    background: none;
+    outline: none;
+    border: none;
+    color: white;
+    font-size: 1.5em;
+}
+
+.search-tags
+{
+}
+
+.search-tag
+{
+    display: inline-block;
+    vertical-align: top;
+    border-radius: 5px;
+}
+
+.search-tag__label
+{
+    font-size: 2em;
+    user-select: none;
+    border: 1px solid lightgray;
+    padding: 5px 15px;
+    cursor: pointer;
+}
+
+.search-tag__input
+{
+    font-size: 0;
+    padding: 0;
+    border: 0;
+    width: 0;
+    height: 0;
+    line-height: 0;
+    visibility: hidden;
+}
+
+.search-tag__input:checked ~ .search-tag__label
+{
+    border-color: white;
+    background-color: lightgoldenrodyellow;
+    color: gray;
+}
+
+.search-result
+{
+
+}
+
+.search-result__content
+{
+    display: flex;
+    flex-wrap: wrap;
+}
