@@ -1,8 +1,11 @@
 webCourses.controller('search', function($scope, $http) {
 
     var defaultFilter = 'all';
+    var apiUrl = '/courses/search/';
+    var coursesPageLimit = 10;
 
     $scope.filter = defaultFilter;
+    $scope.api_url = apiUrl;
 
     $scope.findCourses = function(searchUrl) {
         $http
@@ -17,7 +20,7 @@ webCourses.controller('search', function($scope, $http) {
 
     $scope.onSubmit = function(e) {
         e.preventDefault();
-        let searchUrl = e.target.action + $scope.filter;
+        let searchUrl = apiUrl + 'tags=' + $scope.filter;
         $scope.findCourses(searchUrl);
     };
 
@@ -35,4 +38,7 @@ webCourses.controller('search', function($scope, $http) {
 
         $scope.filter = filter.join(',') || defaultFilter;
     };
+
+    // on page load
+    $scope.findCourses(apiUrl + 'limit=' + coursesPageLimit);
 });
