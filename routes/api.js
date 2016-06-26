@@ -1,20 +1,23 @@
-'use strict'
+'use strict';
+
+const querystring = require('querystring');
 
 const express = require('express');
+
 const User = require('../models/usermodel');
 const Course = require('../models/coursemodel');
 
-module.exports = function(app, passport) {
+module.exports = function (app, passport) {
 
 
-    app.get('/users', function(req, res) {
+    app.get('/users', function (req, res) {
         res.render('users', {
             user: req.user
         });
     });
 
-    app.get('/users/get', function(req, res) {
-        User.find(function(err, userList) {
+    app.get('/users/get', function (req, res) {
+        User.find(function (err, userList) {
             if (err) {
                 res.send(err);
             }
@@ -22,8 +25,8 @@ module.exports = function(app, passport) {
         });
     });
 
-    app.get('/courses/get', function(req, res) {
-        Course.find(function(err, courseList) {
+    app.get('/courses/get', function (req, res) {
+        Course.find(function (err, courseList) {
             if (err) {
                 res.send(err)
             }
@@ -31,35 +34,46 @@ module.exports = function(app, passport) {
         });
     });
 
-    app.get('/courses/search/:query', function(req, res) {
-        var query = {}; // all documents
+    app.get('/courses/search/(:query*)?',
+        function (req, res) {
+            var dbQuery = {}; // all documents
+            var query = querystring.parse(req.params.query);
 
-        if (req.params.query !== 'all') {
+            console.log("query: ", query);
+
+
             /**
+             * Create db query (begin)
+             *
              * @see https://docs.mongodb.com/manual/tutorial/query-documents/#query-on-embedded-documents
              * @type {{[card.tags]: {$in: (Array|*)}}}
              */
-            query = {
-                "card.tags": {
-                    "$in": (req.params.query).split(',')
-                }
-            };
-        }
 
-        Course
-            .find(query)
-            .exec(function(err, courseList) {
-                if (err) {
-                    res.send(err)
-                }
-                res.json(courseList);
-            });
-    });
+            if (query.tags) {
+                dbQuery["card.tags"] = {
+                    "$in": query.tags.split(',')
+                };
+            }
+            /* Create db query (end) */
 
-    app.post('/courses/add', function(req, res) {
+            console.log("dbQuery: ", dbQuery);
+
+            Course
+                .find(dbQuery)
+                .limit(query.limit || 0) // 0 — unlimited
+                .exec(function (err, courseList) {
+                    if (err) {
+                        res.send(err)
+                    } else {
+                        res.json(courseList);
+                    }
+                });
+        });
+
+    app.post('/courses/add', function (req, res) {
         console.log("=== Попытка записи в базу ===");
         let course = new Course(req.body);
-        course.save(function(err) {
+        course.save(function (err) {
             if (err) {
                 return err;
             } else {
