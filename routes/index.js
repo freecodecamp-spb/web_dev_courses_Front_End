@@ -10,21 +10,30 @@ module.exports = function(app, passport) {
     // "main" - это название файля для рендера из папки "/views"
 
     app.get('/', function(req, res) {
-        res.render("main", {
+        res.render("index", {
             user: req.user,
             message: req.flash()
         });
     });
+    
+    app.get('/courses/', function(req, res) {
+        Course.find(function(err, courseList) {
+            if (err) {
+                res.send(err)
+            }
+            res.json(courseList);
+        });
+    });
 
     app.get('/form', function(req, res) {
-        res.render("submit", {
+        res.render("index", {
             user: req.user
         });
     });
 
     app.get('/profile', function(req, res) {
         if (req.user) {
-            res.render("profile", {
+            res.render("index", {
                 user: req.user
             });
         } else {
@@ -49,7 +58,7 @@ module.exports = function(app, passport) {
     });
 
     app.get('/users', function(req, res) {
-        res.render('users', {
+        res.render('index', {
             user: req.user
         });
     });
