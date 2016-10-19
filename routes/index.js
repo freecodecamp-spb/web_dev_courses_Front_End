@@ -1,6 +1,6 @@
-var express = require('express');
-var User = require('../models/usermodel');
-var Course = require('../models/coursemodel');
+const express = require('express');
+const User = require('../models/usermodel');
+const Course = require('../models/coursemodel');
 
 
 module.exports = function(app, passport) {
@@ -16,7 +16,7 @@ module.exports = function(app, passport) {
         });
     });
     
-    app.get('/courses/', function(req, res) {
+    app.get('/api/courses/', function(req, res) {
         Course.find(function(err, courseList) {
             if (err) {
                 res.send(err)

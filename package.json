@@ -28,5 +28,6 @@
   },
   "devDependencies": {
     "react-scripts": "0.6.1"
-  }
+  },
+  "proxy": "http://localhost:3333"
 }

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+
+import { CourseThumb } from './components/course-thumb';
+
 
 class App extends Component {
   
@@ -11,21 +13,32 @@ class App extends Component {
   }
   
   componentWillMount() {
-    fetch('/courses').then(response => this.setState({ courses: response.json() }));
+    fetch('http://localhost:3333/api/courses/')
+      .then(response => {
+        response.json().then(data => this.setState({courses: data}))
+    });
   }
   
   render() {
-    console.log("this.state: ", this.state);
+    
+    let coursesItems = this.state.courses.map(item => {
+      return (
+        <li key={item._id}>
+          <CourseThumb card={item.card} />
+        </li>
+      );
+    });
     
     return (
       <div className="App">
         <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
+          <h2>Welcome to Courses Catalog!</h2>
         </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        
+        <ul>
+          {coursesItems}
+        </ul>
+        
       </div>
     );
   }
