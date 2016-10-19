@@ -1,8 +1,8 @@
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
 // Модель карты курса для базы
 
-var courseSchema = mongoose.Schema({
+const courseSchema = mongoose.Schema({
 
     card: {
         link: {

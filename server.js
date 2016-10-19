@@ -1,33 +1,33 @@
 // Запрос модулей, которые мы установили пакетным менеджером.
 // О том, что делает каждый, можно почитать на npmjs.com
-var express = require('express');
-var engine = require('ejs-mate');
-var morgan = require('morgan');
-var cookieParser = require('cookie-parser');
-var session = require('express-session');
-var flash = require('express-flash');
-var mongoose = require('mongoose');
-var bodyParser = require('body-parser');
-var passport = require('passport');
+const express = require('express');
+const engine = require('ejs-mate');
+const morgan = require('morgan');
+const cookieParser = require('cookie-parser');
+const session = require('express-session');
+const flash = require('express-flash');
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+const passport = require('passport');
 
 // Подключение собственных модулей
-var routes = require('./routes/index'); //все основные маршруты
-var Settings = require('./settings/settings'); //настройки сервера
+const routes = require('./routes/index'); //все основные маршруты
+const Settings = require('./settings/settings'); //настройки сервера
 
-var app = express(); //инициализация сервера на Express
+const app = express(); //инициализация сервера на Express
 
 // Настройки сервера, берутся из объета Setting выше, которыйы создан из модуля settings.js
-var PORT = Settings.port;
-var MESSAGE = Settings.serverResponse + PORT;
-var DBMESSAGE = Settings.dbResponse;
-var MOTD = Settings.MOTD;
-var SECRET = Settings.secret;
+const PORT = Settings.port;
+const MESSAGE = Settings.serverResponse + PORT;
+const DBMESSAGE = Settings.dbResponse;
+const MOTD = Settings.MOTD;
+const SECRET = Settings.secret;
 
 // Подключаем базу данных (mongoose - удобный пакет для работы с Монго)
 mongoose.connect(Settings.database, function(err) {
     if (err) {
         console.log(err);
-    };
+    }
     console.log(DBMESSAGE);
     console.log("Сообщение дня: " + MOTD); //Сообщения дня можно редактировать в фалйе настроек. Это больше для общения разработчиков.
 });
@@ -57,11 +57,18 @@ app.use(passport.session());
 app.use(express.static(__dirname + '/public'));
 
 // Установка flash (тестовая)
-app.use(flash())
+app.use(flash());
+
 app.use(function(req, res, next){
     res.locals.sessionFlash = req.session.sessionFlash;
     delete req.session.sessionFlash;
     next();
+});
+
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
 });
 
 require('./settings/passport')(passport);
