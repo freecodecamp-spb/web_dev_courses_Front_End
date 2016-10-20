@@ -5,6 +5,14 @@
   color: white;
 }
 
+.App-search {
+  margin: 1em;
+}
+
+.App-courses-list {
+  margin: 1em;
+}
+
 .App-intro {
   font-size: large;
 }

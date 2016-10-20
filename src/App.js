@@ -3,6 +3,8 @@ import './App.css';
 
 import { CourseThumb } from './components/course-thumb';
 
+import { SearchBar } from './components/search-bar';
+
 
 class App extends Component {
   
@@ -19,6 +21,10 @@ class App extends Component {
     });
   }
   
+  changeQueryHandler(query) {
+    console.log("query: ", query);
+  }
+  
   render() {
     
     let coursesItems = this.state.courses.map(item => {
@@ -32,12 +38,18 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
-          <h2>Welcome to Courses Catalog!</h2>
+          <h2>Это каталог курсов по веб-разработке!</h2>
+  
+          <div className="App-search">
+            <SearchBar changeQueryHandler={this.changeQueryHandler} />
+          </div>
         </div>
         
-        <ul>
-          {coursesItems}
-        </ul>
+        <div className="App-courses-list">
+          <ul>
+            {coursesItems}
+          </ul>
+        </div>
         
       </div>
     );

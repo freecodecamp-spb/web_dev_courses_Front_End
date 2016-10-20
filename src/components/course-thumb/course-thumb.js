@@ -6,9 +6,10 @@ export class CourseThumb extends Component {
   
   render() {
     let card = this.props.card;
+    
     let tags = card.tags.map(tag => {
       return (
-        <li>{tag}</li>
+        <li key={Math.random()}>{tag}</li>
       )
     });
     
