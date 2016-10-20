@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 
 import { CourseThumb } from './components/course-thumb';
-
 import { SearchBar } from './components/search-bar';
 
 
