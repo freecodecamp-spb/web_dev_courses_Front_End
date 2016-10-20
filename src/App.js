@@ -10,14 +10,17 @@ class App extends Component {
   constructor(props) {
     super(props);
     
-    this.state = {courses: []};
+    this.state = {
+      courses: [],
+      page: 0
+    };
+  
+    this.setPrevPage = this.setPrevPage.bind(this);
+    this.setNextPage = this.setNextPage.bind(this);
   }
   
   componentWillMount() {
-    fetch('/api/courses/')
-      .then(response => {
-        response.json().then(data => this.setState({courses: data}))
-    });
+    this.getCourses();
   }
   
   changeQueryHandler(query) {
@@ -45,6 +48,15 @@ class App extends Component {
         </div>
         
         <div className="App-courses-list">
+          
+          <div className="paginator">
+            <div>Вы на странице {this.state.page}</div>
+            
+            <button onClick={this.setPrevPage}>назад</button>
+             |
+            <button onClick={this.setNextPage}>вперед</button>
+          </div>
+          
           <ul>
             {coursesItems}
           </ul>
@@ -52,6 +64,33 @@ class App extends Component {
         
       </div>
     );
+  }
+  
+  setPrevPage() {
+    let page = this.state.page > 0 ? (this.state.page - 1) : 0;
+    
+    this.setState({
+      page: page
+    });
+  
+    this.getCourses();
+  }
+  
+  setNextPage() {
+    this.setState({
+      page: this.state.page + 1
+    });
+  
+    this.getCourses();
+  }
+  
+  getCourses() {
+    fetch('/api/courses/' + this.state.page).then(response => {
+      response.json().then(data => this.setState({
+        courses: data,
+        page: this.state.page
+      }))
+    });
   }
 }
 
