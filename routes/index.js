@@ -16,8 +16,10 @@ module.exports = function(app, passport) {
     });
   });
   
-  app.get('/api/courses/:page', function(req, res) {
-    let page = req.params.page || 0;
+  app.get('/api/courses/', function(req, res) {
+    let query = req.query;
+    let page = query.page || 0;
+
     let callback = (err, courseList) => {
       if (err) {
         res.send(err);

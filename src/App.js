@@ -85,7 +85,7 @@ class App extends Component {
   }
   
   getCourses() {
-    fetch('/api/courses/' + this.state.page).then(response => {
+    fetch('/api/courses/?page=' + this.state.page).then(response => {
       response.json().then(data => this.setState({
         courses: data,
         page: this.state.page
