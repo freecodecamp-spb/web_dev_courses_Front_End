@@ -27,7 +27,7 @@ const courseSchema = mongoose.Schema({
         },
         image: {
             type: String,
-            default: "images/development-bg.png"
+            default: "https://placeholdit.imgix.net/~text?txtsize=33&txt=350×150&w=350&h=250"
         },
         language: {
             type: String,
