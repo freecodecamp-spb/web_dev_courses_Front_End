@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 
 import './course-thumb.css';
 
@@ -30,7 +31,12 @@ export class CourseThumb extends Component {
           {tags}
         </ul>
   
-        <a href={card.link} target="_blank">Открыть в новом окне</a>
+        <hr/>
+  
+        <ul className="links">
+          <li><Link to={'/courses/' + this.props.id}>Карточка курса</Link></li>
+          <li><a href={card.link} target="_blank">Ссылка на сайт</a></li>
+        </ul>
         
       </div>
     );

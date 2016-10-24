@@ -31,6 +31,20 @@ module.exports = function(app, passport) {
     Course.find(callback).limit(10).skip(Number(page) * 10).sort({"card.title": 1});
   });
   
+  app.get('/api/courses/:id', function(req, res) {
+    let id = req.params.id;
+    
+    let callback = (err, courseData) => {
+      if (err) {
+        res.send(err);
+      } else {
+        res.json(courseData);
+      }
+    };
+  
+    Course.findOne({_id: id}, callback);
+  });
+  
   app.get('/form', function(req, res) {
     res.render("index", {
       user: req.user
