@@ -73,7 +73,7 @@ export class CourseCard extends Component {
                 <div className="links">
                   <a href={card.link} target="_blank">{card.link}</a>
                 </div>
-                
+              
               </div>
             
             </div>
@@ -88,50 +88,88 @@ export class CourseCard extends Component {
       return (
         <li
           key={Math.random()}>
-          {tag}
+          <input
+            className="form-control"
+            value={tag}
+          />
         </li>
       )
     });
     
     return (
-      <form className="CourseCard" onSubmit={(e) => { e.preventDefault() } }>
-        
-        <button
-          className="btn btn default"
-          onClick={this.setViewMode}>
-          View
-        </button>
-        
-        <div className="header">
-          <input value={card.title}/>
+      <form
+        className="form CourseCard"
+        onSubmit={(e) => { e.preventDefault() } }
+      >
+  
+        <div className="controls">
+          <button
+            className="btn btn-default"
+            onClick={this.setViewMode}>
+            View
+          </button>
         </div>
         
-        <div className="author">
-          <input value={card.author}/>
+        <div className="header form-item">
+          <div className="input-group">
+            <label htmlFor="title" className="input-group-addon">title</label>
+            <input
+              id="title"
+              className="form-control"
+              value={card.title}/>
+          </div>
+        
         </div>
         
-        <div className="image">
-          <input value={card.image}/>
+        <div className="author form-item">
+          <div className="input-group">
+            <label htmlFor="author" className="input-group-addon">author</label>
+            <input
+              id="author"
+              className="form-control"
+              value={card.author}/>
+          </div>
         </div>
         
+        <div className="image form-item">
+          <div className="input-group">
+            <label htmlFor="image" className="input-group-addon">image</label>
+            <input
+              id="image"
+              className="form-control"
+              value={card.image}/>
+          </div>
+        </div>
         
-        <textarea
-          className="description"
-          value={card.description}
-        />
+        <div className="description form-item">
+  
+          <div className="input-group">
+            <label htmlFor="description" className="input-group-addon">description</label>
+            <textarea
+              id="description"
+              className="form-control"
+              rows="10"
+              value={card.description}
+            />
+          </div>
+        </div>
         
-        <ul className="tags">
-          {tags}
-        </ul>
-        
-        <hr/>
-        
-        <ul className="links">
-          <li>
-            <input value={card.link}/>
-          </li>
-        </ul>
-      
+        <div className="links form-item">
+          <div className="input-group">
+            <label htmlFor="link" className="input-group-addon">link</label>
+            <input
+              className="form-control"
+              value={card.link}
+            />
+          </div>
+        </div>
+  
+        <div className="tags-wrapper">
+          <div>tags:</div>
+          <ul className="tags">
+            {tags}
+          </ul>
+        </div>
       </form>
     );
   }

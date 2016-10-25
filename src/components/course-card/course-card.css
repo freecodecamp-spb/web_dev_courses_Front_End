@@ -17,3 +17,13 @@ div.CourseCard .image {
 form.CourseCard {
 
 }
+
+
+form.CourseCard .input-group-addon {
+  min-width: 100px;
+}
+
+
+form.CourseCard .form-item {
+  margin: 0 0 10px 0;
+}
