@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { CourseThumb } from '../../components/course-thumb';
+import { CourseCard } from '../../components/course-card';
 
 export class CoursesItemPage extends Component {
   
@@ -19,7 +19,7 @@ export class CoursesItemPage extends Component {
     let thumb;
     
     if (course) {
-      thumb = <CourseThumb card={course.card} id={course._id}/>;
+      thumb = <CourseCard card={course.card} id={course._id}/>;
     }
     
     return (
