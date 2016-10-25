@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './course-card.css';
 
 export class CourseCard extends Component {
   
@@ -24,35 +25,60 @@ export class CourseCard extends Component {
   getViewLayout(card) {
     let tags = card.tags.map(tag => {
       return (
-        <li key={Math.random()}>{tag}</li>
+        <li
+          className="list-group-item"
+          key={Math.random()}>
+          {tag}
+        </li>
       )
     });
     
     return (
       <div className="CourseCard">
         
-        <button onClick={this.setEditMode}>Edit</button>
-        
-        <div className="header">
-          <h2>{card.title}</h2>
+        <div className="controls">
+          <button
+            className="btn btn-default"
+            onClick={this.setEditMode}>
+            Edit
+          </button>
         </div>
         
-        <div className="author">{card.author}</div>
         
-        <img src={card.image} alt={card.title} className="image"/>
-        
-        <div className="description">{card.description}</div>
-        
-        <ul className="tags">
-          {tags}
-        </ul>
-        
-        <hr/>
-        
-        <ul className="links">
-          <li><a href={card.link} target="_blank">Ссылка на сайт</a></li>
-        </ul>
-      
+        <div className="panel panel-default">
+          <div className="header panel-heading">
+            <h2>{card.title}</h2>
+          </div>
+          
+          <div className="panel-body">
+            
+            <div className="author"><h4>{card.author}</h4></div>
+            
+            <div className="row">
+              
+              <div className="col-md-5">
+                <img
+                  className="image thumbnail"
+                  src={card.image} alt={card.title}
+                />
+              </div>
+              
+              <div className="col-md-5">
+                <div className="description">{card.description}</div>
+                
+                <ul className="tags list-group">
+                  {tags}
+                </ul>
+                
+                <div className="links">
+                  <a href={card.link} target="_blank">{card.link}</a>
+                </div>
+                
+              </div>
+            
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
@@ -60,14 +86,21 @@ export class CourseCard extends Component {
   getEditLayout(card) {
     let tags = card.tags.map(tag => {
       return (
-        <li key={Math.random()}>{tag}</li>
+        <li
+          key={Math.random()}>
+          {tag}
+        </li>
       )
     });
     
     return (
-      <form className="CourseCard" onSubmit={(e)=> { e.preventDefault() } }>
-  
-        <button onClick={this.setViewMode}>View</button>
+      <form className="CourseCard" onSubmit={(e) => { e.preventDefault() } }>
+        
+        <button
+          className="btn btn default"
+          onClick={this.setViewMode}>
+          View
+        </button>
         
         <div className="header">
           <input value={card.title}/>
@@ -76,7 +109,7 @@ export class CourseCard extends Component {
         <div className="author">
           <input value={card.author}/>
         </div>
-  
+        
         <div className="image">
           <input value={card.image}/>
         </div>
@@ -102,7 +135,7 @@ export class CourseCard extends Component {
       </form>
     );
   }
-
+  
   setEditMode(e) {
     e.preventDefault();
     
@@ -110,7 +143,7 @@ export class CourseCard extends Component {
       isEditMode: true
     });
   }
-
+  
   setViewMode(e) {
     e.preventDefault();
     

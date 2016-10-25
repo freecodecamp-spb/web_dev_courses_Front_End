@@ -1,0 +1,19 @@
+.CourseCard {
+  margin: 35px;
+}
+
+.CourseCard .controls {
+  margin: 10px 0;
+}
+
+div.CourseCard .tags {
+  margin: 20px 0;
+}
+
+div.CourseCard .image {
+  max-width: 450px;
+}
+
+form.CourseCard {
+
+}

@@ -24,8 +24,6 @@ export class CoursesItemPage extends Component {
     
     return (
       <div className="CoursesItemPage">
-        <h3>Карточка курса</h3>
-  
         { thumb }
       </div>
     );

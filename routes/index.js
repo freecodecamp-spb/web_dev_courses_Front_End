@@ -52,6 +52,14 @@ module.exports = function(app, passport) {
     Course.findOne({_id: id}, callback);
   });
   
+  app.put('/api/courses/:id', function(req, res) {
+    
+    // Получить данные из req.body
+    
+    // Сохранить в БД
+    
+  });
+  
   app.get('/form', function(req, res) {
     res.render("index", {
       user: req.user

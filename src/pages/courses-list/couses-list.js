@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import { CourseThumb } from '../../components/course-thumb';
 
+import './couses-list.css';
+
 export class CoursesListPage extends Component {
   constructor(props) {
     super(props);
@@ -35,12 +37,11 @@ export class CoursesListPage extends Component {
         <div className="paginator">
           <div>Вы на странице {this.state.page} из {this.state.count} страниц</div>
       
-          <button onClick={this.setPrevPage}>назад</button>
-          |
-          <button onClick={this.setNextPage}>вперед</button>
+          <button className="btn btn-default" onClick={this.setPrevPage}>назад</button>
+          <button className="btn btn-default" onClick={this.setNextPage}>вперед</button>
         </div>
     
-        <ul>
+        <ul className="list">
           {coursesItems}
         </ul>
       </div>

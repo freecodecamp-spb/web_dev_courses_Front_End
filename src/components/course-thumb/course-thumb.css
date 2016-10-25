@@ -5,5 +5,9 @@
 }
 
 .CourseThumb .image {
-  max-width: 300px;
+  max-width: 150px;
+}
+
+.CourseThumb .tags {
+  margin: 20px 0 0 0;
 }

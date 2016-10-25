@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-
 import './course-thumb.css';
 
 export class CourseThumb extends Component {
@@ -10,34 +9,47 @@ export class CourseThumb extends Component {
     
     let tags = card.tags.map(tag => {
       return (
-        <li key={Math.random()}>{tag}</li>
+        <li
+          className="list-group-item"
+          key={Math.random()}>{tag}</li>
       )
     });
     
     return (
-      <div className="CourseThumb">
+      <div className="CourseThumb panel panel-default">
         
-        <div className="header">
-          <h2>{card.title}</h2>
+        <div className="header panel-heading">
+          <div className="panel-title">
+            <Link to={'/courses/' + this.props.id}>
+              {card.title}
+            </Link>
+          </div>
+          <div className="author">{card.author}</div>
         </div>
         
-        <div className="author">{card.author}</div>
-  
-        <img src={card.image} alt={card.title} className="image"/>
-        
-        <div className="description">{card.description}</div>
-        
-        <ul className="tags">
-          {tags}
-        </ul>
-  
-        <hr/>
-  
-        <ul className="links">
-          <li><Link to={'/courses/' + this.props.id}>Карточка курса</Link></li>
-          <li><a href={card.link} target="_blank">Ссылка на сайт</a></li>
-        </ul>
-        
+        <div className="panel-body">
+          <div className="row">
+            
+            <div className="col-md-4">
+              <img
+                className="image img-thumbnail"
+                src={card.image} alt={card.title}/>
+            </div>
+            
+            <div className="col-md-8">
+              <div className="description">{card.description}</div>
+              <ul className="tags list-group">
+                {tags}
+              </ul>
+            </div>
+          
+          </div>
+          
+          <div className="links">
+            <a href={card.link} target="_blank">{card.link}</a>
+          </div>
+        </div>
+      
       </div>
     );
   }
