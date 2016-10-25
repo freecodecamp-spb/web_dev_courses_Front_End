@@ -1,8 +1,8 @@
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
 // Модель карты курса для базы
 
-var courseSchema = mongoose.Schema({
+const courseSchema = mongoose.Schema({
 
     card: {
         link: {
@@ -27,7 +27,7 @@ var courseSchema = mongoose.Schema({
         },
         image: {
             type: String,
-            default: "images/development-bg.png"
+            default: "https://placeholdit.imgix.net/~text?txtsize=33&txt=350×150&w=350&h=250"
         },
         language: {
             type: String,
