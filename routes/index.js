@@ -24,7 +24,14 @@ module.exports = function(app, passport) {
       if (err) {
         res.send(err);
       } else {
-        res.json(courseList);
+  
+        Course.count((err, count) => {
+          res.json({
+            courses: courseList,
+            page: page,
+            count: count
+          });
+        });
       }
     };
     

@@ -33,7 +33,7 @@ export class CoursesListPage extends Component {
       <div className="CoursesList">
     
         <div className="paginator">
-          <div>Вы на странице {this.state.page}</div>
+          <div>Вы на странице {this.state.page} из {this.state.count} страниц</div>
       
           <button onClick={this.setPrevPage}>назад</button>
           |
@@ -68,8 +68,9 @@ export class CoursesListPage extends Component {
   getCourses() {
     fetch('/api/courses/?page=' + this.state.page).then(response => {
       response.json().then(data => this.setState({
-        courses: data,
-        page: this.state.page
+        courses: data.courses,
+        page: this.state.page,
+        count: data.count
       }))
     });
   }
