@@ -18,6 +18,10 @@ form.CourseCard {
 
 }
 
+form.CourseCard .save{
+  margin:0 0 0 10px;
+}
+
 
 form.CourseCard .input-group-addon {
   min-width: 100px;

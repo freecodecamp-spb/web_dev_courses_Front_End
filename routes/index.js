@@ -55,8 +55,14 @@ module.exports = function(app, passport) {
   app.put('/api/courses/:id', function(req, res) {
     
     // Получить данные из req.body
+    console.log("req.body: ", req.body);
     
     // Сохранить в БД
+    
+    // Послать ответ
+    res.json({
+      status: 'ok'
+    });
     
   });
   

@@ -12,11 +12,13 @@ export class CourseCard extends Component {
     
     this.setEditMode = this.setEditMode.bind(this);
     this.setViewMode = this.setViewMode.bind(this);
+    this.onFormChange = this.onFormChange.bind(this);
+    this.save = this.save.bind(this);
   }
   
   render() {
     if (this.state.isEditMode) {
-      return this.getEditLayout(this.props.card);
+      return this.getEditLayout();
     } else {
       return this.getViewLayout(this.props.card);
     }
@@ -83,13 +85,20 @@ export class CourseCard extends Component {
     );
   }
   
-  getEditLayout(card) {
-    let tags = card.tags.map(tag => {
+  getEditLayout() {
+    if (!this.state.card) {
+      return (
+        <div>Loading...</div>
+      );
+    }
+    
+    let tags = this.state.card.tags.map(tag => {
       return (
         <li
           key={Math.random()}>
           <input
             className="form-control"
+            onChange={this.onFormChange}
             value={tag}
           />
         </li>
@@ -108,6 +117,12 @@ export class CourseCard extends Component {
             onClick={this.setViewMode}>
             View
           </button>
+  
+          <button
+            className="btn btn-primary save"
+            onClick={this.save}>
+            Save
+          </button>
         </div>
         
         <div className="header form-item">
@@ -115,8 +130,10 @@ export class CourseCard extends Component {
             <label htmlFor="title" className="input-group-addon">title</label>
             <input
               id="title"
+              name="title"
               className="form-control"
-              value={card.title}/>
+              onChange={this.onFormChange}
+              value={this.state.card.title}/>
           </div>
         
         </div>
@@ -126,8 +143,10 @@ export class CourseCard extends Component {
             <label htmlFor="author" className="input-group-addon">author</label>
             <input
               id="author"
+              name="author"
               className="form-control"
-              value={card.author}/>
+              onChange={this.onFormChange}
+              value={this.state.card.author}/>
           </div>
         </div>
         
@@ -136,20 +155,23 @@ export class CourseCard extends Component {
             <label htmlFor="image" className="input-group-addon">image</label>
             <input
               id="image"
+              name="image"
               className="form-control"
-              value={card.image}/>
+              onChange={this.onFormChange}
+              value={this.state.card.image}/>
           </div>
         </div>
         
         <div className="description form-item">
-  
           <div className="input-group">
             <label htmlFor="description" className="input-group-addon">description</label>
             <textarea
               id="description"
+              name="description"
               className="form-control"
               rows="10"
-              value={card.description}
+              onChange={this.onFormChange}
+              value={this.state.card.description}
             />
           </div>
         </div>
@@ -158,8 +180,11 @@ export class CourseCard extends Component {
           <div className="input-group">
             <label htmlFor="link" className="input-group-addon">link</label>
             <input
+              id="link"
+              name="link"
               className="form-control"
-              value={card.link}
+              onChange={this.onFormChange}
+              value={this.state.card.link}
             />
           </div>
         </div>
@@ -170,15 +195,26 @@ export class CourseCard extends Component {
             {tags}
           </ul>
         </div>
+        
       </form>
     );
+  }
+  
+  onFormChange(event) {
+    let cardEdited = {};
+    cardEdited[event.target.name] = event.target.value;
+  
+    this.setState((prevState, props) => ({
+      card: Object.assign({}, prevState.card, cardEdited)
+    }));
   }
   
   setEditMode(e) {
     e.preventDefault();
     
     this.setState({
-      isEditMode: true
+      isEditMode: true,
+      card: this.props.card
     });
   }
   
@@ -188,5 +224,20 @@ export class CourseCard extends Component {
     this.setState({
       isEditMode: false
     });
+  }
+  
+  save() {
+    let request =  {
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      method: 'PUT',
+      body: JSON.stringify(this.state.card)
+    };
+    
+  
+    fetch(`/api/courses/${this.props.id}`, request)
+    .then((res) => res.json())
+    .then((data) => console.log("data: ", data))
   }
 }
