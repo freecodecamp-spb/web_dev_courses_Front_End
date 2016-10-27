@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "react-scripts start",
-    "start-api": "node server.js",
+    "start-api": "nodemon ./server.js localhost 3333",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
@@ -28,6 +28,7 @@
     "react-router": "^2.8.1"
   },
   "devDependencies": {
+    "nodemon": "^1.11.0",
     "react-scripts": "0.6.1"
   },
   "proxy": "http://localhost:3333"
