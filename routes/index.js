@@ -53,16 +53,26 @@ module.exports = function(app, passport) {
   });
   
   app.put('/api/courses/:id', function(req, res) {
-    
-    // Получить данные из req.body
-    console.log("req.body: ", req.body);
-    
-    // Сохранить в БД
-    
-    // Послать ответ
-    res.json({
-      status: 'ok'
-    });
+    let callback = (err, data) => {
+      if (err) {
+        res.send(err);
+      } else {
+        res.json(data);
+      }
+    };
+
+    Course.findOneAndUpdate(
+      // query
+      {
+        _id: req.params.id
+      },
+      
+      // update data
+      {
+        card: req.body
+      },
+      callback
+    );
     
   });
   
