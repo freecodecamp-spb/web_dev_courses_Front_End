@@ -16,20 +16,6 @@ export class CourseCardForm extends Component {
   }
   
   render() {
-    
-    let tags = this.state.card.tags.map(tag => {
-      return (
-        <li
-          key={Math.random()}>
-          <input
-            className="form-control"
-            onChange={this.onFormChange}
-            value={tag}
-          />
-        </li>
-      )
-    });
-    
     return (
       <form
         className="form CourseCardFrom"
@@ -112,13 +98,6 @@ export class CourseCardForm extends Component {
               value={this.state.card.link}
             />
           </div>
-        </div>
-        
-        <div className="tags-wrapper">
-          <div>tags:</div>
-          <ul className="tags">
-            {tags}
-          </ul>
         </div>
       
       </form>
