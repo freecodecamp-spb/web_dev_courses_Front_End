@@ -1,0 +1,19 @@
+.CourseCardFrom {
+  margin: 35px;
+}
+
+.CourseCardFrom .controls {
+  margin: 10px 0;
+}
+
+.CourseCardFrom .save {
+  margin: 0 0 0 10px;
+}
+
+.CourseCardFrom .input-group-addon {
+  min-width: 100px;
+}
+
+.CourseCardFrom .form-item {
+  margin: 0 0 10px 0;
+}
