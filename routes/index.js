@@ -18,7 +18,7 @@ module.exports = function(app, passport) {
   
   app.get('/api/courses/', function(req, res) {
     let query = req.query;
-    let page = query.page || 0;
+    let page = Number(query.page) || 1;
 
     let callback = (err, courseList) => {
       if (err) {
@@ -35,7 +35,7 @@ module.exports = function(app, passport) {
       }
     };
     
-    Course.find(callback).limit(10).skip(Number(page) * 10).sort({"card.title": 1});
+    Course.find(callback).limit(10).skip((page - 1) * 10).sort({"card.title": 1});
   });
   
   app.get('/api/courses/:id', function(req, res) {
