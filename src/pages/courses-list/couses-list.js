@@ -9,18 +9,20 @@ class CoursesListPage extends Component {
     let query = this.props.location.query;
 
     this.context = context;
+    this.state = {courses: []};
 
-    this.state = {
-      courses: [],
-      page: Number(query.page) || 1
-    };
+    if (query.page) {
+      this.page = Number(query.page);
+    } else {
+      this.page = 1;
+    }
 
     this.setPrevPage = this.setPrevPage.bind(this);
     this.setNextPage = this.setNextPage.bind(this);
   }
 
   componentDidMount() {
-    this.getCourses();
+    this.getCourses(this.page);
   }
 
   render() {
@@ -37,7 +39,7 @@ class CoursesListPage extends Component {
       <div className="CoursesList">
 
         <div className="paginator">
-          <div>Вы на странице {this.state.page} из {this.state.count} страниц</div>
+          <div>Вы на странице {this.page} из {this.state.count} страниц</div>
 
           <button className="btn btn-default" onClick={this.setPrevPage}>назад</button>
           <button className="btn btn-default" onClick={this.setNextPage}>вперед</button>
@@ -50,12 +52,10 @@ class CoursesListPage extends Component {
     );
   }
 
-  setPrevPage() {
-    let page = this.state.page > 1 ? (this.state.page - 1) : 1;
+  setPage(page) {
+    if (this.page === page) return;
 
-    this.setState({
-      page: page
-    });
+    this.page = page;
 
     this.context.router.push({
       query: {
@@ -63,31 +63,28 @@ class CoursesListPage extends Component {
       }
     });
 
-    this.getCourses();
+    this.getCourses(this.page);
+  }
+
+  setPrevPage() {
+    let page = this.page > 1 ? (this.page - 1) : 1;
+
+    this.setPage(page);
   }
 
   setNextPage() {
-    let page = this.state.page + 1;
-
-    this.context.router.push({
-      query: {
-        page: page
-      }
-    });
-
-    this.setState({
-      page: page
-    });
-
-    this.getCourses();
+    let page = this.page + 1;
+    this.setPage(page);
   }
 
-  getCourses() {
-
-    fetch('/api/courses/?page=' + this.state.page).then(response => {
+  /**
+   *
+   * @param {number} page
+   */
+  getCourses(page) {
+    fetch('/api/courses/?page=' + page).then(response => {
       response.json().then(data => this.setState({
         courses: data.courses,
-        page: this.state.page,
         count: data.count
       }))
     });
