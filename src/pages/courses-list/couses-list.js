@@ -2,6 +2,8 @@ import React, { Component, PropTypes } from 'react';
 import { CourseThumb } from '../../components/course-thumb';
 import './couses-list.css';
 
+import { Pagination } from '../../components/pagination';
+
 class CoursesListPage extends Component {
   constructor(props, context) {
     super(props);
@@ -10,6 +12,7 @@ class CoursesListPage extends Component {
 
     this.context = context;
     this.state = {courses: []};
+    this.paginationCount = 5;
 
     if (query.page) {
       this.page = Number(query.page);
@@ -17,8 +20,7 @@ class CoursesListPage extends Component {
       this.page = 1;
     }
 
-    this.setPrevPage = this.setPrevPage.bind(this);
-    this.setNextPage = this.setNextPage.bind(this);
+    this.setPage = this.setPage.bind(this);
   }
 
   componentDidMount() {
@@ -39,10 +41,9 @@ class CoursesListPage extends Component {
       <div className="CoursesList">
 
         <div className="paginator">
-          <div>Вы на странице {this.page} из {this.state.count} страниц</div>
+          <div className="paginator-text">Вы на странице {this.page} из {this.state.count} страниц</div>
 
-          <button className="btn btn-default" onClick={this.setPrevPage}>назад</button>
-          <button className="btn btn-default" onClick={this.setNextPage}>вперед</button>
+          <Pagination count={this.paginationCount} setPage={this.setPage} start={this.page} />
         </div>
 
         <ul className="list">
@@ -64,17 +65,6 @@ class CoursesListPage extends Component {
     });
 
     this.getCourses(this.page);
-  }
-
-  setPrevPage() {
-    let page = this.page > 1 ? (this.page - 1) : 1;
-
-    this.setPage(page);
-  }
-
-  setNextPage() {
-    let page = this.page + 1;
-    this.setPage(page);
   }
 
   /**
