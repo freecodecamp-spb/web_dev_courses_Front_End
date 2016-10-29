@@ -13,6 +13,7 @@ import './index.css';
 import App from './App';
 import { CoursesListPage } from './pages/courses-list/couses-list';
 import { CoursesItemPage } from './pages/courses-item/courses-item';
+import { CoursesNewPage } from './pages/courses-new/courses-new';
 
 ReactDOM.render(
   <App />,
@@ -26,6 +27,7 @@ ReactDOM.render((
         <IndexRoute component={CoursesListPage}/>
         
         <Route path="/courses" component={CoursesListPage} />
+        <Route path="/courses/new" component={CoursesNewPage}/>
         <Route path="/courses/:id" component={CoursesItemPage}/>
       
       </Route>
