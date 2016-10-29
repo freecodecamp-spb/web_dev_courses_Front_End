@@ -1,21 +1,21 @@
 import React, { Component, PropTypes } from 'react';
-import { CourseThumb } from '../../components/course-thumb';
 import './couses-list.css';
 
-import { Pagination } from '../../components/pagination';
+import { CoursesList } from '../../components/courses-list';
 
 class CoursesListPage extends Component {
   constructor(props, context) {
     super(props);
 
     let query = this.props.location.query;
+    let page = Number(query.page);
 
     this.context = context;
     this.state = {courses: []};
     this.paginationCount = 5;
 
-    if (query.page) {
-      this.page = Number(query.page);
+    if (!isNaN(page)) {
+      this.page = page;
     } else {
       this.page = 1;
     }
@@ -28,28 +28,13 @@ class CoursesListPage extends Component {
   }
 
   render() {
-
-    let coursesItems = this.state.courses.map(item => {
-      return (
-        <li key={item._id}>
-          <CourseThumb card={item.card} id={item._id}/>
-        </li>
-      );
-    });
-
     return (
-      <div className="CoursesList">
-
-        <div className="paginator">
-          <div className="paginator-text">Вы на странице {this.page} из {this.state.count} страниц</div>
-
-          <Pagination count={this.paginationCount} setPage={this.setPage} start={this.page} />
-        </div>
-
-        <ul className="list">
-          {coursesItems}
-        </ul>
-      </div>
+      <CoursesList
+        count={this.state.count}
+        setPage={this.setPage}
+        start={this.page}
+        courses={this.state.courses}
+      />
     );
   }
 

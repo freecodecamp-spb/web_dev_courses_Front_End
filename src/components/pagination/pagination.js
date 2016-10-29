@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 import './pagination.css';
 
 const Pagination = (props) => {
   let pages = [];
-  let pagesCount = props.count;
-  let pageStart = props.start;
+  let pagesCount = props.count || 5;
+  let pageStart = props.start || 1;
 
   for (let i = 0; i < pagesCount; ++i) {
     let page = pageStart + i;
@@ -23,8 +23,8 @@ const Pagination = (props) => {
     <nav>
       <ul className="pagination">
         <li
-          key={props.start - 1}
-          onClick={ () => props.setPage(props.start - 1) }
+          key={pageStart - 1}
+          onClick={ () => props.setPage(pageStart - 1) }
         >
           <span>
             <span>&laquo;</span>
@@ -32,8 +32,8 @@ const Pagination = (props) => {
         </li>
         {pages}
         <li
-          onClick={ () => props.setPage(props.start + props.count)}
-          key={props.start + props.count}
+          key={pageStart + pagesCount}
+          onClick={ () => props.setPage(pageStart + pagesCount)}
         >
           <span>
             <span>&raquo;</span>
@@ -42,6 +42,12 @@ const Pagination = (props) => {
       </ul>
     </nav>
   );
+};
+
+Pagination.propTypes = {
+  setPage: PropTypes.func,
+  start: PropTypes.number,
+  count: PropTypes.number,
 };
 
 export { Pagination };
