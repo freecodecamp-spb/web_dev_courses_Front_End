@@ -1,6 +1,10 @@
 import React, { Component, PropTypes } from 'react';
+import { Link } from 'react-router';
+
 import { CourseThumb } from '../course-thumb';
 import { Pagination } from '../pagination';
+
+import './courses-list.css';
 
 const CoursesList = (props) => {
   let paginationCount = 5;
@@ -20,17 +24,25 @@ const CoursesList = (props) => {
   return (
     <div className="CoursesList">
 
-      <div className="paginator">
-        <div className="paginator-text">
-          Вы на странице {props.page} из {props.count} страниц
+      <div className="controls">
+
+        <div className="paginator controls__item">
+          <div className="paginator-text">
+            Вы на странице {props.page} из {props.count} страниц
+          </div>
+
+          <Pagination
+            count={paginationCount}
+            setPage={props.setPage}
+            start={props.page}
+          />
         </div>
 
-        <Pagination
-          count={paginationCount}
-          setPage={props.setPage}
-          start={props.page}
-        />
+        <div className="add-button controls__item">
+          <Link className="btn btn-default" to="/courses/new">Добавить</Link>
+        </div>
       </div>
+
 
       <ul className="list">
         {coursesItems}

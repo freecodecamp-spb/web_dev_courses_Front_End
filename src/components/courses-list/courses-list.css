@@ -1,0 +1,23 @@
+.CoursesList {
+  margin: 0 35px 0 35px;
+}
+
+.CoursesList .controls {
+  position: relative;
+}
+
+.CoursesList .controls .add-button {
+  position: absolute;
+  right: 5px;
+  top: 20px;
+}
+
+.CoursesList .list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.paginator-text {
+  margin: 10px 0 0 0;
+}
