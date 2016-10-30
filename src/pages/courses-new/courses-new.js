@@ -1,8 +1,15 @@
-import React, { Component } from 'react';
-
+import React, { Component, PropTypes } from 'react';
 import { CourseCardForm } from '../../components/course-card-form';
 
-export class CoursesNewPage extends Component {
+class CoursesNewPage extends Component {
+  constructor(props, context) {
+    super(props);
+
+    this.context = context;
+
+    this.create = this.create.bind(this);
+  }
+
   render() {
     return (
       <div className="CoursesNewPage">
@@ -10,7 +17,7 @@ export class CoursesNewPage extends Component {
 
         <CourseCardForm
           onSave={ this.create }
-          card={ this.cardStub } />
+          card={ this.cardStub }/>
       </div>
     );
   }
@@ -29,7 +36,13 @@ export class CoursesNewPage extends Component {
 
     fetch(`/api/courses/`, request)
     .then((res) => res.json())
-    .then((data) => console.log("data: ", data))
+    .then((data) => {
+      if (data._id) {
+        this.context.router.push({
+          pathname: `/courses/${data._id}`
+        });
+      }
+    })
   }
 
   /**
@@ -45,3 +58,9 @@ export class CoursesNewPage extends Component {
     };
   }
 }
+
+CoursesNewPage.contextTypes = {
+  router: PropTypes.object
+};
+
+export { CoursesNewPage };
