@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react';
 import './couses-list.css';
-
 import { CoursesList } from '../../components/courses-list';
 
 class CoursesListPage extends Component {
@@ -11,11 +10,11 @@ class CoursesListPage extends Component {
     let page = Number(query.page);
 
     this.context = context;
-    this.state = {courses: []};
-    this.paginationCount = 5;
+    this.state = {};
 
     if (!isNaN(page)) {
       this.page = page;
+
     } else {
       this.page = 1;
     }
@@ -53,22 +52,23 @@ class CoursesListPage extends Component {
   }
 
   /**
-   *
    * @param {number} page
    */
   getCourses(page) {
-    fetch('/api/courses/?page=' + page).then(response => {
-      response.json().then(data => this.setState({
+    fetch(`/api/courses/?page=${page}`)
+    .then(response => response.json())
+    .then(data => {
+      this.setState({
         courses: data.courses,
         count: data.count
-      }))
+      });
     });
   }
 
 }
 
 CoursesListPage.contextTypes = {
-  router: PropTypes.any
+  router: PropTypes.object
 };
 
-export {CoursesListPage as CoursesListPage};
+export { CoursesListPage };

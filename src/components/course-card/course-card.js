@@ -20,6 +20,7 @@ export class CourseCard extends Component {
     if (this.state.isEditMode) {
       return (
         <CourseCardForm
+          onSave={this.props.onSave}
           id={this.props.id}
           card={this.props.card}
         />

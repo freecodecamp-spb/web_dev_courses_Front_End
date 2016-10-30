@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 
 import { CourseThumb } from '../course-thumb';
@@ -8,17 +8,19 @@ import './courses-list.css';
 
 const CoursesList = (props) => {
   let paginationCount = 5;
+  let coursesItems;
 
-  let coursesItems = props.courses.map(item => {
-    return (
-      <li key={item._id}>
-        <CourseThumb card={item.card} id={item._id}/>
-      </li>
-    );
-  });
+  if (!props.courses || props.courses.length === 0) {
+    coursesItems = <li>Loading...</li>;
 
-  if (coursesItems.length === 0) {
-    coursesItems = <div>Loading...</div>;
+  } else {
+    coursesItems = props.courses.map(item => {
+      return (
+        <li key={item._id}>
+          <CourseThumb card={item.card} id={item._id}/>
+        </li>
+      );
+    });
   }
 
   return (

@@ -1,39 +1,65 @@
 import React, { Component } from 'react';
-
 import { CourseCard } from '../../components/course-card';
 
 export class CoursesItemPage extends Component {
-  
+
   constructor(props) {
     super(props);
-    
+
     this.state = {};
+
+    this.saveCourse = this.saveCourse.bind(this);
   }
-  
+
   componentDidMount() {
     this.getCourse();
   }
-  
+
   render() {
-    let course = this.state.course;
     let thumb;
-    
-    if (course) {
-      thumb = <CourseCard card={course.card} id={course._id}/>;
+
+    if (this.state.course) {
+      thumb = <CourseCard
+        card={this.state.course.card}
+        id={this.props.params.id}
+        onSave={this.saveCourse}
+      />
+
+    } else {
+      thumb = <div>Loading...</div>
     }
-    
+
     return (
       <div className="CoursesItemPage">
         { thumb }
       </div>
     );
   }
-  
+
+  saveCourse(data) {
+    let request = {
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      method: 'PUT',
+      body: JSON.stringify(data)
+    };
+
+    fetch(`/api/courses/${this.props.params.id}`, request)
+    .then(res => res.json())
+    .then((data) => console.log("data: ", data))
+  }
+
   getCourse() {
-    fetch('/api/courses/' + this.props.params.id).then(response => {
-      response.json().then(data => this.setState({
-        course: data
-      }))
-    });
+    let request = {
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      method: 'GET'
+    };
+
+    fetch(`/api/courses/${this.props.params.id}`, request)
+    .then(response => response.json())
+    .then(data => this.setState({course: data}))
   }
 }

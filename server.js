@@ -72,7 +72,7 @@ app.use(function(req, res, next) {
 });
 
 require('./settings/passport')(passport);
-require('./routes/index')(app, passport);
+require('./routes/')(app, passport);
 
 // Используем обработчик view: EJS
 app.engine('ejs', engine);

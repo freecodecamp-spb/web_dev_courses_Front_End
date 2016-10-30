@@ -1,8 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import './course-card-form.css';
 
-export class CourseCardForm extends Component {
-  
+class CourseCardForm extends Component {
   constructor(props) {
     super(props);
     
@@ -114,16 +113,13 @@ export class CourseCardForm extends Component {
   }
   
   save() {
-    let request = {
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      method: 'PUT',
-      body: JSON.stringify(this.state.card)
-    };
-    
-    fetch(`/api/courses/${this.props.id}`, request)
-      .then((res) => res.json())
-      .then((data) => console.log("data: ", data))
+    this.props.onSave(this.state.card)
   }
 }
+
+CourseCardForm.propTypes = {
+  onSave: PropTypes.func,
+  card: PropTypes.object
+};
+
+export { CourseCardForm };
