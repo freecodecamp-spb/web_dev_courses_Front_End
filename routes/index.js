@@ -37,6 +37,20 @@ module.exports = function(app, passport) {
     
     Course.find(callback).limit(10).skip((page - 1) * 10).sort({"card.title": 1});
   });
+
+  app.post('/api/courses/', function(req, res) {
+    let callback = (err, data) => {
+      if (err) {
+        res.send(err);
+      } else {
+        res.json(data);
+      }
+    };
+
+    let course = new Course(req.body);
+
+    course.save(callback);
+  });
   
   app.get('/api/courses/:id', function(req, res) {
     let id = req.params.id;
@@ -120,29 +134,4 @@ module.exports = function(app, passport) {
       res.json(userlist);
     });
   });
-  
-  app.post('/course/add', function(req, res) {
-    console.log("=== Попытка записи в базу ===");
-    var course = new Course(req.body);
-    course.save(function(err) {
-      if (err) {
-        return err;
-      } else {
-        console.log("=== Запись успешно добавлена ===");
-        req.session.sessionFlash = {
-          type: 'flash__success',
-          message: 'Курс успешно добавлен в базу данных.'
-        }
-        res.redirect('/');
-      }
-    })
-  });
-  
 };
-
-// function isLoggedIn(req, res, next) {
-//     if (req.isAuthenticated()) {
-//         return next()
-//     }
-//     res.redirect('/');
-// }
