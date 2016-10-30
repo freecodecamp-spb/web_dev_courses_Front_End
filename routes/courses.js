@@ -41,7 +41,10 @@ module.exports = function(app) {
   });
 
   app.post('/api/courses/', function(req, res) {
-    let course = new Course(req.body);
+    let course = new Course({
+      card: req.body
+    });
+
     course.save(processResultWith(req, res));
   });
 
