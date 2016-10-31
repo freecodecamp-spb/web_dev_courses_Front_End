@@ -12,9 +12,21 @@ module.exports = function(app, passport) {
     }
   });
 
-  app.get('/auth/github', passport.authenticate('github', {
-    scope: ['user']
-  }));
+  app.get(
+    '/api/auth/github',
+    (req, res, next) => {
+
+      console.log("passport.authenticate: ", passport.authenticate);
+      
+      passport.authenticate(
+        'github',
+        {scope: ['user']},
+        (err, user, data) => {
+          res.json(user);
+        }
+      )(req, res, next);
+    }
+  );
 
   app.get('/auth/github/callback',
     passport.authenticate('github', {

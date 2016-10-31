@@ -1,6 +1,6 @@
-var GitHubStrategy = require('passport-github2').Strategy;
-var User = require('../models/usermodel');
-var configAuth = require('./auth');
+const GitHubStrategy = require('passport-github2').Strategy;
+const User = require('../models/usermodel');
+const configAuth = require('./auth');
 
 module.exports = function(passport) {
 
@@ -31,7 +31,7 @@ module.exports = function(passport) {
                     if (user) {
                         return done(null, user);
                     } else {
-                        var newUser = new User();
+                        let newUser = new User();
                         newUser.github.id = profile.id;
                         newUser.github.name = profile.displayName;
                         newUser.github.email = profile.email;
