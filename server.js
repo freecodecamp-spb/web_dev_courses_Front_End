@@ -54,7 +54,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Установка публичной ветки
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/build'));
 
 // Установка flash (тестовая)
 app.use(flash());
@@ -75,9 +75,6 @@ require('./settings/passport')(passport);
 require('./routes/')(app, passport);
 
 // Используем обработчик view: EJS
-app.engine('ejs', engine);
-app.set('views', __dirname + '/views');
-app.set('view engine', 'ejs');
 app.listen(PORT, function() {
     console.log(MESSAGE);
     console.log("### Запускать по адресу -> localhost:" + PORT);

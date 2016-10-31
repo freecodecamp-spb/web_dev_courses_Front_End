@@ -15,17 +15,27 @@ module.exports = function(app, passport) {
   app.get(
     '/api/auth/github',
     (req, res, next) => {
-
-      console.log("passport.authenticate: ", passport.authenticate);
-      
-      passport.authenticate(
-        'github',
-        {scope: ['user']},
-        (err, user, data) => {
-          res.json(user);
-        }
-      )(req, res, next);
+      passport.authenticate('github', {scope: ['user']}, (error, user, info) => {
+        console.log("error: ", error);
+        console.log("user: ", user);
+        console.log("info: ", info);
+      });
     }
+    /*
+    *
+    *  https://github.com/login/oauth/authorize?
+    *  response_type=code&
+    *  redirect_uri=ht…A3333%2Fauth%2Fgithub%2Fcallback&
+    *  scope=user&
+    *  client_id=a7d4334f13bbacdd7303.
+    *
+    *  Redirect from 'https://github.com/login/oauth/authorize?response_type=code&redirect_uri=ht…A3333%2Fauth%2Fgithub%2Fcallback&scope=user&client_id=a7d4334f13bbacdd7303
+    *
+    *
+    *
+    *
+    * */
+
   );
 
   app.get('/auth/github/callback',
