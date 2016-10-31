@@ -24,7 +24,7 @@ class CourseCardForm extends Component {
         <div className="controls">
           <button
             className="btn btn-default"
-            onClick={this.setViewMode}>
+            onClick={this.props.setViewMode}>
             View
           </button>
           
@@ -111,7 +111,7 @@ class CourseCardForm extends Component {
       card: Object.assign({}, prevState.card, cardEdited)
     }));
   }
-  
+
   save() {
     this.props.onSave(this.state.card)
   }
@@ -119,6 +119,7 @@ class CourseCardForm extends Component {
 
 CourseCardForm.propTypes = {
   onSave: PropTypes.func,
+  setViewMode: PropTypes.func,
   card: PropTypes.object
 };
 

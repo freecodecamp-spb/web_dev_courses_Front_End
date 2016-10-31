@@ -21,6 +21,7 @@ export class CourseCard extends Component {
       return (
         <CourseCardForm
           onSave={this.props.onSave}
+          setViewMode={this.setViewMode}
           id={this.props.id}
           card={this.props.card}
         />

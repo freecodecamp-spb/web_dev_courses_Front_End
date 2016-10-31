@@ -17,7 +17,8 @@ class CoursesNewPage extends Component {
 
         <CourseCardForm
           onSave={ this.create }
-          card={ this.cardStub }/>
+          card={ this.cardStub }
+        />
       </div>
     );
   }
