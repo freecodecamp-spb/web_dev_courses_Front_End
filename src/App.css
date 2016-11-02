@@ -1,12 +1,18 @@
 .App-header {
-  background-color: #222;
-  height: 150px;
+	position: relative;
+  height: 50vh;
   padding: 20px;
   color: white;
+  background-color: #204056;
 }
 
 .App-search {
-  margin: 1em;
+  /*margin: 1em;*/
+  position: absolute;
+  width: 90%;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .App-courses-list {
