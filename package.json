@@ -13,6 +13,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "auth0-lock": "^10.5.1",
     "body-parser": "^1.15.1",
     "cookie-parser": "^1.4.1",
     "ejs-mate": "^2.3.0",
