@@ -1,10 +1,23 @@
 .SearchBar {
-
+	color: #204056;
+	position: relative;
 }
 
 .SearchBar input {
-    width: 100%;
-    font-size: 1.4em;
-    padding: 0.5em;
-    box-sizing: border-box;
+  width: 100%;
+  font-size: 1.4em;
+  padding: 0.5em;
+  box-sizing: border-box;
+  border: none;
+ 	outline: none;
+ 	border-radius: 5px; 
+}
+
+.SearchBar::before {
+	position: absolute;
+	/*content: "+";*/
+	font-size: 2em;
+	color: #666;
+	right: 10px;
+	top: 10px;
 }
