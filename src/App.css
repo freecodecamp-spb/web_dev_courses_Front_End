@@ -1,31 +1,11 @@
 .App-header {
-	position: relative;
-  height: 50vh;
-  min-height: 350px;
   padding: 20px;
   color: white;
   background-color: #204056;
 }
 
 .App-header h2 {
-	position: absolute;
-	display: inline-block;
 	text-align: center;
-	width: 80%;
-	min-width: 300px;
-	top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.App-search {
-  /*margin: 1em;*/
-  position: absolute;
-  width: 90%;
-  max-width: 800px;
-  bottom: 50px;
-  left: 50%;
-  transform: translateX(-50%);
 }
 
 .App-courses-list {

@@ -1,8 +1,18 @@
-import React, { Component, PropTypes } from 'react';
+import React, {
+  Component,
+  PropTypes
+} from 'react';
+
 import './couses-list.css';
+
+import { SearchBar }   from '../../components/search-bar';
 import { CoursesList } from '../../components/courses-list';
 
 class CoursesListPage extends Component {
+  static contextTypes = {
+    router: PropTypes.object
+  };
+
   constructor(props, context) {
     super(props);
 
@@ -28,12 +38,19 @@ class CoursesListPage extends Component {
 
   render() {
     return (
-      <CoursesList
-        count={this.state.count}
-        setPage={this.setPage}
-        start={this.page}
-        courses={this.state.courses}
-      />
+      <div className="CoursesListPage">
+
+        <div className="CoursesListPage__search">
+          <SearchBar />
+        </div>
+
+        <CoursesList
+          count={this.state.count}
+          setPage={this.setPage}
+          start={this.page}
+          courses={this.state.courses}
+        />
+      </div>
     );
   }
 
@@ -66,9 +83,5 @@ class CoursesListPage extends Component {
   }
 
 }
-
-CoursesListPage.contextTypes = {
-  router: PropTypes.object
-};
 
 export { CoursesListPage };
