@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import {
   Router,
   Route,
-  IndexRoute,
+  IndexRedirect,
   browserHistory
 } from 'react-router';
 
@@ -18,10 +18,10 @@ import { CoursesNewPage } from './pages/courses-new/courses-new';
 ReactDOM.render((
     <Router history={browserHistory}>
       <Route path="/" component={App}>
+
+        <IndexRedirect to="/courses/" />
         
-        <IndexRoute component={CoursesListPage}/>
-        
-        <Route path="/courses" component={CoursesListPage} />
+        <Route path="/courses/" component={CoursesListPage} />
         <Route path="/courses/new" component={CoursesNewPage}/>
         <Route path="/courses/:id" component={CoursesItemPage}/>
       

@@ -1,39 +1,25 @@
-import React, {
-  Component,
-  PropTypes
-} from 'react';
-
+import React, { Component } from 'react';
+import { SearchBar } from '../../components/search-bar';
+import { CoursesList } from '../../components/courses-list';
 import './couses-list.css';
 
-import { SearchBar }   from '../../components/search-bar';
-import { CoursesList } from '../../components/courses-list';
-
 class CoursesListPage extends Component {
-  static contextTypes = {
-    router: PropTypes.object
-  };
 
   constructor(props, context) {
     super(props);
-
-    let query = this.props.location.query;
-    let page = Number(query.page);
+    this.setPage = this.setPage.bind(this);
+    this.setStateTitleCoursesToFind = this.setStateTitleCoursesToFind.bind(this);
 
     this.context = context;
     this.state = {};
-
-    if (!isNaN(page)) {
-      this.page = page;
-
-    } else {
-      this.page = 1;
-    }
-
-    this.setPage = this.setPage.bind(this);
   }
 
   componentDidMount() {
-    this.getCourses(this.page);
+    let query = this.props.location.query;
+    let page = Number(query.page) || 1;
+    let queryTitle = query.queryTitle;
+
+    this.fetchCourses({page, queryTitle});
   }
 
   render() {
@@ -41,45 +27,48 @@ class CoursesListPage extends Component {
       <div className="CoursesListPage">
 
         <div className="CoursesListPage__search">
-          <SearchBar />
+          <SearchBar changeQueryHandler={this.setStateTitleCoursesToFind}/>
         </div>
 
         <CoursesList
-          count={this.state.count}
+          itemsCount={this.state.itemsCount}
           setPage={this.setPage}
-          start={this.page}
+          start={this.state.page}
           courses={this.state.courses}
         />
       </div>
     );
   }
 
-  setPage(page) {
-    if (this.page === page) return;
+  fetchCourses(query = {}) {
 
-    this.page = page;
+    fetch(`/api/courses/?page=${query.page || 1}&queryTitle=${query.queryTitle || ''}`)
+    .then(response => response.json())
+    .then(data => {
 
-    this.context.router.push({
-      query: {
-        page: page
-      }
+      this.setState({
+        courses: data.courses,
+        itemsCount: data.count,
+        page: query.page || 1
+      });
+
     });
-
-    this.getCourses(this.page);
   }
 
   /**
+   *
    * @param {number} page
    */
-  getCourses(page) {
-    fetch(`/api/courses/?page=${page}`)
-    .then(response => response.json())
-    .then(data => {
-      this.setState({
-        courses: data.courses,
-        count: data.count
-      });
-    });
+  setPage(page) {
+    this.fetchCourses({page})
+  }
+
+  /**
+   *
+   * @param {string} queryTitle
+   */
+  setStateTitleCoursesToFind(queryTitle) {
+    this.fetchCourses({queryTitle});
   }
 
 }

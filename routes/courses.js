@@ -15,11 +15,11 @@ module.exports = function(app) {
   app.get('/api/courses/', function(req, res) {
     let requestQuery = req.query;
     let page = Number(requestQuery.page) || 1;
-    let title = requestQuery.title || '';
+    let queryTitle = requestQuery.queryTitle || '';
 
     let mongoQuery = {
       'card.title': {
-        $regex: `.*${title}.*`,
+        $regex: `.*${queryTitle}.*`,
         $options: 'i' // ignore case
       }
     };
@@ -45,7 +45,7 @@ module.exports = function(app) {
         })
             .limit(10)
             .skip((page - 1) * 10)
-            .sort({"card.title": 1});
+            .sort({"card.queryTitle": 1});
     });
   });
 

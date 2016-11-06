@@ -4,8 +4,9 @@ import './pagination.css';
 
 const Pagination = (props) => {
   let pages = [];
-  let pagesCount = props.count || 5;
+  let pagesCount = props.count || 1;
   let pageStart = props.start || 1;
+
 
   for (let i = 0; i < pagesCount; ++i) {
     let page = pageStart + i;
