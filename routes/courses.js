@@ -13,27 +13,36 @@ module.exports = function(app) {
   };
 
   app.get('/api/courses/', function(req, res) {
-    let query = req.query;
-    let page = Number(query.page) || 1;
+    let requestQuery = req.query;
+    let page = Number(requestQuery.page) || 1;
+    let title = requestQuery.title || '';
 
-    // TODO refactor to Promises
-    Course.count((err, count) => {
+    let mongoQuery = {
+      'card.title': {
+        $regex: `.*${title}.*`,
+        $options: 'i' // ignore case
+      }
+    };
+
+    // Refactor to Promises
+    Course.count(mongoQuery, (err, count) => {
       if (err) {
-        res.json(err);
+        res.json({status: 'error', error: err});
         return;
       }
 
-      Course.find((err, courses) => {
-              if (err) {
-                res.json(err);
-                return;
-              }
+      Course.find(mongoQuery,
+        (err, courses) => {
+          if (err) {
+            res.json({status: 'error', error: err});
+            return;
+          }
 
-              res.json({
-                count: count,
-                courses: courses
-              });
-            })
+          res.json({
+            courses: courses,
+            count: count
+          });
+        })
             .limit(10)
             .skip((page - 1) * 10)
             .sort({"card.title": 1});
