@@ -74,7 +74,6 @@ app.use(function(req, res, next) {
 require('./settings/passport')(passport);
 require('./routes/')(app, passport);
 
-// Используем обработчик view: EJS
 app.listen(PORT, function() {
     console.log(MESSAGE);
     console.log("### Запускать по адресу -> localhost:" + PORT);
