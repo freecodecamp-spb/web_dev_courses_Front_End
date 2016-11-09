@@ -1,8 +1,14 @@
-import React, { Component } from 'react';
+import React, {
+  Component,
+  PropTypes
+} from 'react';
 
 import './search-bar.css';
 
 export class SearchBar extends Component {
+  static propTypes = {
+    changeQueryHandler: PropTypes.func
+  };
   
   constructor(props) {
     super(props);

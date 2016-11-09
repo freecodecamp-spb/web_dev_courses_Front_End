@@ -7,6 +7,7 @@ import { Pagination } from '../pagination';
 import './courses-list.css';
 
 const CoursesList = (props) => {
+  let itemsCount = props.itemsCount || 0;
   let paginationCount = 5;
   let coursesItems;
 
@@ -30,13 +31,13 @@ const CoursesList = (props) => {
 
         <div className="paginator controls__item">
           <div className="paginator-text">
-            Вы на странице {props.page} из {props.count} страниц
+            Вы на странице {props.start} из {Math.floor(itemsCount / paginationCount)} страниц
           </div>
 
           <Pagination
-            count={paginationCount}
+            count={Math.min(Math.floor(itemsCount / paginationCount), paginationCount)}
             setPage={props.setPage}
-            start={props.page}
+            start={props.start}
           />
         </div>
 
@@ -53,9 +54,9 @@ const CoursesList = (props) => {
   );
 };
 
-CoursesList.PropTypes = {
+CoursesList.propTypes = {
   start: PropTypes.number,
-  count: PropTypes.number,
+  itemsCount: PropTypes.number,
   courses: PropTypes.array,
   setPage: PropTypes.func
 };
