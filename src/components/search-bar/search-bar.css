@@ -12,12 +12,3 @@
  	outline: none;
  	border-radius: 5px; 
 }
-
-.SearchBar::before {
-	position: absolute;
-	/*content: "+";*/
-	font-size: 2em;
-	color: #666;
-	right: 10px;
-	top: 10px;
-}
