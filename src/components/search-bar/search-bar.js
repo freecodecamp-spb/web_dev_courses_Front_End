@@ -18,6 +18,7 @@ export class SearchBar extends Component {
     };
     
     this.onChange = this.onChange.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
   }
   
   onChange(e) {
@@ -26,20 +27,29 @@ export class SearchBar extends Component {
     this.setState({
       query: query
     });
-    
-    this.props.changeQueryHandler(query);
+  }
+
+  onSubmit(e) {
+    e.preventDefault();
+
+    this.props.changeQueryHandler(this.state.query);
   }
   
   render() {
 
     return (
       <div className="SearchBar">
-        <input
-          type="text"
-          value={this.state.query}
-          onChange={this.onChange}
-          placeholder="Введите текст поиска"
-        />
+        <form onSubmit={this.onSubmit} className="input-group">
+          <input
+            className="form-control"
+            value={this.state.query}
+            onChange={this.onChange}
+            placeholder="Введите текст поиска"
+          />
+          <span className="input-group-btn">
+            <button type="submit" className="btn btn-default">Найти!</button>
+          </span>
+        </form>
       </div>
     );
   }
