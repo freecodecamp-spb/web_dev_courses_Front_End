@@ -1,8 +1,5 @@
 import React, { Component, PropTypes as T } from 'react';
-import AuthService from '../../utils/AuthService';
-
-// Hack way, context didn't work yet
-import { auth } from '../../index';
+import { AuthService , auth}  from '../../utils/auth';
 
 export class Login extends Component {
   static contextTypes = {
