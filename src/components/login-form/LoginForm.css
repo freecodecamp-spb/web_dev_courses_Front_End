@@ -1,0 +1,13 @@
+.LoginForm {
+  width: 40%;
+  margin: 2em auto;
+}
+
+.LoginForm__signup-trigger {
+  margin: 0 0 1em 0;
+  float: right;
+}
+
+.LoginForm__input {
+  margin-bottom: .6em;
+}

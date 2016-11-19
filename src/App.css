@@ -4,6 +4,12 @@
   background-color: #204056;
 }
 
+.App-login {
+  position: absolute;
+  right: 1em;
+  top: 1em;
+}
+
 .App-header h2 {
 	text-align: center;
 }
