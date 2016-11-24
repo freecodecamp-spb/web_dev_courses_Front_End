@@ -23,8 +23,8 @@ export class AuthPage extends Component {
   }
 
   onLogin(data) {
-    console.log("data: ", data);
     let userData = Object.assign({}, data);
+    let showSignup = userData.showSignup;
 
     delete userData.showSignup;
 
@@ -36,8 +36,14 @@ export class AuthPage extends Component {
       body: JSON.stringify(userData)
     };
 
-    if (data.showSignup) {
+    if (showSignup) {
       fetch('/api/auth/signup', request)
+      .then(response => response.json())
+      .then(data => {
+        console.log("data: ", data);
+      });
+    } else {
+      fetch('/api/auth/login', request)
       .then(response => response.json())
       .then(data => {
         console.log("data: ", data);
