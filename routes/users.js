@@ -2,48 +2,37 @@ const express = require('express');
 const User = require('../models/usermodel');
 const bcrypt = require('bcrypt');
 
-module.exports = function(app, passport) {
+module.exports = function(app) {
 
+  /**
+   * POST /api/auth/login
+   */
   app.post('/api/auth/login', (req, res) => {
     let userData = req.body || {};
+    let query = {'email': userData.email};
+    let errorHandler = (err) => {
+      res.status('400').json({
+        error: err
+      });
+    };
 
-    // Проверить, есть ли такой пользователь в БД и
-    User.findOne({
-      'email': userData.email
-    }, (err, data) => {
+    User.findOne(query).exec()
+        .then(data => {
 
-      if (err) {
-        res.status('400').json({
-          error: err
-        });
-      } else if (data) {
-
-        if (bcrypt.compareSync(userData.password, data.password)) {
-          res.status('201').json({
-            success: 'User authenticated',
-            data
-          });
-        } else {
-          res.status('401').json({
-            error: 'Unauthorized',
-            data
-          });
-        }
-
-      } else {
-        res.status('400').json({
-          error: 'Something wrong'
-        });
-      }
-
-    });
-    // Проверить, есть ли такой пользователь в БД и
-    // совпадает ли зашифрованный пароль в запросе и в БД
-
-    // если совпадают - создать нового пользователя в бд и
-    // создать сессию и установить сессионную cookie пользователю (TODO: перейти на JWT)
-
-    // если не совпадают — вернуть ошибку и предложить напомнить пароль
+          // совпадает ли зашифрованный пароль в запросе и в БД
+          // создать сессию и установить сессионную cookie пользователю (TODO: перейти на JWT)
+          if (bcrypt.compareSync(userData.password, data.password)) {
+            res.status('201').json({
+              success: 'User authenticated',
+              data
+            });
+          } else {
+            res.status('401').json({
+              error: 'Unauthorized'
+            });
+          }
+        })
+        .catch(errorHandler);
   });
 
   app.post('/api/auth/signup', (req, res) => {

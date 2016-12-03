@@ -23,7 +23,13 @@ const DBMESSAGE = Settings.dbResponse;
 const MOTD = Settings.MOTD;
 const SECRET = Settings.secret;
 
-// Подключаем базу данных (mongoose - удобный пакет для работы с Монго)
+/**
+ * Подключаем базу данных (mongoose - удобный пакет для работы с Монго)
+ * Используем полноченные промисы
+ *
+ * @see http://mongoosejs.com/docs/promises.html
+ */
+mongoose.Promise = global.Promise;
 mongoose.connect(Settings.database, function(err) {
     if (err) {
         console.log(err);
