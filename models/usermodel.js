@@ -9,6 +9,12 @@ const userSchema = mongoose.Schema({
     email: String,
     name: String,
     avatar: String
+  },
+  facebook: {
+    id: String,
+    email: String,
+    name: String,
+    avatar: String
   }
 });
 

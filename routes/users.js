@@ -1,6 +1,11 @@
 const express = require('express');
-const User = require('../models/usermodel');
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+
+const settings = require('../settings/settings');
+
+const User = require('../models/usermodel');
+const Session = require('../models/sessionmodel');
 
 module.exports = function(app) {
 
@@ -8,8 +13,8 @@ module.exports = function(app) {
    * POST /api/auth/login
    */
   app.post('/api/auth/login', (req, res) => {
-    let userData = req.body || {};
-    let query = {'email': userData.email};
+    let userReqData = req.body || {};
+    let query = {'email': userReqData.email};
     let errorHandler = (err) => {
       res.status('400').json({
         error: err
@@ -17,15 +22,39 @@ module.exports = function(app) {
     };
 
     User.findOne(query).exec()
-        .then(data => {
+        .then(user => {
 
           // совпадает ли зашифрованный пароль в запросе и в БД
-          // создать сессию и установить сессионную cookie пользователю (TODO: перейти на JWT)
-          if (bcrypt.compareSync(userData.password, data.password)) {
-            res.status('201').json({
-              success: 'User authenticated',
-              data
+          // создать сессию (TODO: перейти на JWT)
+          if (bcrypt.compareSync(userReqData.password, user.password)) {
+
+            // if user is found and password is right
+            // create a token
+            let tokenID;
+
+            require('crypto').randomBytes(48, function(err, buffer) {
+              tokenID = buffer.toString('hex');
+
+              let token = jwt.sign(
+                {
+                  user_id: user._id,
+                  user_name: user.email,
+                  session_id: tokenID
+                },
+                settings.secret,
+                {
+                  expiresIn: 1 // expires in 24 hours
+                });
+
+              res.json({
+                success: 'Authenticated',
+                token
+              });
             });
+
+
+
+
           } else {
             res.status('401').json({
               error: 'Unauthorized'
