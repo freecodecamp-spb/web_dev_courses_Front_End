@@ -11,3 +11,8 @@
 .LoginForm__input {
   margin-bottom: .6em;
 }
+
+.loginPanel {
+  width: 50%;
+  margin: 10% auto;
+}

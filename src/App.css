@@ -21,3 +21,16 @@
 .App-intro {
   font-size: large;
 }
+
+.user-bar {
+  display: flex;
+}
+
+.user-bar img {
+
+}
+
+.user-bar div {
+  color: lightgray;
+  font-size: 0.8em;
+}

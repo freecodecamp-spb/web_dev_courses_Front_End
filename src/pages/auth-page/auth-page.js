@@ -41,12 +41,14 @@ export class AuthPage extends Component {
       .then(response => response.json())
       .then(data => {
         console.log("data: ", data);
+        localStorage.setItem('authToken', data.token);
       });
     } else {
       fetch('/api/auth/login', request)
       .then(response => response.json())
       .then(data => {
         console.log("data: ", data);
+        localStorage.setItem('authToken', data.token);
       });
     }
 

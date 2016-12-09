@@ -4,6 +4,8 @@ import React, {
 } from 'react';
 import './LoginForm.css';
 
+import { auth } from '../../utils/auth';
+
 export class LoginForm extends Component {
   static propTypes = {
     onLogin: PropTypes.func.isRequired
@@ -24,9 +26,8 @@ export class LoginForm extends Component {
     this.triggerSignup = this.triggerSignup.bind(this);
   }
 
-
-  render() {
-    let confirmPasswordComponent = (
+  get confirmPassword() {
+    return (
       <input
         className="form-control LoginForm__input"
         type="password"
@@ -36,7 +37,9 @@ export class LoginForm extends Component {
         placeholder="Enter your password again"
       />
     );
+  }
 
+  get localLoginForm() {
     return (
       <form className="LoginForm" onSubmit={this.onSubmit}>
 
@@ -62,7 +65,7 @@ export class LoginForm extends Component {
           placeholder="Enter your password"
         />
 
-        {this.state.showSignup && confirmPasswordComponent}
+        {this.state.showSignup && this.confirmPassword}
 
         <button
           type="submit"
@@ -71,6 +74,15 @@ export class LoginForm extends Component {
           {this.state.showSignup ? 'Signup' : 'Login'}
         </button>
       </form>
+    );
+  }
+
+  render() {
+
+    return (
+      <div className="loginPanel">
+        <button className="btn btn-primary" onClick={auth.login.bind(this)}>login with auth0</button>
+      </div>
     );
   }
 
