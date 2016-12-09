@@ -1,5 +1,6 @@
 // Запрос модулей, которые мы установили пакетным менеджером.
 // О том, что делает каждый, можно почитать на npmjs.com
+const path = require('path');
 const express = require('express');
 const engine = require('ejs-mate');
 const morgan = require('morgan');
@@ -59,8 +60,11 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Установка публичной ветки
-app.use(express.static(__dirname + '/build'));
+// SPA only
+// TODO add server side render
+app.use('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, 'build', 'index.html'));
+});
 
 // Установка flash (тестовая)
 app.use(flash());
