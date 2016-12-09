@@ -3,12 +3,18 @@
   "version": "0.0.1",
   "description": "Online webdev courses search tool",
   "main": "server.js",
+  "engines": {
+    "node": "6.8.1",
+    "npm": "3.10.8"
+  },
   "scripts": {
     "start": "react-scripts start",
     "start-api": "nodemon ./server.js localhost 3333",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "build-frontend": "react-scripts build",
+    "postinstall": "npm run build-frontend"
   },
   "author": "",
   "license": "ISC",
