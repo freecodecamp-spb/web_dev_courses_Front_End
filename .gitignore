@@ -1,6 +1,8 @@
 # Editor
 .idea
 
+build
+
 # Logs
 npm-debug.log*
 

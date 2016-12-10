@@ -1,5 +1,6 @@
 // Запрос модулей, которые мы установили пакетным менеджером.
 // О том, что делает каждый, можно почитать на npmjs.com
+const path = require('path');
 const express = require('express');
 const engine = require('ejs-mate');
 const morgan = require('morgan');
@@ -44,6 +45,8 @@ app.use(cookieParser());
 app.use(bodyParser.urlencoded({
     extended: false
 }));
+
+app.use(express.static(path.resolve(__dirname, 'build')));
 app.use(bodyParser.json());
 
 // DEV ONLY SETTINGS. DO NOT FORGET TO CHANGE.
@@ -59,8 +62,6 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Установка публичной ветки
-app.use(express.static(__dirname + '/build'));
 
 // Установка flash (тестовая)
 app.use(flash());
@@ -77,8 +78,16 @@ app.use(function(req, res, next) {
   next();
 });
 
+// Подключение API
+// Внимание, порядок важен, роут * должен быть в самом конце
 require('./settings/passport')(passport);
 require('./routes/')(app, passport);
+
+// SPA only
+// TODO add server side render
+app.use('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, 'build', 'index.html'));
+});
 
 app.listen(PORT, function() {
     console.log(MESSAGE);
