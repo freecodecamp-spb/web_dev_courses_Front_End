@@ -9,10 +9,7 @@ export default class AuthService extends EventEmitter {
 
     // Configure Auth0
     this.lock = new Auth0Lock(clientId, domain, {
-      auth: {
-        redirectUrl: `${window.location.origin}/login`,
-        responseType: 'token'
-      }
+      auth: { responseType: 'token' }
     });
 
     // Add callback for lock `authenticated` event
@@ -23,12 +20,12 @@ export default class AuthService extends EventEmitter {
 
     // binds login functions to keep this context
     this.login = this.login.bind(this);
+    this.logout = this.logout.bind(this);
   }
 
   _doAuthentication(authResult) {
     // Saves the user token
     this.setToken(authResult.idToken);
-
 
     // Async loads the user profile data
     this.lock.getProfile(authResult.idToken, (error, profile) => {
@@ -85,5 +82,8 @@ export default class AuthService extends EventEmitter {
     // Clear user token and profile data from localStorage
     localStorage.removeItem('id_token');
     localStorage.removeItem('profile');
+
+
+    this.emit('logout');
   }
 }
