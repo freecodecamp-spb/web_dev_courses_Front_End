@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import './course-card.css';
 
 import { CourseCardForm } from '../course-card-form';
@@ -50,6 +51,12 @@ export class CourseCard extends Component {
             className="btn btn-default"
             onClick={this.setEditMode}>
             Edit
+          </button>
+
+          <button
+            className="btn btn-default"
+            onClick={this.props.onDeleteItem}>
+            Delete
           </button>
         </div>
         

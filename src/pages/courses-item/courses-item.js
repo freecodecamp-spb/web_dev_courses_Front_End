@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { auth } from '../../utils/auth';
+
 import { CourseCard } from '../../components/course-card';
 
 export class CoursesItemPage extends Component {
@@ -9,6 +11,7 @@ export class CoursesItemPage extends Component {
     this.state = {};
 
     this.saveCourse = this.saveCourse.bind(this);
+    this.deleteCourse = this.deleteCourse.bind(this);
   }
 
   componentDidMount() {
@@ -23,6 +26,7 @@ export class CoursesItemPage extends Component {
         card={this.state.course.card}
         id={this.props.params.id}
         onSave={this.saveCourse}
+        onDeleteItem={this.deleteCourse}
       />
 
     } else {
@@ -61,5 +65,15 @@ export class CoursesItemPage extends Component {
     fetch(`/api/courses/${this.props.params.id}`, request)
     .then(response => response.json())
     .then(data => this.setState({course: data}))
+  }
+
+  deleteCourse() {
+    let request = {
+      method: 'DELETE'
+    };
+
+    auth.fetch(`/api/courses/${this.props.params.id}`, request)
+      .then(response => response.json())
+      .then(data => console.log(data));
   }
 }

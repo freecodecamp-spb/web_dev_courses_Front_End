@@ -1,4 +1,8 @@
 const express = require('express');
+const jwt = require('express-jwt');
+
+const authSettings = require('../settings/auth').auth0;
+
 const Course = require('../models/coursemodel');
 
 module.exports = function(app) {
@@ -10,6 +14,23 @@ module.exports = function(app) {
         res.json(data);
       }
     };
+  };
+
+  let authenticate = (req, res, next) => {
+    let jwtCheck = jwt({
+      secret: new Buffer(authSettings.secret, 'base64'),
+      audience: authSettings.audience
+    });
+
+    jwtCheck(req, res, (err, data) => {
+      if (err) {
+        return res.status(401).json({
+          error: err.message
+        });
+      } else {
+        next();
+      }
+    });
   };
 
   app.get('/api/courses/', function(req, res) {
@@ -71,6 +92,22 @@ module.exports = function(app) {
       },
       processResultWith(req, res)
     );
+
+  });
+
+  app.delete('/api/courses/:id', authenticate, function(req, res) {
+    console.log("req.user: ", req.user);
+
+    res.json({
+      status: 'success'
+    });
+
+
+    /*Course
+      .findByIdAndRemove({_id: req.params.id},
+        // delete data
+        processResultWith(req, res)
+      );*/
 
   });
 };

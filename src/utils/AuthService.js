@@ -86,4 +86,30 @@ export default class AuthService extends EventEmitter {
 
     this.emit('logout');
   }
+
+  /**
+   * Browser fetch wrapper
+   *
+   * @param url
+   * @param options
+   * @returns {Promise.<TResult>}
+   */
+  fetch(url, options) {
+    // performs api calls sending the required authentication headers
+    const headers = {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    };
+
+    if (this.loggedIn()) {
+      headers['Authorization'] = 'Bearer ' + this.getToken()
+    }
+
+    return fetch(url, {
+      headers,
+      ...options
+    })
+      .then(this._checkStatus)
+      .then(response => response.json())
+  }
 }
