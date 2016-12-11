@@ -17,7 +17,8 @@ const CoursesList = (props) => {
   } else {
     coursesItems = props.courses.map(item => {
       return (
-        <li key={item._id}>
+        <li className="item" key={item._id}>
+          <button className="btn btn-danger delete" onClick={() => props.deleteCourse(item)}>Delete</button>
           <CourseThumb card={item.card} id={item._id}/>
         </li>
       );
@@ -58,7 +59,8 @@ CoursesList.propTypes = {
   start: PropTypes.number,
   itemsCount: PropTypes.number,
   courses: PropTypes.array,
-  setPage: PropTypes.func
+  setPage: PropTypes.func,
+  deleteCourse: PropTypes.func,
 };
 
 export { CoursesList };

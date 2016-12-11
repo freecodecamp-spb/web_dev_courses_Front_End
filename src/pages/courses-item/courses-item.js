@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
+
 import { auth } from '../../utils/auth';
 
 import { CourseCard } from '../../components/course-card';
@@ -73,7 +74,13 @@ export class CoursesItemPage extends Component {
     };
 
     auth.fetch(`/api/courses/${this.props.params.id}`, request)
-      .then(response => response.json())
-      .then(data => console.log(data));
+      .then(response => response)
+      .then(data => {
+        this.props.router.push('/courses');
+      });
   }
 }
+
+CoursesItemPage.propTypes = {
+  router: PropTypes.object
+};

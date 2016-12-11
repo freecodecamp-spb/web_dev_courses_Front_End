@@ -54,7 +54,7 @@ export class CourseCard extends Component {
           </button>
 
           <button
-            className="btn btn-default"
+            className="btn btn-danger delete"
             onClick={this.props.onDeleteItem}>
             Delete
           </button>
