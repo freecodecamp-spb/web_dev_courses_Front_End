@@ -1,4 +1,7 @@
 import React, { Component, PropTypes } from 'react';
+
+import { auth } from '../../utils/auth';
+
 import { CourseCardForm } from '../../components/course-card-form';
 
 class CoursesNewPage extends Component {
@@ -28,15 +31,11 @@ class CoursesNewPage extends Component {
    */
   create(card) {
     let request = {
-      headers: {
-        'Content-Type': 'application/json'
-      },
       method: 'POST',
       body: JSON.stringify(card)
     };
 
-    fetch(`/api/courses/`, request)
-    .then((res) => res.json())
+    auth.fetch(`/api/courses/`, request)
     .then((data) => {
       if (data._id) {
         this.context.router.push({

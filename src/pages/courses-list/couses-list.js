@@ -1,4 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
+
+import { auth } from '../../utils/auth';
 import { SearchBar } from '../../components/search-bar';
 import { CoursesList } from '../../components/courses-list';
 import './couses-list.css';
@@ -7,11 +9,13 @@ class CoursesListPage extends Component {
 
   constructor(props, context) {
     super(props);
-    this.setPage = this.setPage.bind(this);
-    this.setStateTitleCoursesToFind = this.setStateTitleCoursesToFind.bind(this);
 
     this.context = context;
     this.state = {};
+
+    this.setPage = this.setPage.bind(this);
+    this.deleteCourse = this.deleteCourse.bind(this);
+    this.setStateTitleCoursesToFind = this.setStateTitleCoursesToFind.bind(this);
   }
 
   componentDidMount() {
@@ -35,6 +39,7 @@ class CoursesListPage extends Component {
           setPage={this.setPage}
           start={this.state.page}
           courses={this.state.courses}
+          deleteCourse={this.deleteCourse}
         />
       </div>
     );
@@ -71,6 +76,21 @@ class CoursesListPage extends Component {
     this.fetchCourses({queryTitle});
   }
 
+  deleteCourse(course) {
+    let request = {
+      method: 'DELETE'
+    };
+
+    auth.fetch(`/api/courses/${course._id}`, request)
+        .then(response => response)
+        .then(data => this.fetchCourses());
+  }
+
 }
+
+CoursesListPage.propTypes = {
+  router: PropTypes.object
+};
+
 
 export { CoursesListPage };

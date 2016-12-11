@@ -8,10 +8,15 @@ export default class AuthService extends EventEmitter {
     super();
 
     // Configure Auth0
-    this.lock = new Auth0Lock(clientId, domain, {
+    this.lock = new Auth0Lock(
+      clientId,
+      domain, {
       auth: {
-        redirectUrl: `${window.location.origin}/login`,
-        responseType: 'token'
+        redirectUrl: `${window.location.origin}/courses`,
+        responseType: 'token',
+        // user_metadata app_metadata
+        // @see https://auth0.com/docs/libraries/lock/v10/sending-authentication-parameters#scope-string-
+        params: {scope: 'openid nickname email'}
       }
     });
 
@@ -23,12 +28,12 @@ export default class AuthService extends EventEmitter {
 
     // binds login functions to keep this context
     this.login = this.login.bind(this);
+    this.logout = this.logout.bind(this);
   }
 
   _doAuthentication(authResult) {
     // Saves the user token
     this.setToken(authResult.idToken);
-
 
     // Async loads the user profile data
     this.lock.getProfile(authResult.idToken, (error, profile) => {
@@ -85,5 +90,34 @@ export default class AuthService extends EventEmitter {
     // Clear user token and profile data from localStorage
     localStorage.removeItem('id_token');
     localStorage.removeItem('profile');
+
+
+    this.emit('logout');
+  }
+
+  /**
+   * Browser fetch wrapper
+   *
+   * @param url
+   * @param options
+   * @returns {Promise.<TResult>}
+   */
+  fetch(url, options) {
+    // performs api calls sending the required authentication headers
+    const headers = {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    };
+
+    if (this.loggedIn()) {
+      headers['Authorization'] = 'Bearer ' + this.getToken()
+    }
+
+    return fetch(url, {
+      headers,
+      ...options
+    })
+      .then(this._checkStatus)
+      .then(response => response.json())
   }
 }

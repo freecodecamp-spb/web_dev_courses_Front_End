@@ -1,4 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
+
+import { auth } from '../../utils/auth';
+
 import { CourseCard } from '../../components/course-card';
 
 export class CoursesItemPage extends Component {
@@ -9,6 +12,7 @@ export class CoursesItemPage extends Component {
     this.state = {};
 
     this.saveCourse = this.saveCourse.bind(this);
+    this.deleteCourse = this.deleteCourse.bind(this);
   }
 
   componentDidMount() {
@@ -21,8 +25,10 @@ export class CoursesItemPage extends Component {
     if (this.state.course) {
       thumb = <CourseCard
         card={this.state.course.card}
+        author={this.state.course.author}
         id={this.props.params.id}
         onSave={this.saveCourse}
+        onDeleteItem={this.deleteCourse}
       />
 
     } else {
@@ -38,16 +44,12 @@ export class CoursesItemPage extends Component {
 
   saveCourse(data) {
     let request = {
-      headers: {
-        'Content-Type': 'application/json'
-      },
       method: 'PUT',
       body: JSON.stringify(data)
     };
 
-    fetch(`/api/courses/${this.props.params.id}`, request)
-    .then(res => res.json())
-    .then((data) => console.log("data: ", data))
+    auth.fetch(`/api/courses/${this.props.params.id}`, request)
+    .then(data => console.log("data: ", data))
   }
 
   getCourse() {
@@ -62,4 +64,19 @@ export class CoursesItemPage extends Component {
     .then(response => response.json())
     .then(data => this.setState({course: data}))
   }
+
+  deleteCourse() {
+    let request = {
+      method: 'DELETE'
+    };
+
+    auth.fetch(`/api/courses/${this.props.params.id}`, request)
+      .then(data => {
+        this.props.router.push('/courses');
+      });
+  }
 }
+
+CoursesItemPage.propTypes = {
+  router: PropTypes.object
+};

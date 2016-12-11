@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import './course-card.css';
 
 import { CourseCardForm } from '../course-card-form';
@@ -27,11 +28,11 @@ export class CourseCard extends Component {
         />
       );
     } else {
-      return this.getViewLayout(this.props.card);
+      return this.getViewLayout(this.props.card, this.props.author);
     }
   }
   
-  getViewLayout(card) {
+  getViewLayout(card, author) {
     let tags = card.tags.map(tag => {
       return (
         <li
@@ -41,6 +42,16 @@ export class CourseCard extends Component {
         </li>
       )
     });
+
+    let authorInfo;
+
+    if (author) {
+      authorInfo = <div className="author">
+        <h6>Материал добавил/отредактировал</h6>
+        <div className="author__email">email: {author.email}</div>
+        <div className="author__nickname">nickname: {author.nickname}</div>
+      </div>
+    }
     
     return (
       <div className="CourseCard">
@@ -50,6 +61,12 @@ export class CourseCard extends Component {
             className="btn btn-default"
             onClick={this.setEditMode}>
             Edit
+          </button>
+
+          <button
+            className="btn btn-danger delete"
+            onClick={this.props.onDeleteItem}>
+            Delete
           </button>
         </div>
         
@@ -86,6 +103,8 @@ export class CourseCard extends Component {
               </div>
             
             </div>
+
+            {authorInfo}
           </div>
         </div>
       </div>
