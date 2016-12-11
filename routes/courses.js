@@ -2,36 +2,62 @@ const express = require('express');
 const jwt = require('express-jwt');
 
 const authSettings = require('../settings/auth').auth0;
+const admins = require('../settings/auth').admins;
 
 const Course = require('../models/coursemodel');
 
+/**
+ *
+ * @param {object} user
+ * @return {boolean}
+ */
+let isUserAdmin = (user) => {
+  let verifyType = user.email ? 'email' : 'nickname';
+
+  return !!admins.find(admin => {
+    return user[verifyType] === admin[verifyType];
+  });
+};
+
+let processResultWith = (req, res) => {
+  return (err, data) => {
+    if (err) {
+      res.send(err);
+    } else {
+      res.json(data);
+    }
+  };
+};
+
+let authenticate = (req, res, next) => {
+  let jwtCheck = jwt({
+    secret: new Buffer(authSettings.secret, 'base64'),
+    audience: authSettings.audience
+  });
+
+  jwtCheck(req, res, (err, data) => {
+    if (err) {
+      return res.status(401).json({
+        error: err.message
+      });
+    } else {
+      /*
+       req.user:
+       {
+       nickname: 'Alex Baumgertner',
+       email: 'alex.baumgertner@gmail.com', // Facebook don't send email
+       email_verified: true
+       }
+       */
+
+      req.user.isAdmin = isUserAdmin(req.user);
+
+      next();
+    }
+  });
+};
+
 module.exports = function(app) {
-  let processResultWith = (req, res) => {
-    return (err, data) => {
-      if (err) {
-        res.send(err);
-      } else {
-        res.json(data);
-      }
-    };
-  };
-
-  let authenticate = (req, res, next) => {
-    let jwtCheck = jwt({
-      secret: new Buffer(authSettings.secret, 'base64'),
-      audience: authSettings.audience
-    });
-
-    jwtCheck(req, res, (err, data) => {
-      if (err) {
-        return res.status(401).json({
-          error: err.message
-        });
-      } else {
-        next();
-      }
-    });
-  };
 
   app.get('/api/courses/', function(req, res) {
     let requestQuery = req.query;
@@ -96,18 +122,28 @@ module.exports = function(app) {
   });
 
   app.delete('/api/courses/:id', authenticate, function(req, res) {
-    console.log("req.user: ", req.user);
+    if (!req.user) {
+      return res.status(401).json({
+        status: 'You are not authenticated. Please visit /login.'
+      });
+    }
 
-    res.json({
-      status: 'success'
-    });
-
-
-    /*Course
-      .findByIdAndRemove({_id: req.params.id},
-        // delete data
-        processResultWith(req, res)
-      );*/
+    if (req.user.isAdmin) {
+      Course
+        .findByIdAndRemove(
+          req.params.id,
+          // delete data
+          (data) => {
+            res.json({
+              status: 'success',
+              data: data
+            });
+          });
+    } else {
+      return res.status(401).json({
+        status: 'You are not admin'
+      });
+    }
 
   });
 };

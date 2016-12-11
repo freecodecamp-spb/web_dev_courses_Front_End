@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { auth } from '../../utils/auth';
 
+import './userbar.css';
+
 class Userbar extends Component {
 
   constructor(props) {

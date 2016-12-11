@@ -19,5 +19,18 @@ module.exports = {
   'auth0': {
     'secret': 'dxntbM1Ic9V9yKdH-glHtAzXfGKuVsZ9CBxJr0mFPnt3dKaUuQ7ZIqBoaGA13Mse',
     'audience': 'aKg3mCHL991U9hrkC6kugeFeRuh8ux9F'
-  }
+  },
+  'admins': [
+    {
+      email: 'alex.baumgertner@gmail.com',
+      nickname: 'Alex Baumgertner'
+    }
+    // Добавляйтесь!
+    /*
+    {
+      email: 'ваша почта на гитхабе',
+      nickname: 'ваш никнейм на фейсбуке'
+    }
+    */
+  ]
 };
