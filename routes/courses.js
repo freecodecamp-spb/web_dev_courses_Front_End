@@ -59,6 +59,9 @@ let authenticate = (req, res, next) => {
 
 module.exports = function(app) {
 
+  /**
+   * Read courses (list)
+   */
   app.get('/api/courses/', function(req, res) {
     let requestQuery = req.query;
     let page = Number(requestQuery.page) || 1;
@@ -96,31 +99,48 @@ module.exports = function(app) {
     });
   });
 
-  app.post('/api/courses/', function(req, res) {
+  /**
+   * Create course
+   */
+  app.post('/api/courses/', authenticate, function(req, res) {
+
+    console.log("req.user: ", req.user);
+
     let course = new Course({
-      card: req.body
+      card: req.body,
+      author: req.user
     });
 
     course.save(processResultWith(req, res));
   });
 
+  /**
+   * Read course
+   */
   app.get('/api/courses/:id', function(req, res) {
     Course
     .findOne({_id: req.params.id}, processResultWith(req, res));
   });
 
-  app.put('/api/courses/:id', function(req, res) {
+  /**
+   * Edit course
+   */
+  app.put('/api/courses/:id', authenticate, function(req, res) {
     Course
     .findOneAndUpdate({_id: req.params.id},
       // update data
       {
-        card: req.body
+        card: req.body,
+        author: req.user
       },
       processResultWith(req, res)
     );
 
   });
 
+  /**
+   * Delete course
+   */
   app.delete('/api/courses/:id', authenticate, function(req, res) {
     if (!req.user) {
       return res.status(401).json({

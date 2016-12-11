@@ -72,6 +72,15 @@ const courseSchema = mongoose.Schema({
                 min: 0
             }
         }
+    },
+
+    author: {
+      nickname: {
+        type: String
+      },
+      email: {
+        type: String
+      }
     }
 });
 

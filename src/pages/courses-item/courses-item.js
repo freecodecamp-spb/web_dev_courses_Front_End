@@ -25,6 +25,7 @@ export class CoursesItemPage extends Component {
     if (this.state.course) {
       thumb = <CourseCard
         card={this.state.course.card}
+        author={this.state.course.author}
         id={this.props.params.id}
         onSave={this.saveCourse}
         onDeleteItem={this.deleteCourse}
@@ -43,16 +44,12 @@ export class CoursesItemPage extends Component {
 
   saveCourse(data) {
     let request = {
-      headers: {
-        'Content-Type': 'application/json'
-      },
       method: 'PUT',
       body: JSON.stringify(data)
     };
 
-    fetch(`/api/courses/${this.props.params.id}`, request)
-    .then(res => res.json())
-    .then((data) => console.log("data: ", data))
+    auth.fetch(`/api/courses/${this.props.params.id}`, request)
+    .then(data => console.log("data: ", data))
   }
 
   getCourse() {
@@ -74,7 +71,6 @@ export class CoursesItemPage extends Component {
     };
 
     auth.fetch(`/api/courses/${this.props.params.id}`, request)
-      .then(response => response)
       .then(data => {
         this.props.router.push('/courses');
       });

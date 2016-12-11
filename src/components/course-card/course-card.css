@@ -13,3 +13,8 @@
 .CourseCard .image {
   max-width: 450px;
 }
+
+.CourseCard .author {
+  padding: 20px;
+  background-color: lightgoldenrodyellow;
+}
