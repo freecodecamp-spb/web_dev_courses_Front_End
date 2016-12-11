@@ -12,6 +12,7 @@ export default class AuthService extends EventEmitter {
       clientId,
       domain, {
       auth: {
+        redirectUrl: `${window.location.origin}`,
         responseType: 'token',
         // user_metadata app_metadata
         // @see https://auth0.com/docs/libraries/lock/v10/sending-authentication-parameters#scope-string-
