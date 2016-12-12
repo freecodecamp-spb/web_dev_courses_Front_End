@@ -12,10 +12,10 @@ const bodyParser = require('body-parser');
 const passport = require('passport');
 
 // Подключение собственных модулей
-const routes = require('./routes/index'); //все основные маршруты
-const Settings = require('./settings/settings'); //настройки сервера
+const routes = require('./routes/index'); //все основные маршруты.
+const Settings = require('./settings/settings'); //настройки сервера.
 
-const app = express(); //инициализация сервера на Express
+const app = express(); //инициализация сервера на Express.
 
 // Настройки сервера, берутся из объета Setting выше, которыйы создан из модуля settings.js
 const PORT = Settings.port;
