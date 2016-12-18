@@ -51,7 +51,4 @@ app.use('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, 'build', 'index.html'));
 });
 
-app.listen(PORT, function() {
-    console.log(MESSAGE);
-    console.log("### Запускать по адресу -> localhost:" + PORT);
-});
+app.listen(PORT, () => console.log(`${MESSAGE}\n### Запускать по адресу -> localhost: ${PORT}`));
