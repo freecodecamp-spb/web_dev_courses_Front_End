@@ -1,9 +1,5 @@
-module.exports = function(app) {
-
-  app.get('/', (req, res)=> {
-    res.send("Server is up");
-  });
-
-
-  require('./courses')(app);
+module.exports = app => {
+    require('./courses')(app);
+    // add new APIs here later.
 };
+

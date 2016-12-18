@@ -30,14 +30,9 @@ mongoose.connect(Settings.database, err =>
 
 // Это Middleware. Мы запускаем подключенные в начале модули с параметрами, если они нужны.
 app.use(morgan('dev'));
-app.use(bodyParser.urlencoded({
-    extended: false
-}));
-
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.resolve(__dirname, 'build')));
 app.use(bodyParser.json());
-
-
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -47,6 +42,5 @@ app.use(function(req, res, next) {
 // Подключение API
 // Внимание, порядок важен, роут * должен быть в самом конце
 require('./routes/')(app);
-app.use('*', (req, res) => res.send('Server operational'));
-
+app.use('*', (req, res) => res.sendFile(path.resolve(__dirname, 'build', 'index.html')));
 app.listen(PORT, () => console.log(`${MESSAGE}\n### Запускать по адресу -> localhost: ${PORT}`));
