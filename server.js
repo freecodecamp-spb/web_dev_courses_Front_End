@@ -24,13 +24,9 @@ const MOTD = Settings.MOTD;
  * @see http://mongoosejs.com/docs/promises.html
  */
 mongoose.Promise = global.Promise;
-mongoose.connect(Settings.database, function(err) {
-    if (err) {
-        console.log(err);
-    }
-    console.log(DBMESSAGE);
-    console.log("Сообщение дня: " + MOTD); //Сообщения дня можно редактировать в фалйе настроек. Это больше для общения разработчиков.
-});
+mongoose.connect(Settings.database, err =>
+   err ? console.log(`Database error: ${err}`):
+       console.log(DBMESSAGE, "\nСообщение дня: ", MOTD));
 
 // Это Middleware. Мы запускаем подключенные в начале модули с параметрами, если они нужны.
 app.use(morgan('dev'));
