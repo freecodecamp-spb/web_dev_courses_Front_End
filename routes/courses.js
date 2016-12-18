@@ -1,8 +1,8 @@
 const express = require('express');
 const jwt = require('express-jwt');
 
-const authSettings = require('../settings/auth').auth0;
-const admins = require('../settings/auth').admins;
+const authSettings = require('../settings').auth0;
+const admins = require('../settings').admins;
 
 const Course = require('../models/coursemodel');
 
@@ -31,7 +31,7 @@ let processResultWith = (req, res) => {
 
 let authenticate = (req, res, next) => {
   let jwtCheck = jwt({
-    secret: new Buffer(authSettings.secret, 'base64'),
+    secret: authSettings.secret,
     audience: authSettings.audience
   });
 

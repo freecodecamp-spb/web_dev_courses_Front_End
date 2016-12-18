@@ -10,15 +10,16 @@ export default class AuthService extends EventEmitter {
     // Configure Auth0
     this.lock = new Auth0Lock(
       clientId,
-      domain, {
-      auth: {
-        redirectUrl: `${window.location.origin}/courses`,
-        responseType: 'token',
-        // user_metadata app_metadata
-        // @see https://auth0.com/docs/libraries/lock/v10/sending-authentication-parameters#scope-string-
-        params: {scope: 'openid nickname email'}
-      }
-    });
+      domain,
+      {
+        auth: {
+          redirectUrl: `${window.location.origin}/courses`,
+          responseType: 'token',
+          // user_metadata app_metadata
+          // @see https://auth0.com/docs/libraries/lock/v10/sending-authentication-parameters#scope-string-
+          params: {scope: 'openid nickname email'}
+        }
+      });
 
     // Add callback for lock `authenticated` event
     this.lock.on('authenticated', this._doAuthentication.bind(this));
