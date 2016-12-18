@@ -2,10 +2,8 @@ const path = require('path');
 const express = require('express');
 const morgan = require('morgan');
 const session = require('express-session');
-const flash = require('express-flash');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const passport = require('passport');
 
 // Подключение собственных модулей
 const routes = require('./routes/index'); //все основные маршруты
