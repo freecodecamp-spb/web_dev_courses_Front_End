@@ -4,9 +4,6 @@ const morgan = require('morgan');
 const session = require('express-session');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-
-// Подключение собственных модулей
-const routes = require('./routes/index'); //все основные маршруты
 const Settings = require('./settings'); //настройки сервера
 
 const app = express(); //инициализация сервера на Express
