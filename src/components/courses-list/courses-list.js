@@ -8,7 +8,7 @@ import './courses-list.css';
 
 const CoursesList = (props) => {
   let itemsCount = props.itemsCount || 0;
-  let paginationCount = 5;
+  let itemsPerPage = 5;
   let coursesItems;
 
   if (!props.courses || props.courses.length === 0) {
@@ -32,11 +32,11 @@ const CoursesList = (props) => {
 
         <div className="paginator controls__item">
           <div className="paginator-text">
-            Вы на странице {props.start} из {Math.ceil(itemsCount / paginationCount)} страниц
+            Вы на странице {props.start} из {Math.ceil(itemsCount / itemsPerPage)} страниц
           </div>
 
           <Pagination
-            count={Math.min(Math.floor(itemsCount / paginationCount), paginationCount)}
+            count={Math.ceil(itemsCount / itemsPerPage)}
             setPage={props.setPage}
             start={props.start}
           />
