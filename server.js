@@ -47,8 +47,6 @@ app.use(function(req, res, next) {
 // Подключение API
 // Внимание, порядок важен, роут * должен быть в самом конце
 require('./routes/')(app);
-app.use('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, 'build', 'index.html'));
-});
+app.use('*', (req, res) => res.send('Server operational'));
 
 app.listen(PORT, () => console.log(`${MESSAGE}\n### Запускать по адресу -> localhost: ${PORT}`));
