@@ -1,40 +1,40 @@
 {
-  "name": "web-dev-courses",
-  "version": "0.0.1",
-  "description": "Online webdev courses search tool",
-  "main": "server.js",
-  "engines": {
-    "node": "6.8.1",
-    "npm": "3.10.8"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "start-api": "nodemon ./server.js localhost 3333",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "postinstall": "npm run build"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "auth0-lock": "^10.5.1",
-    "bcrypt": "^0.8.7",
-    "body-parser": "^1.15.1",
-    "express": "^4.13.4",
-    "express-jwt": "^5.1.0",
-    "express-session": "^1.13.0",
-    "jsonwebtoken": "^7.1.9",
-    "jwt-decode": "^2.1.0",
-    "mongoose": "^4.4.16",
-    "morgan": "^1.7.0",
-    "react": "^15.3.2",
-    "react-dom": "^15.3.2",
-    "react-router": "^3.0.0",
-    "react-scripts": "0.8.3"
-  },
-  "devDependencies": {
-    "nodemon": "^1.11.0"
-  },
-  "proxy": "http://localhost:3333"
+    "name": "web-dev-courses",
+    "version": "0.0.1",
+    "description": "Online webdev courses search tool",
+    "main": "server.js",
+    "engines": {
+        "node": "6.8.1",
+        "npm": "3.10.8"
+    },
+    "scripts": {
+        "start": "react-scripts start",
+        "start-api": "nodemon ./server.js localhost 3333",
+        "build": "react-scripts build",
+        "test": "react-scripts test --env=jsdom",
+        "eject": "react-scripts eject",
+        "postinstall": "npm run build"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "auth0-lock": "^10.5.1",
+        "bcrypt-nodejs": "0.0.3",
+        "body-parser": "^1.15.1",
+        "express": "^4.13.4",
+        "express-jwt": "^5.1.0",
+        "express-session": "^1.13.0",
+        "jsonwebtoken": "^7.1.9",
+        "jwt-decode": "^2.1.0",
+        "mongoose": "^4.4.16",
+        "morgan": "^1.7.0",
+        "react": "^15.3.2",
+        "react-dom": "^15.3.2",
+        "react-router": "^3.0.0",
+        "react-scripts": "0.8.3"
+    },
+    "devDependencies": {
+        "nodemon": "^1.11.0"
+    },
+    "proxy": "http://localhost:3333"
 }
