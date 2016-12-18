@@ -94,7 +94,7 @@ module.exports = function(app) {
                         });
                     })
                 .skip((page - 1) * 5)
-                .limit(10)
+                .limit(5)
         });
     });
 
