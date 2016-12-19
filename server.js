@@ -5,17 +5,10 @@ const session = require('express-session');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
-// Подключение собственных модулей
+const app = express();
 
-const Settings = require('./settings'); //настройки сервера
-
-const app = express(); //инициализация сервера на Express
-
-// Настройки сервера, берутся из объета Setting выше, которыйы создан из модуля settings.js
-const PORT = Settings.port;
-const MESSAGE = Settings.serverResponse + PORT;
-const DBMESSAGE = Settings.dbResponse;
-const MOTD = Settings.MOTD;
+const Settings = require('./settings');
+const { port, serverResponse, dbResponse, MOTD } = Settings;
 
 /**
  * Подключаем базу данных (mongoose - удобный пакет для работы с Монго)
@@ -26,7 +19,7 @@ const MOTD = Settings.MOTD;
 mongoose.Promise = global.Promise;
 mongoose.connect(Settings.database, err =>
    err ? console.log(`Database error: ${err}`):
-       console.log(DBMESSAGE, "\nСообщение дня: ", MOTD));
+       console.log(dbResponse, "\nСообщение дня: ", MOTD));
 
 // Это Middleware. Мы запускаем подключенные в начале модули с параметрами, если они нужны.
 app.use(morgan('dev'));
@@ -39,8 +32,7 @@ app.use(function(req, res, next) {
   next();
 });
 
-// Подключение API
-// Внимание, порядок важен, роут * должен быть в самом конце
+// Подключение API. Внимание, порядок важен, роут * должен быть в самом конце
 require('./routes/')(app);
 app.use('*', (req, res) => res.sendFile(path.resolve(__dirname, 'build', 'index.html')));
-app.listen(PORT, () => console.log(`${MESSAGE}\n### Запускать по адресу -> localhost: ${PORT}`));
+app.listen(port, () => console.log(`${serverResponse}\n### Запускать по адресу -> localhost: ${port}`));
