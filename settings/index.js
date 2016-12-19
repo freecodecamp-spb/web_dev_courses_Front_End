@@ -2,7 +2,7 @@ module.exports = {
 
   port: process.env.PORT || 3333,
 
-  serverResponse: "***\n### Добро пожаловать на сервер Webdev Courses!\n### СТАТУС СЕРВЕРА: OK. ПОРТ: ",
+  serverResponse: "***\n### Добро пожаловать на сервер Webdev Courses!\n### СТАТУС СЕРВЕРА: OK",
   dbResponse: "### БАЗА ДАННЫХ ПОДКЛЮЧЕНА.\n***",
   MOTD: "\nЧитайте вики проекта на гитхабе! API базы данных!",
 
