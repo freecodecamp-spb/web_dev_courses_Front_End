@@ -1,7 +1,7 @@
 .App-header {
-  padding: 20px;
+  padding: 2rem;
   color: white;
-  background-color: #204056;
+  background-color: #08457E;
 }
 
 .App-login {
@@ -11,7 +11,8 @@
 }
 
 .App-header h2 {
-	text-align: center;
+  text-align: center;
+  font-size: 3.5rem;
 }
 
 .App-courses-list {

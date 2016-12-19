@@ -12,11 +12,9 @@ class App extends Component {
           <Userbar />
         </div>
         <div className="App-header">
-          <h2>Это каталог курсов по веб-разработке!</h2>
+          <h2>web | dev | courses</h2>
         </div>
-
         {this.props.children}
-
       </div>
     );
   }
