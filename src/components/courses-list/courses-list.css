@@ -30,3 +30,9 @@
 .paginator-text {
   margin: 10px 0 0 0;
 }
+
+.coursethumb__delete:hover {
+  background-color: red;
+  color: #fff;
+  transition: all .3s linear;
+}
