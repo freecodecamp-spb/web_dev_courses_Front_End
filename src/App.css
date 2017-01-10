@@ -35,3 +35,20 @@
   color: lightgray;
   font-size: 0.8em;
 }
+
+.App-memu {
+  font-size: 1.2em;
+  margin: 10px 0;
+}
+
+.App-memu ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  list-style-type: none;
+}
+
+.App-memu li {
+  flex: 1 1 100%;
+  text-align: center;
+}
