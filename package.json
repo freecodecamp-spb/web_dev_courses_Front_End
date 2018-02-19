@@ -24,7 +24,7 @@
     "express": "^4.13.4",
     "express-jwt": "^5.1.0",
     "express-session": "^1.13.0",
-    "jsonwebtoken": "^7.1.9",
+    "jsonwebtoken": "^8.0.0",
     "jwt-decode": "^2.1.0",
     "mongoose": "^4.4.16",
     "morgan": "^1.7.0",
